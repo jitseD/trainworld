@@ -90,7 +90,7 @@ h2 {
 
 p {
     line-height: 1.4;
-    max-inline-size: 60ch;
+    max-inline-size: 50ch;
 }
 
 strong {
@@ -126,6 +126,7 @@ section {
     place-self: center;
     margin-block: var(--space-xl) var(--space-l);
     margin-inline-end: calc(0rem - var(--space-m));
+    transition: rotation 0.5s ease-out, position 0.5s ease-out, inline-size 0.5s ease-out;
 }
 
 .intro__crowd {
@@ -318,6 +319,9 @@ section {
     .intro__id {
         grid-template-columns: 4fr 3fr;
         row-gap: 0;
+        column-gap: var(--space-2xl);
+        place-self: flex-start;
+        padding-inline-start: var(--space-xl);
         position: relative;
     }
 
@@ -338,6 +342,31 @@ section {
         top: 50%;
         transform: translateY(-40%);
     }
+}
+
+.id__card--big {
+    inline-size: 90vw;
+    max-inline-size: 1100px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    rotate: unset;
+    margin: unset;
+}
+
+.id__card--big::after {
+    position: fixed;
+    top: 0;
+    left: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    background-color: var(--c-yellow);
+    opacity: 15%;
+}
+
+html:has(.id__card--big) {
+    overflow: hidden;
 }
 
 @media (min-width: 550px) {
