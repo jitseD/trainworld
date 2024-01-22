@@ -35,7 +35,8 @@
     --space-xl-2xl: clamp(4.5rem, 2.7813rem + 7.6389vw, 10rem);
     --space-2xl-3xl: clamp(6rem, 3.1875rem + 12.5vw, 15rem);
 
-    --space-s-xl: clamp(1.5rem, -0.375rem + 8.3333vw, 7.5rem)
+    --space-s-xl: clamp(1.5rem, -0.375rem + 8.3333vw, 7.5rem);
+    --space-xs-2xs: clamp(1.125rem, 1.0859rem + 0.1736vw, 1.25rem);
 }
 
 html {
@@ -102,6 +103,40 @@ section {
     overflow-x: hidden;
 }
 
+.cta {
+    color: var(--c-yellow);
+    padding: var(--space-3xs) var(--space-2xs);
+    inline-size: min-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: -14px;
+}
+
+.cta::before,
+.cta::after {
+    block-size: 14px;
+    inline-size: 132px;
+    background-position: top right;
+    background-image: url(../public/assets/img/cta-line.svg);
+    background-position: bottom left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    content: "";
+}
+
+.cta::before {
+    justify-self: flex-start;
+    transform: translate(-18px, 30.5px);
+}
+
+.cta::after {
+    justify-self: flex-end;
+    transform: translate(-18px, 5px);
+    scale: -1;
+}
+
 /* --- frame --- */
 
 .frame {
@@ -110,16 +145,16 @@ section {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 3fr 1fr auto 1fr 3fr 1fr;
+    margin: calc(0rem - var(--space-s-xl)) calc(0rem - var(--space-s-xl)) 0;
     place-items: center;
     padding: var(--space-s-xl);
-    margin: calc(0rem - var(--space-s-xl));
     z-index: -10;
 }
 
 .frame__img {
     inline-size: 100%;
     block-size: 100%;
-    background-image: url(../public/assets/img/line-frame.png);
+    background-image: url(../public/assets/img/line-frame.svg);
     background-size: 25px;
     background-repeat: no-repeat;
 }
@@ -164,8 +199,6 @@ section {
     grid-row: 1;
 }
 
-
-
 /* --- header --- */
 
 header {
@@ -187,7 +220,7 @@ header .frame {
 }
 
 header .frame__img {
-    background-image: url(../public/assets/img/line-frame-rotated.png);
+    background-image: url(../public/assets/img/line-frame-rotated.svg);
     background-size: 400px;
 }
 
@@ -223,7 +256,6 @@ header .frame__img:nth-child(7) {
 
 .intro {
     display: grid;
-    grid-template-columns: calc(100vw - 2 * var(--space-s-xl));
     grid-template-rows: repeat(3, max-content);
     gap: var(--space-s);
     justify-items: center;
@@ -327,7 +359,6 @@ header .frame__img:nth-child(7) {
 
 .convo__man {
     filter: grayscale(100%);
-    filter: grayscale(100%);
     transform: scale(0.8);
     transition: filter 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
@@ -362,6 +393,94 @@ header .frame__img:nth-child(7) {
     animation-delay: 2s;
     justify-self: flex-end;
 }
+
+/* --- passengers --- */
+
+.chapter{
+    display: grid;
+    grid-template-columns: 100%;
+    gap: var(--space-m);
+}
+
+.passengers {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: var(--space-xs-2xs);
+    justify-items: center;
+}
+
+.passengers p {
+    text-align: center;
+}
+
+.passengers__img {
+    justify-self: flex-start;
+    margin-inline: calc(0rem - var(--space-s-xl));
+    display: grid;
+    grid-template-columns: 1512px;
+    grid-template-rows: 539px;
+}
+
+.passengers__img img {
+    grid-column: 1;
+    grid-row: 1;
+    transform-origin: top left;
+}
+
+.passengers__passenger1 {
+    z-index: 10;
+    transform: translateY(336px);
+}
+
+.passengers__passenger2 {
+    z-index: 8;
+    transform: translateY(216px);
+}
+
+.passengers__passenger3 {
+    z-index: 6;
+    transform: translateY(3px);
+}
+
+.passengers__passenger4 {
+    z-index: 5;
+}
+
+.passengers__diplomat {
+    transform: translate(61px, 229px);
+    z-index: 7;
+}
+
+.passengers__star {
+    transform: translate(449px, 169px);
+    z-index: 7;
+}
+
+.passengers__writer {
+    transform: translate(696px, 245px);
+    z-index: 9;
+}
+
+.passengers__trader {
+    transform: translate(982px, 160px);
+    z-index: 7;
+}
+
+.passengers__indian {
+    transform: translate(1198px, 247px);
+    z-index: 9;
+}
+
+.passengers__diplomat:hover,
+.passengers__star:hover,
+.passengers__writer:hover,
+.passengers__trader:hover,
+.passengers__indian:hover {
+    margin-block-end: 40px;
+}
+
+
+/* --- animation --- */
 
 @keyframes convoText {
     0% {
@@ -432,6 +551,7 @@ header .frame__img:nth-child(7) {
     }
 }
 
+/* --- media queries --- */
 
 @media (min-width: 500px) {
     .frame {
@@ -442,7 +562,7 @@ header .frame__img:nth-child(7) {
 
     .frame__img,
     header .frame__img {
-        background-image: url(../public/assets/img/rect-frame.png);
+        background-image: url(../public/assets/img/rect-frame.svg);
         background-size: 1000px;
     }
 
@@ -500,15 +620,17 @@ header .frame__img:nth-child(7) {
 
     .intro__id {
         grid-template-columns: 4fr 3fr;
+        grid-template-rows: min-content max-content;
         row-gap: 0;
         column-gap: var(--space-2xl);
         place-self: flex-start;
-        padding-inline-start: var(--space-xl);
         position: relative;
+        justify-self: center;
     }
 
     .intro__id h2 {
         grid-column: 1/-1;
+        grid-row: 1;
     }
 
     .intro__id p {
@@ -517,12 +639,12 @@ header .frame__img:nth-child(7) {
     }
 
     .id__card {
-        position: absolute;
         inline-size: 45vw;
         margin: unset;
-        right: calc(0rem - var(--space-s-xl) - var(--space-m));
-        top: 50%;
-        transform: translateY(-40%);
+        transform: translate(70%, -40%);
+        margin-bottom: calc(0rem - var(--space-2xl));
+        grid-column: 1/-1;
+        grid-row: 1/-1;
     }
 }
 
@@ -592,6 +714,33 @@ html:has(.id__card--big) {
 
     .crowd__crowd {
         inline-size: 1300px;
+    }
+}
+
+@media (min-width: 750px) {
+
+    /* --- passengers --- */
+
+    .passengers {
+        grid-template-columns: 500px 1fr;
+    }
+
+    .passengers p {
+        max-inline-size: 370px;
+    }
+
+    .passengers__cta{
+        grid-column: 1;
+    }
+
+    .passengers__img {
+        grid-row: 3;
+        grid-column: 1/-1;
+        margin-block-start: calc(0rem - var(--space-xl));
+    }
+
+    .passengers__passenger4 {
+        display: none;
     }
 }
 
