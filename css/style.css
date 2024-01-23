@@ -101,15 +101,21 @@ header {
 
 h1,
 h2,
-.quote {
+.quote,
+.chapter__subtitle {
     font-family: "century-old-style-std", serif;
     font-weight: 400;
     font-style: normal;
     line-height: 1.3;
 }
 
-h1 {
+h1,
+.big {
     font-size: var(--step-4);
+}
+
+.big{
+    text-align: center;
 }
 
 h2 {
@@ -117,10 +123,31 @@ h2 {
     padding-block-end: var(--space-xs);
 }
 
-.quote {
+.quote,
+.gold {
     font-size: var(--step-2);
     text-align: center;
     inline-size: fit-content;
+}
+
+.chapter__subtitle {
+    font-size: var(--step-1);
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    gap: var(--space-3xs);
+}
+
+.chapter__subtitle .small {
+    inline-size: fit-content;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: var(--space-2xs);
+    place-items: center;
+}
+
+.gold {
+    color: var(--c-yellow);
 }
 
 p {
@@ -436,7 +463,7 @@ header .frame__img:nth-child(7) {
 }
 
 .convo__man {
-    filter: grayscale(100%);
+    filter: grayscale();
     transform: scale(0.8);
     transition: filter 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
@@ -627,6 +654,216 @@ header .frame__img:nth-child(7) {
     animation: roomLabel 9s steps(1) infinite;
 }
 
+/* --- food --- */
+
+.food__container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+}
+
+.food__cta {
+    display: grid;
+    place-items: center;
+}
+
+/* --- table --- */
+
+.table__container {
+    background-image: url(../public/assets/img/pattern.svg);
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 940px max-content;
+    margin-inline:calc(0rem - var(--space-s-xl));
+    place-items: center;
+}
+
+.table__wrapper{
+    display: grid;
+    inline-size: 360px;
+    block-size: 100%;
+}
+
+.table__wrapper>* {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.table__wrapper div img {
+    filter: grayscale();
+    inline-size: inherit;
+}
+
+.table__wrapper div {
+    position: relative;
+    block-size: max-content;
+}
+
+.table__wrapper div::after,
+.table__wrapper div::before {
+    content: "";
+    display: inline-block;
+    border-radius: 100%;
+    z-index: 10;
+    position: absolute;
+}
+
+.soup__wrapper {
+    inline-size: 130px;
+    transform: translate(210px, 610px);
+}
+
+.soup__wrapper::after {
+    inline-size: 20px;
+    block-size: 20px;
+    border: var(--c-yellow) 3px solid;
+    top: 115px;
+    left: 40px;
+}
+
+.soup__wrapper::before {
+    inline-size: 30px;
+    block-size: 30px;
+    background-color: var(--c-yellow);
+    top: 25px;
+    left: 115px;
+}
+
+.asperges__wrapper {
+    inline-size: 155px;
+    transform: translate(40px, 245px) rotate(-170deg);
+}
+
+.asperges__wrapper::after {
+    inline-size: 25px;
+    block-size: 25px;
+    border: var(--c-yellow) 3px solid;
+    top: 85px;
+    left: -10px;
+}
+
+.asperges__wrapper::before {
+    inline-size: 35px;
+    block-size: 35px;
+    background-color: var(--c-yellow);
+    top: 100px;
+    left: 130px;
+}
+
+.fruit__wrapper {
+    inline-size: 120px;
+    transform: translate(35px, 540px) rotate(30deg);
+}
+
+.fruit__wrapper::after {
+    inline-size: 20px;
+    block-size: 20px;
+    border: var(--c-yellow) 3px solid;
+    top: 105px;
+    left: 65px;
+}
+
+.fruit__wrapper::before {
+    inline-size: 30px;
+    block-size: 30px;
+    background-color: var(--c-yellow);
+    top: 45px;
+    left: -15px;
+}
+
+.icecake__wrapper {
+    inline-size: 220px;
+    transform: translate(100px, 35px) rotate(10deg);
+}
+
+.icecake__wrapper::after {
+    inline-size: 20px;
+    block-size: 20px;
+    border: var(--c-blue) 3px solid;
+    top: 55px;
+    left: 195px;
+}
+
+.icecake__wrapper::before {
+    inline-size: 40px;
+    block-size: 40px;
+    background-color: var(--c-blue);
+    top: 155px;
+    left: 70px;
+}
+
+.salmon__wrapper {
+    inline-size: 255px;
+    transform: translate(25px, 760px) rotate(25deg);
+}
+
+.salmon__wrapper::after {
+    inline-size: 25px;
+    block-size: 25px;
+    border: var(--c-blue) 3px solid;
+    top: -12px;
+    left: 80px;
+}
+
+.salmon__wrapper::before {
+    inline-size: 40px;
+    block-size: 40px;
+    background-color: var(--c-blue);
+    top: 90px;
+    left: 150px;
+}
+
+.meat__wrapper {
+    inline-size: 185px;
+    transform: translate(165px, 400px) rotate(-10deg);
+}
+
+.meat__wrapper::after {
+    inline-size: 20px;
+    block-size: 20px;
+    border: var(--c-blue) 3px solid;
+    top: 115px;
+    left: 20px;
+}
+
+.meat__wrapper::before {
+    inline-size: 40px;
+    block-size: 40px;
+    background-color: var(--c-blue);
+    top: 20px;
+    left: 160px;
+}
+
+.lemon {
+    inline-size: 70px;
+    transform: translate(50px, 440px) rotate(-45deg);
+}
+
+.rasberry {
+    inline-size: 65px;
+    transform: translate(265px, 255px);
+}
+
+.fork {
+    inline-size: 20px;
+    transform: translate(25px, 320px) rotate(-20deg);
+}
+
+.small__fork {
+    inline-size: 15px;
+    transform: translate(160px, 580px) rotate(15deg);
+}
+
+.knife {
+    inline-size: 10px;
+    transform: translate(195px, 235px) rotate(-30deg);
+}
+
+.spoon {
+    inline-size: 70px;
+    transform: translate(195px, 730px) rotate(50deg);
+}
+
 /* --- animation --- */
 
 @keyframes convoText {
@@ -643,7 +880,7 @@ header .frame__img:nth-child(7) {
 
 @keyframes convoManLeft {
     0% {
-        filter: grayscale(100%);
+        filter: grayscale();
         transform: scale(0.8);
     }
 
@@ -653,7 +890,7 @@ header .frame__img:nth-child(7) {
     }
 
     50% {
-        filter: grayscale(100%);
+        filter: grayscale();
         transform: scale(0.8);
 
     }
@@ -665,14 +902,14 @@ header .frame__img:nth-child(7) {
 
 
     100% {
-        filter: grayscale(100%);
+        filter: grayscale();
         transform: scale(0.8);
     }
 }
 
 @keyframes convoManRight {
     0% {
-        filter: grayscale(100%);
+        filter: grayscale();
         transform: scale(0.8);
     }
 
@@ -682,7 +919,7 @@ header .frame__img:nth-child(7) {
     }
 
     50% {
-        filter: grayscale(100%);
+        filter: grayscale();
         transform: scale(0.8);
 
     }
