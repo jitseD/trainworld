@@ -107,20 +107,22 @@ h2,
     font-weight: 400;
     font-style: normal;
     line-height: 1.3;
+    max-inline-size: unset;
 }
 
-h1,
-.big {
+h1 {
     font-size: var(--step-4);
-}
-
-.big{
-    text-align: center;
 }
 
 h2 {
     font-size: var(--step-3);
     padding-block-end: var(--space-xs);
+}
+
+.big {
+    font-size: var(--step-3);
+    text-align: center;
+    inline-size: max-content;
 }
 
 .quote,
@@ -302,6 +304,12 @@ section {
 
 .chapter__day {
     grid-row: 1;
+}
+
+.subtitle__container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
 }
 
 /* --- header --- */
@@ -660,6 +668,8 @@ header .frame__img:nth-child(7) {
     display: flex;
     flex-direction: column;
     gap: var(--space-s);
+    inline-size: fit-content;
+    place-self: center;
 }
 
 .food__cta {
@@ -673,15 +683,15 @@ header .frame__img:nth-child(7) {
     background-image: url(../public/assets/img/pattern.svg);
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 940px max-content;
-    margin-inline:calc(0rem - var(--space-s-xl));
+    grid-template-rows: max-content max-content;
+    margin-inline: calc(0rem - var(--space-s-xl));
     place-items: center;
 }
 
-.table__wrapper{
+.table__wrapper {
     display: grid;
     inline-size: 360px;
-    block-size: 100%;
+    block-size: 940px;
 }
 
 .table__wrapper>* {
@@ -706,6 +716,7 @@ header .frame__img:nth-child(7) {
     border-radius: 100%;
     z-index: 10;
     position: absolute;
+    aspect-ratio: 1;
 }
 
 .soup__wrapper {
@@ -714,19 +725,17 @@ header .frame__img:nth-child(7) {
 }
 
 .soup__wrapper::after {
-    inline-size: 20px;
-    block-size: 20px;
+    inline-size: 15%;
     border: var(--c-yellow) 3px solid;
-    top: 115px;
-    left: 40px;
+    left: 30%;
+    top: 90%;
 }
 
 .soup__wrapper::before {
-    inline-size: 30px;
-    block-size: 30px;
+    inline-size: 25%;
     background-color: var(--c-yellow);
-    top: 25px;
-    left: 115px;
+    left: 85%;
+    top: 20%;
 }
 
 .asperges__wrapper {
@@ -735,19 +744,17 @@ header .frame__img:nth-child(7) {
 }
 
 .asperges__wrapper::after {
-    inline-size: 25px;
-    block-size: 25px;
+    inline-size: 15%;
     border: var(--c-yellow) 3px solid;
-    top: 85px;
-    left: -10px;
+    left: -5%;
+    top: 55%;
 }
 
 .asperges__wrapper::before {
-    inline-size: 35px;
-    block-size: 35px;
+    inline-size: 20%;
     background-color: var(--c-yellow);
-    top: 100px;
-    left: 130px;
+    left: 85%;
+    top: 65%;
 }
 
 .fruit__wrapper {
@@ -756,19 +763,17 @@ header .frame__img:nth-child(7) {
 }
 
 .fruit__wrapper::after {
-    inline-size: 20px;
-    block-size: 20px;
+    inline-size: 15%;
     border: var(--c-yellow) 3px solid;
-    top: 105px;
-    left: 65px;
+    left: 55%;
+    top: 85%;
 }
 
 .fruit__wrapper::before {
-    inline-size: 30px;
-    block-size: 30px;
+    inline-size: 25%;
     background-color: var(--c-yellow);
-    top: 45px;
-    left: -15px;
+    left: -1%;
+    top: 35%;
 }
 
 .icecake__wrapper {
@@ -777,19 +782,17 @@ header .frame__img:nth-child(7) {
 }
 
 .icecake__wrapper::after {
-    inline-size: 20px;
-    block-size: 20px;
+    inline-size: 10%;
     border: var(--c-blue) 3px solid;
-    top: 55px;
-    left: 195px;
+    left: 90%;
+    top: 30%;
 }
 
 .icecake__wrapper::before {
-    inline-size: 40px;
-    block-size: 40px;
+    inline-size: 20%;
     background-color: var(--c-blue);
-    top: 155px;
-    left: 70px;
+    left: 30%;
+    top: 90%;
 }
 
 .salmon__wrapper {
@@ -798,19 +801,17 @@ header .frame__img:nth-child(7) {
 }
 
 .salmon__wrapper::after {
-    inline-size: 25px;
-    block-size: 25px;
+    inline-size: 10%;
     border: var(--c-blue) 3px solid;
-    top: -12px;
-    left: 80px;
+    left: 30%;
+    top: -10%;
 }
 
 .salmon__wrapper::before {
-    inline-size: 40px;
-    block-size: 40px;
+    inline-size: 15%;
     background-color: var(--c-blue);
-    top: 90px;
-    left: 150px;
+    left: 60%;
+    top: 85%;
 }
 
 .meat__wrapper {
@@ -819,19 +820,17 @@ header .frame__img:nth-child(7) {
 }
 
 .meat__wrapper::after {
-    inline-size: 20px;
-    block-size: 20px;
+    inline-size: 10%;
     border: var(--c-blue) 3px solid;
-    top: 115px;
-    left: 20px;
+    left: 10%;
+    top: 80%;
 }
 
 .meat__wrapper::before {
-    inline-size: 40px;
-    block-size: 40px;
+    inline-size: 20%;
     background-color: var(--c-blue);
-    top: 20px;
-    left: 160px;
+    left: 85%;
+    top: 15%;
 }
 
 .lemon {
@@ -1200,6 +1199,78 @@ html:has(.id__card--big) {
         grid-row: 1/4;
         place-self: center;
     }
+
+    /* --- table --- */
+
+    .table__wrapper {
+        inline-size: 834px;
+        block-size: 740px;
+    }
+
+    .asperges__wrapper {
+        inline-size: 200px;
+        transform: translate(120px, 60px) rotate(0deg);
+    }
+
+    .icecake__wrapper {
+        inline-size: 320px;
+        transform: translate(380px, 80px) rotate(-10deg);
+    }
+
+    .salmon__wrapper {
+        inline-size: 325px;
+        transform: translate(50px, 330px) rotate(-25deg);
+    }
+
+    .soup__wrapper {
+        inline-size: 165px;
+        transform: translate(620px, 365px);
+    }
+
+    .meat__wrapper {
+        inline-size: 235px;
+        transform: translate(370px, 435px) rotate(50deg);
+    }
+
+    .lemon {
+        inline-size: 90px;
+        transform: translate(55px, 540px) rotate(-45deg);
+    }
+
+    .rasberry {
+        inline-size: 85px;
+        transform: translate(720px, 260px) rotate(0deg);
+    }
+
+    .lemon {
+        inline-size: 90px;
+        transform: translate(55px, 540px) rotate(-45deg);
+    }
+
+    .fruit__wrapper {
+        inline-size: 155px;
+        transform: translate(190px, 545px) rotate(0deg);
+    }
+
+    .fork {
+        inline-size: 25px;
+        transform: translate(300px, 30px) rotate(145deg);
+    }
+
+    .small__fork {
+        inline-size: 20px;
+        transform: translate(350px, 550px) rotate(-15deg);
+    }
+
+    .knife {
+        inline-size: 15px;
+        transform: translate(115px, 160px) rotate(135deg);
+    }
+
+    .spoon {
+        inline-size: 90px;
+        transform: translate(600px, 520px) rotate(50deg);
+    }
 }
 
 @media (min-width: 900px) {
@@ -1290,5 +1361,69 @@ html:has(.id__card--big) {
     .tip--room {
         grid-column: 1;
         grid-row: 4;
+    }
+
+    /* --- food --- */
+
+    .food__container {
+        display: grid;
+        grid-template-columns: fit-content auto;
+        grid-template-rows: auto min-content;
+        column-gap: var(--space-l-xl);
+        row-gap: unset;
+    }
+
+    .subtitle__container {
+        inline-size: min-content;
+        padding: var(--space-s);
+        position: relative;
+    }
+
+    .chapter__subtitle {
+        inline-size: min-content;
+    }
+
+    .subtitle__container p {
+        inline-size: 100%;
+    }
+
+    .food__container .subtitle__container {
+        grid-column: 1;
+        grid-row: 1/3;
+    }
+
+    .subtitle__frame {
+        position: absolute;
+        inline-size: 100%;
+        block-size: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        inline-size: calc(100% + 40px);
+        block-size: calc(100% + 40px);
+        top: -20px;
+        left: -20px;
+    }
+
+    .subtitle__frame div {
+        inline-size: 100%;
+        block-size: 100%;
+        background-image: url(../public/assets/img/subtitle-frame.svg);
+    }
+
+    .subtitle__frame div:nth-child(2) {
+        background-position: top right;
+    }
+
+    .subtitle__frame div:nth-child(3) {
+        background-position: bottom left;
+    }
+
+    .subtitle__frame div:nth-child(4) {
+        background-position: bottom right;
+    }
+
+    .food__container>p:nth-of-type(1) {
+        grid-column: 2;
+        align-self: flex-end;
     }
 }
