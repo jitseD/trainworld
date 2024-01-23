@@ -1231,6 +1231,11 @@ html:has(.id__card--big) {
         inline-size: 235px;
         transform: translate(370px, 435px) rotate(50deg);
     }
+    
+        .fruit__wrapper {
+            inline-size: 155px;
+            transform: translate(190px, 545px) rotate(0deg);
+        }
 
     .lemon {
         inline-size: 90px;
@@ -1240,16 +1245,6 @@ html:has(.id__card--big) {
     .rasberry {
         inline-size: 85px;
         transform: translate(720px, 260px) rotate(0deg);
-    }
-
-    .lemon {
-        inline-size: 90px;
-        transform: translate(55px, 540px) rotate(-45deg);
-    }
-
-    .fruit__wrapper {
-        inline-size: 155px;
-        transform: translate(190px, 545px) rotate(0deg);
     }
 
     .fork {
@@ -1425,5 +1420,79 @@ html:has(.id__card--big) {
     .food__container>p:nth-of-type(1) {
         grid-column: 2;
         align-self: flex-end;
+    }
+}
+
+@media (min-width:1300px) {
+
+    /* --- table --- */
+
+    .table__wrapper {
+        inline-size: 1512px;
+        block-size: 905px;
+    }
+
+    .table__wrapper div::after{
+        border-width: 4px;
+    }
+
+    .asperges__wrapper {
+        inline-size: 275px;
+        transform: translate(190px, 150px);
+    }
+
+    .icecake__wrapper {
+        inline-size: 410px;
+        transform: translate(560px, 160px) rotate(-15deg);
+    }
+
+    .salmon__wrapper {
+        inline-size: 425px;
+        transform: translate(270px, 525px) rotate(30deg);
+    }
+
+    .soup__wrapper {
+        inline-size: 225px;
+        transform: translate(1030px, 110px);
+    }
+
+    .meat__wrapper {
+        inline-size: 330px;
+        transform: translate(990px, 400px) rotate(40deg);
+    }
+
+    .fruit__wrapper {
+        inline-size: 210px;
+        transform: translate(810px, 585px);
+    }
+
+    .lemon {
+        inline-size: 115px;
+        transform: translate(120px, 520px) rotate(-45deg);
+    }
+
+    .rasberry {
+        inline-size: 100px;
+        transform: translate(1280px, 305px);
+    }
+
+    .fork {
+        inline-size: 35px;
+        transform: translate(455px, 100px) rotate(145deg);
+    }
+
+    .small__fork {
+        inline-size: 25px;
+        transform: translate(1030px, 630px) rotate(-10deg);
+    }
+
+    .knife {
+        inline-size: 20px;
+        transform: translate(185px, 295px) rotate(135deg);
+    }
+
+    .spoon {
+        inline-size: 135px;
+        transform: translate(1000px, 310px) rotate(25deg);
     }
 }
