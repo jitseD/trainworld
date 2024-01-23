@@ -691,7 +691,7 @@ header .frame__img:nth-child(7) {
 .table__wrapper {
     display: grid;
     inline-size: 360px;
-    block-size: 940px;
+    aspect-ratio: 18/47;
 }
 
 .table__wrapper>* {
@@ -772,7 +772,7 @@ header .frame__img:nth-child(7) {
 .fruit__wrapper::before {
     inline-size: 25%;
     background-color: var(--c-yellow);
-    left: -1%;
+    left: -10%;
     top: 35%;
 }
 
@@ -1204,7 +1204,7 @@ html:has(.id__card--big) {
 
     .table__wrapper {
         inline-size: 834px;
-        block-size: 740px;
+        aspect-ratio: 417/370;
     }
 
     .asperges__wrapper {
@@ -1231,11 +1231,16 @@ html:has(.id__card--big) {
         inline-size: 235px;
         transform: translate(370px, 435px) rotate(50deg);
     }
-    
-        .fruit__wrapper {
-            inline-size: 155px;
-            transform: translate(190px, 545px) rotate(0deg);
-        }
+
+    .fruit__wrapper {
+        inline-size: 155px;
+        transform: translate(190px, 545px) rotate(0deg);
+    }
+
+    .fruit__wrapper {
+        inline-size: 155px;
+        transform: translate(190px, 545px) rotate(0deg);
+    }
 
     .lemon {
         inline-size: 90px;
@@ -1429,10 +1434,10 @@ html:has(.id__card--big) {
 
     .table__wrapper {
         inline-size: 1512px;
-        block-size: 905px;
+        aspect-ratio: 5/3;
     }
 
-    .table__wrapper div::after{
+    .table__wrapper div::after {
         border-width: 4px;
     }
 
