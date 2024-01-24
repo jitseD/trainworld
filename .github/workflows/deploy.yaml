@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
   
 env:
-  WEB_PATH: ~/www/[CHANGE WITH YOUR PROJECT PATH]
+  WEB_PATH: ~/www/int3/trainworld
 jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
