@@ -181,7 +181,7 @@ section {
     block-size: 14px;
     inline-size: 132px;
     background-position: top right;
-    background-image: url(../public/assets/img/cta-line.svg);
+    background-image: url(../assets/img/cta-line.svg);
     background-position: bottom left;
     background-size: contain;
     background-repeat: no-repeat;
@@ -223,7 +223,7 @@ section {
 }
 
 .tip__frame div {
-    background-image: url(../public/assets/img/tip-frame.svg);
+    background-image: url(../assets/img/tip-frame.svg);
 }
 
 .tip__frame div:nth-child(2) {
@@ -255,7 +255,7 @@ section {
 .frame__img {
     inline-size: 100%;
     block-size: 100%;
-    background-image: url(../public/assets/img/line-frame.svg);
+    background-image: url(../assets/img/line-frame.svg);
     background-size: 25px;
     background-repeat: no-repeat;
 }
@@ -333,7 +333,7 @@ header .frame {
 }
 
 header .frame__img {
-    background-image: url(../public/assets/img/line-frame-rotated.svg);
+    background-image: url(../assets/img/line-frame-rotated.svg);
     background-size: 400px;
 }
 
@@ -680,7 +680,7 @@ header .frame__img:nth-child(7) {
 /* --- table --- */
 
 .table__container {
-    background-image: url(../public/assets/img/pattern.svg);
+    background-image: url(../assets/img/pattern.svg);
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: max-content max-content;
@@ -977,7 +977,7 @@ header .frame__img:nth-child(7) {
 
     .frame__img,
     header .frame__img {
-        background-image: url(../public/assets/img/rect-frame.svg);
+        background-image: url(../assets/img/rect-frame.svg);
         background-size: 1000px;
     }
 
@@ -1407,7 +1407,7 @@ html:has(.id__card--big) {
     .subtitle__frame div {
         inline-size: 100%;
         block-size: 100%;
-        background-image: url(../public/assets/img/subtitle-frame.svg);
+        background-image: url(../assets/img/subtitle-frame.svg);
     }
 
     .subtitle__frame div:nth-child(2) {
