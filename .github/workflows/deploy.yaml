@@ -1,0 +1,49 @@
+# https://www.webstoemp.com/blog/github-actions-deploy-craftcms/
+# https://swharden.com/blog/2022-04-24-github-actions-ftp/
+# https://www.voorhoede.nl/en/blog/super-fast-npm-install-on-github-actions/
+
+
+name: 🚀 FTP Deploy
+on:
+  push:
+    branches:
+      - main 
+  workflow_dispatch:
+  
+env:
+  WEB_PATH: ~/www/[CHANGE WITH YOUR PROJECT PATH]
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛒 Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: 🏗️ create production build
+        run: npm run build
+
+      # Setup container with private SSH Key (used by rsync)
+      - name: 🔑 Load private SSH key
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
+
+      # RSYNC
+      - name: Deploy web files with rsync
+        run: |
+          rsync -azh --delete-after -e "ssh -o StrictHostKeyChecking=no" dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{env.WEB_PATH}}
