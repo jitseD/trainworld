@@ -223,28 +223,45 @@ section {
 
 .tip__frame {
     position: absolute;
-    top: -7px;
-    left: -7px;
     z-index: -10;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+}
+
+.tip__frame {
+    top: -7px;
+    left: -7px;
     inline-size: calc(100% + 14px);
     block-size: calc(100% + 14px);
 }
+
+/* .city__frame {
+    top: -6.5px;
+    left: -6.5px;
+    inline-size: calc(100% + 13px);
+    block-size: calc(100% + 13px);
+} */
 
 .tip__frame div {
     background-image: url(../assets/img/tip-frame.svg);
 }
 
-.tip__frame div:nth-child(2) {
+.city__frame div {
+    background-image: url(../assets/img/city-frame.svg);
+}
+
+.tip__frame div:nth-child(2),
+.city__frame div:nth-child(2) {
     background-position: top right;
 }
 
-.tip__frame div:nth-child(3) {
+.tip__frame div:nth-child(3),
+.city__frame div:nth-child(3) {
     background-position: bottom left;
 }
 
-.tip__frame div:nth-child(4) {
+.tip__frame div:nth-child(4),
+.city__frame div:nth-child(4) {
     background-position: bottom right;
 }
 
@@ -876,19 +893,49 @@ header .frame__img:nth-child(7) {
 /* --- cities --- */
 
 .cities__wrapper {
-    display: flex;
-    flex-direction: row;
-    gap: var(--space-s);
+    display: grid;
+    grid-template-columns: repeat(10, calc(100vw - 2*var(--space-s)));
+    grid-template-rows: 1fr;
+    gap: var(--space-2xs);
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    margin-inline: calc(0rem - var(--space-s-xl));
+    padding-inline: var(--space-s-xl);
 }
 
 .city__wrapper {
     display: grid;
-    grid-template-columns: 80vw;
+    grid-template-columns: 100%;
     gap: var(--space-xs);
+    scroll-snap-align: center;
+    place-items: center;
+    position: relative;
+    margin: var(--space-s);
 }
 
-.city__wrapper img {
+.city__wrapper>* {
+    grid-column: 1;
+}
+
+.city__img {
     grid-row: 1;
+    inline-size: 100%;
+    aspect-ratio: 1;
+}
+
+.city__frame {
+    position: absolute;
+    top: calc(0rem - var(--space-s));
+    left: calc(0rem - var(--space-s));
+    z-index: -10;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    inline-size: calc(100% + 2*var(--space-s));
+    block-size: calc(100% + 2*var(--space-s));
+}
+
+.tip--cities{
+    place-self: center;
 }
 
 /* --- animation --- */
