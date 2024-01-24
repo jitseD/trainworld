@@ -112,6 +112,7 @@
           <img class="passengers__star" src="./assets/img/star.png" alt="star">
           <img class="passengers__indian" src="./assets/img/indian-maharaja.png" alt="indian maharaja.png">
           <img class="passengers__writer" src="./assets/img/writer.png" alt="writer">
+        
           <img class="passengers__passenger1" src="./assets/img/passengers-1.svg" alt="passenegrs">
           <img class="passengers__passenger2" src="./assets/img/passengers-2.svg" alt="passenegrs">
           <img class="passengers__passenger3" src="./assets/img/passengers-3.svg" alt="passenegrs">
@@ -150,7 +151,7 @@
         </div>
         <div class="room__img">
           <img class="room__gif" src="./assets/img/room.gif" alt="room animation">
-          <img class="room__frame" src="./assets/img/room-frame.svg" alt="frame">
+          <img class="room__frame" src="./assets/img/thin-frame.svg" alt="frame">
         </div>
       </div>
     </section>
@@ -199,7 +200,24 @@
             <img class="soup" src="./assets/img/soup.png" alt="consommé xavier">
           </div>
           <div class="asperges__wrapper">
-            <img class="asperges" src="./assets/img/asperges.png" alt="asperges à l'italienne">
+            <picture>
+              <source srcset="
+              ./assets/img/asperges.avif 275w,
+              ./assets/img/asperges-155.avif 155w,
+              ./assets/img/asperges-200.avif 200w,
+              " sizes="(min-width:1300px) 275px, (min-width:750px) 200px, 155px" type="image/avif">
+              <source srcset="
+              ./assets/img/asperges.webp 275w,
+              ./assets/img/asperges-155.webp 155w,
+              ./assets/img/asperges-200.webp 200w,
+              " sizes="(min-width:1300px) 275px, (min-width:750px) 200px, 155px" type="image/webp">
+              <source srcset="
+              ./assets/img/asperges.jpeg 275w,
+              ./assets/img/asperges-155.jpeg 155w,
+              ./assets/img/asperges-200.jpeg 200w,
+              " sizes="(min-width:1300px) 275px, (min-width:750px) 200px, 155px" type="image/jpeg">
+              <img src="./assets/img/asperges.avif" alt="asperges">
+            </picture>
           </div>
           <div class="fruit__wrapper">
             <img class="fruit" src="./assets/img/fruit.png" alt="corbeille de fruits">
@@ -213,7 +231,24 @@
           <div class="meat__wrapper">
             <img class="meat" src="./assets/img/meat.png" alt="cuissot de veau ecarlate">
           </div>
-          <img class="lemon" src="./assets/img/drink-lemon.png" alt="lemon drink">
+          <picture>
+              <source srcset="
+              ./assets/img/drink-lemon.avif 120w,
+              ./assets/img/drink-lemon-70.avif 70w,
+              ./assets/img/drink-lemon-90.avif 90w,
+              " sizes="(min-width:1300px) 120px, (min-width:750px) 90px, 70px" type="image/avif">
+              <source srcset="
+              ./assets/img/drink-lemon.webp 120w,
+              ./assets/img/drink-lemon-70.webp 70w,
+              ./assets/img/drink-lemon-90.webp 90w,
+              " sizes="(min-width:1300px) 120px, (min-width:750px) 90px, 70px" type="image/webp">
+              <source srcset="
+              ./assets/img/drink-lemon.jpeg 120w,
+              ./assets/img/drink-lemon-70.jpeg 70w,
+              ./assets/img/drink-lemon-90.jpeg 90w,
+              " sizes="(min-width:1300px) 120px, (min-width:750px) 90px, 70px" type="image/jpeg">
+              <img class="lemon" src="./assets/img/drink-lemon.avif" alt="drink-lemon">
+            </picture>
           <img class="rasberry" src="./assets/img/drink-rasberry.png" alt="rasberry drink">
           <img class="fork" src="./assets/img/cutlery-fork.png" alt="fork">
           <img class="spoon" src="./assets/img/cutlery-spoon.png" alt="spoon">
@@ -225,7 +260,7 @@
         </div>
       </div>
     </section>
-    <section>
+    <section class="chapter chapter--3">
       <div class="frame">
         <div class="frame__img"></div>
         <div class="frame__img"></div>
@@ -241,6 +276,124 @@
         <div class="frame__img"></div>
         <div class="frame__img"></div>
       </div>
+      <div class="subtitle__container">
+        <p class="chapter__subtitle">
+          <span class="big">Paris to Constantinople</span>
+          <span class="small">in just <span class="gold">3</span> days</span>
+        </p>
+        <p>
+          In the dining car, we were greeted with colourful carpets, white table linen, champagne buckets, crystal
+          glasses and carafes, silver cutlery and bone china plates.
+        </p>
+        <div class="subtitle__frame">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div class="tip tip--cities">
+        <p>
+          Discover the charm of sleeper trains! Drift off in one country and wake up in another. It's like a magical
+          journey through the night!
+        </p>
+        <div class="tip__frame">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div class="journal journal--cities">
+        <p>add your favorite desitnation to the journal</p>
+      </div>
+      <div class="cities__wrapper">
+        <article class="city__wrapper">
+          <h3>Paris, France</h3>
+          <img src="./assets/img/paris.png" alt="paris">
+          <p>
+            Paris, the City of Lights, has a big influence in the fashion scene with people like Coco Chanel. Don't
+            forget to enjoy a fresh out the oven baguette in front of its iconic landmark, the Eiffel Tower.
+          </p>
+        </article>
+        <article class="city__wrapper">
+          <h3>Dijon, France</h3>
+          <img src="./assets/img/dijon.png" alt="dijon">
+          <p>
+            Dijon, France, is known for its Gothic cathedral and its connection to Gustave Eiffel. Don't miss trying the
+            world-famous Dijon mustard, a culinary delight from this charming city.
+          </p>
+        </article>
+        <article class="city__wrapper">
+          <h3>Lausanne, Switzerland</h3>
+          <img src="./assets/img/laussanne.png" alt="laussanne">
+          <p>
+            Lausanne, Switzerland, boasts the charm of its historic cathedral. Immerse yourself in the taste of swiss
+            chocolate like Toblerone or learn some physics with the intellectual legacy of Albert Einstein.
+          </p>
+        </article>
+        <article class="city__wrapper">
+          <h3>Milan, Italy</h3>
+          <img src="./assets/img/milan.png" alt="milan">
+          <p>
+            Milan, Italy, captures the spirit of Renaissance with the magnificent Duomo di Milano and of course the
+            genius Leonardo da Vinci. Delight your taste buds with the famed Milanese risotto.
+          </p>
+        </article>
+        <article class="city__wrapper">
+          <h3>Venice, Italy</h3>
+          <img src="./assets/img/venice.png" alt="venice">
+          <p>
+            In the heart of enchanting Venice, where gondolas gracefully navigate the canals, the spirit of Marco Polo
+            lingers, and the aroma of Polenta e Schie fills the air, creating a symphony of Venetian charm.
+          </p>
+        </article>
+        <article class="city__wrapper">
+          <h3>Trieste, Italy</h3>
+          <img src="./assets/img/trieste.png" alt="trieste">
+          <p>
+            In Trieste, the captivating Miramare Castle stands as a testament to its historical charm. Indulge in the
+            culinary delight of Rotolo di Spinaci, while the city's streets echo the literary legacy of James Joyce.
+          </p>
+        </article>
+        <article class="city__wrapper">
+          <h3>Zagreb, Yugoslavia</h3>
+          <img src="./assets/img/zargeb.png" alt="zargeb">
+          <p>
+            In Zagreb, where St. Mark's Church graces the skyline, the inventive spirit of Nikola Tesla resonates, and
+            the delightful aroma of Octopus Peka captures the essence of Croatian culinary excellence.
+          </p>
+        </article>
+        <article class="city__wrapper">
+          <h3>Belgrade, Yugoslavia</h3>
+          <img src="./assets/img/belgrade.png" alt="belgrade">
+          <p>
+            Belgrade, Serbia's lively capital, boasts cultural gems like the St. Sava Temple and is linked to Nobel
+            laureate Ivo Andrić. Don't forget to enjoy local flavors with the renowned dish Ćevapi.
+          </p>
+        </article>
+        <article class="city__wrapper">
+          <h3>Sofia, Bulgaria</h3>
+          <img src="./assets/img/sofia.png" alt="sofia">
+          <p>
+            Amidst the Balkans, Sofia showcases the grandeur of the Alexander Nevsky Cathedral, the delight of banitsa
+            pastries, and the historical legacy of Stefan Stambolov, weaving a tapestry of cultural richness.
+          </p>
+        </article>
+        <article class="city__wrapper">
+          <h3>Constantinople, Turkey</h3>
+          <img src="./assets/img/constantinople.png" alt="constantinople.png">
+          <p>
+            Constantinople, Turkey, home to the mesmerizing Blue Mosque and delectable kebabs, invites you to savor its
+            cultural richness. Explore the spiritual legacy of the renowned poet Rumi.
+          </p>
+        </article>
+      </div>
+      <div class="quote__wrapper">
+        <p class="quote">The further we went ...</p>
+        <p class="quote">The more exotic the surroundings became.</p>
+      </div>
+
     </section>
     <section>
       <div class="frame">

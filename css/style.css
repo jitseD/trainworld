@@ -101,6 +101,8 @@ header {
 
 h1,
 h2,
+h3,
+.chapter__day,
 .quote,
 .chapter__subtitle {
     font-family: "century-old-style-std", serif;
@@ -119,6 +121,12 @@ h2 {
     padding-block-end: var(--space-xs);
 }
 
+h3,
+.chapter__day,
+.chapter__subtitle {
+    font-size: var(--step-1);
+}
+
 .big {
     font-size: var(--step-3);
     text-align: center;
@@ -133,7 +141,6 @@ h2 {
 }
 
 .chapter__subtitle {
-    font-size: var(--step-1);
     display: grid;
     grid-template-columns: 1fr;
     place-items: center;
@@ -142,8 +149,8 @@ h2 {
 
 .chapter__subtitle .small {
     inline-size: fit-content;
-    display: grid;
-    grid-template-columns: repeat(2, max-content);
+    display: flex;
+    flex-direction: row;
     gap: var(--space-2xs);
     place-items: center;
 }
@@ -169,15 +176,18 @@ section {
 .cta {
     color: var(--c-yellow);
     padding: var(--space-3xs) var(--space-2xs);
-    inline-size: min-content;
+    /* inline-size: min-content; */
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-block: -14px;
+    margin: 2rem;
+    position: relative;
 }
 
 .cta::before,
 .cta::after {
+    position: absolute;
     block-size: 14px;
     inline-size: 132px;
     background-position: top right;
@@ -187,17 +197,17 @@ section {
     background-repeat: no-repeat;
     display: inline-block;
     content: "";
+    top: 80%;
 }
 
 .cta::before {
-    justify-self: flex-start;
-    transform: translate(-18px, 30.5px);
+    /* justify-self: flex-start; */
+    transform: translate(-18px);
 }
 
 .cta::after {
-    justify-self: flex-end;
-    transform: translate(-18px, 5px);
-    scale: -1;
+    transform: translate(18px);
+    rotate: 180deg;
 }
 
 .tip {
@@ -578,12 +588,12 @@ header .frame__img:nth-child(7) {
     z-index: 9;
 }
 
-.passengers__diplomat:hover,
+.passengers__star:hover .passengers__diplomat,
 .passengers__star:hover,
 .passengers__writer:hover,
 .passengers__trader:hover,
 .passengers__indian:hover {
-    margin-block-end: 40px;
+    margin-block-start: -40px;
 }
 
 /* --- train --- */
@@ -834,7 +844,7 @@ header .frame__img:nth-child(7) {
 }
 
 .lemon {
-    inline-size: 70px;
+    /* inline-size: 70px; */
     transform: translate(50px, 440px) rotate(-45deg);
 }
 
@@ -861,6 +871,24 @@ header .frame__img:nth-child(7) {
 .spoon {
     inline-size: 70px;
     transform: translate(195px, 730px) rotate(50deg);
+}
+
+/* --- cities --- */
+
+.cities__wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-s);
+}
+
+.city__wrapper {
+    display: grid;
+    grid-template-columns: 80vw;
+    gap: var(--space-xs);
+}
+
+.city__wrapper img {
+    grid-row: 1;
 }
 
 /* --- animation --- */
@@ -1243,7 +1271,7 @@ html:has(.id__card--big) {
     }
 
     .lemon {
-        inline-size: 90px;
+        /* inline-size: 90px; */
         transform: translate(55px, 540px) rotate(-45deg);
     }
 
@@ -1402,6 +1430,7 @@ html:has(.id__card--big) {
         block-size: calc(100% + 40px);
         top: -20px;
         left: -20px;
+        z-index: -10;
     }
 
     .subtitle__frame div {
@@ -1472,7 +1501,7 @@ html:has(.id__card--big) {
     }
 
     .lemon {
-        inline-size: 115px;
+        /* inline-size: 115px; */
         transform: translate(120px, 520px) rotate(-45deg);
     }
 
