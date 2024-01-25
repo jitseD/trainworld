@@ -19,7 +19,7 @@ const checkHoverSupport = () => {
     console.log(hoverQuery);
     hoverSupported = hoverQuery.matches;
     console.log(hoverSupported);
-    
+
     const canHover = window.matchMedia('(hover: hover)').matches;
     console.log(canHover);
 }
@@ -42,6 +42,21 @@ const windowResizedHandle = e => {
 const openIdHanle = e => {
     $idCard.classList.toggle(`id__card--big`);
     closeAllCityPopups();
+}
+
+const trainArrival = () => {
+    gsap.from(".train__img", {
+        marginInlineEnd: `100vw`,
+        scrollTrigger: {
+            markers: {},
+            trigger: ".train__container",
+            start: "top 70%",
+            end: "30% 30%",
+            toggleActions: "play none reverse reset",
+        },
+        duration: 1.5,
+        ease: "power1.out",
+    })
 }
 
 // const closeAllTipsPopups = () => {
@@ -126,6 +141,8 @@ const switchCityPopup = (currentPopup) => {
 }
 
 const init = () => {
+    gsap.registerPlugin(ScrollTrigger);
+
     checkHoverSupport();
     window.addEventListener(`resize`, windowResizedHandle);
     window.addEventListener(`hover`, checkHoverSupport);
@@ -135,6 +152,10 @@ const init = () => {
     if (window.innerWidth >= 500) {
         $idCard.addEventListener(`click`, openIdHanle);
     }
+
+    // --- train --- //
+
+    trainArrival();
 
     // --- tipPopup --- //
     // closeAllTipsPopups();

@@ -709,7 +709,7 @@ header .frame__img:nth-child(7) {
     inline-size: 200vw;
 }
 
-.train__train {
+.train__img {
     z-index: 20;
     justify-self: flex-end;
     margin-inline-end: calc(0rem - var(--space-s-m));
@@ -1244,7 +1244,7 @@ header .frame__img:nth-child(7) {
         inline-size: 125vw;
     }
 
-    .train__train {
+    .train__img {
         transform: translateY(-85%);
     }
 
@@ -1471,7 +1471,7 @@ header .frame__img:nth-child(7) {
         inline-size: 100vw;
     }
 
-    .train__train {
+    .train__img {
         margin-inline-end: var(--space-xl);
         transform: translateY(-85%);
     }
@@ -1595,6 +1595,7 @@ header .frame__img:nth-child(7) {
         grid-column: 1/-1;
         grid-row: 3;
         margin-block-start: calc(0rem - var(--space-l));
+        inline-size: 100vw;
     }
 
     .passengers__passenger4 {
@@ -1682,7 +1683,7 @@ header .frame__img:nth-child(7) {
         background-color: var(--c-yellow);
         display: none;
         transition: display 0.25s ease-in-out;
-        inline-size: max-content;
+        inline-size: 100%;
     }
 
     .diplomat--hover {
