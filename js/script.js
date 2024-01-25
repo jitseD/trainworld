@@ -44,11 +44,24 @@ const openIdHanle = e => {
     closeAllCityPopups();
 }
 
+const conversation = () => {
+    gsap.from(".intro__convo", {
+        scrollTrigger: {
+            markers: {},
+            trigger: ".intro__convo",
+            start: "top 70%",
+            toggleClass: "intro__convo--animation",
+        },
+        duration: 1.5,
+        ease: "power1.out",
+    })
+}
+
 const trainArrival = () => {
     gsap.from(".train__img", {
         marginInlineEnd: `100vw`,
         scrollTrigger: {
-            markers: {},
+            // markers: {},
             trigger: ".train__container",
             start: "top 70%",
             end: "30% 30%",
@@ -153,8 +166,9 @@ const init = () => {
         $idCard.addEventListener(`click`, openIdHanle);
     }
 
-    // --- train --- //
+    // --- scrolltriggers --- //
 
+    conversation();
     trainArrival();
 
     // --- tipPopup --- //

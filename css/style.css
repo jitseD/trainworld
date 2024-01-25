@@ -479,7 +479,7 @@ header .frame__img:nth-child(7) {
 }
 
 .intro__convo {
-    max-block-size: 100vh;
+    max-block-size: 100svh;
     overflow-y: hidden;
     inline-size: 100%;
     max-inline-size: 600px;
@@ -531,34 +531,29 @@ header .frame__img:nth-child(7) {
     transition: filter 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-.convo__text {
+.intro__convo--animation .convo__text {
     animation: convoText 1s forwards;
 }
 
-.convo__text--left:nth-child(1) {
-    animation-delay: 1s;
-}
-
 .convo__text--left:nth-child(3) {
-    animation-delay: 3s;
+    animation-delay: 2s;
 }
 
 .convo__text--right:nth-child(2) {
-    animation-delay: 2s;
-}
-
-.convo__text--right:nth-child(4) {
-    animation-delay: 4s;
-}
-
-.convo__man--left {
-    animation: convoManLeft 4s forwards;
     animation-delay: 1s;
 }
 
-.convo__man--right {
+.convo__text--right:nth-child(4) {
+    animation-delay: 3s;
+}
+
+.intro__convo--animation .convo__man--left {
+    animation: convoManLeft 4s forwards;
+}
+
+.intro__convo--animation .convo__man--right {
     animation: convoManRight 4s forwards;
-    animation-delay: 2s;
+    animation-delay: 1s;
     justify-self: flex-end;
 }
 
