@@ -107,17 +107,121 @@
       </div>
       <div class="passengers__container">
         <p>It was busy on the platform, such a varied range of people all waiting for the Orient Express!</p>
-        <p class="passengers__cta"><span class="cta">click to find out</span></p>
+        <p class="passengers__cta"><span class="cta"><span class="scroll">scroll</span><span class="hover">hover</span> to find out</span></p>
         <div class="passengers__img">
-          <img class="passengers__diplomat" src="./assets/img/diplomat.png" alt="diplomat">
-          <img class="passengers__trader" src="./assets/img/trader.png" alt="trader">
-          <img class="passengers__star" src="./assets/img/star.png" alt="star">
-          <img class="passengers__indian" src="./assets/img/indian-maharaja.png" alt="indian maharaja.png">
-          <img class="passengers__writer" src="./assets/img/writer.png" alt="writer">
-          <img class="passengers__passenger1" src="./assets/img/passengers-1.svg" alt="passenegrs">
-          <img class="passengers__passenger2" src="./assets/img/passengers-2.svg" alt="passenegrs">
-          <img class="passengers__passenger3" src="./assets/img/passengers-3.svg" alt="passenegrs">
-          <img class="passengers__passenger4" src="./assets/img/passengers-4.svg" alt="passenegrs">
+          <div class="diplomat diplomat--hover">
+            <p>diplomats and state leaders</p>
+          </div>
+          <picture class="diplomat diplomat--img">
+            <source srcset="
+            ./assets/img/diplomat-175.avif 175w,
+            ./assets/img/diplomat-230.avif 230w,
+            ./assets/img/diplomat-300.avif 300w,
+            " sizes="(min-width: 1600px) 20rem, (min-width:800px) 20vw, 20rem" type="image/avif">
+            <source srcset="
+            ./assets/img/diplomat-175.webp 175w,
+            ./assets/img/diplomat-230.webp 230w,
+            ./assets/img/diplomat-300.webp 300w,
+            " sizes="(min-width: 1600px) 20rem, (min-width:800px) 20vw, 20rem" type="image/webp">
+            <source srcset="
+            ./assets/img/diplomat-175.jpeg 175w,
+            ./assets/img/diplomat-230.jpeg 230w,
+            ./assets/img/diplomat-300.jpeg 300w,
+            " sizes="(min-width: 1600px) 20rem, (min-width:800px) 20vw, 20rem" type="image/jpeg">
+            <img src="./assets/img/diplomat.avif" alt="diplomat">
+          </picture>
+          <div class="trader trader--hover">
+            <p>traders from the East</p>
+          </div>
+          <picture class="trader trader--img">
+            <source srcset="
+            ./assets/img/trader-90.avif 90w,
+            ./assets/img/trader-125.avif 125w,
+            ./assets/img/trader-160.avif 160w,
+            " sizes="(min-width: 1600px) 11rem, (min-width:800px) 11vw, 11rem" type="image/avif">
+            <source srcset="
+            ./assets/img/trader-90.webp 90w,
+            ./assets/img/trader-125.webp 125w,
+            ./assets/img/trader-160.webp 160w,
+            " sizes="(min-width: 1600px) 11rem, (min-width:800px) 11vw, 11rem" type="image/webp">
+            <source srcset="
+            ./assets/img/trader-90.jpeg 90w,
+            ./assets/img/trader-125.jpeg 125w,
+            ./assets/img/trader-160.jpeg 160w,
+            " sizes="(min-width: 1600px) 11rem, (min-width:800px) 11vw, 11rem" type="image/jpeg">
+            <img src="./assets/img/trader.avif" alt="trader">
+          </picture>
+          <div class="star star--hover">
+            <p>stars and aristocrats</p>
+          </div>
+          <picture class="star star--img">
+            <source srcset="
+            ./assets/img/star-115.avif 115w,
+            ./assets/img/star-165.avif 165w,
+            ./assets/img/star-215.avif 215w,
+            " sizes="(min-width: 1600px) 14rem, (min-width:800px) 14vw, 14rem" type="image/avif">
+            <source srcset="
+            ./assets/img/star-115.webp 115w,
+            ./assets/img/star-165.webp 165w,
+            ./assets/img/star-215.webp 215w,
+            " sizes="(min-width: 1600px) 14rem, (min-width:800px) 14vw, 14rem" type="image/webp">
+            <source srcset="
+            ./assets/img/star-115.jpeg 115w,
+            ./assets/img/star-165.jpeg 165w,
+            ./assets/img/star-215.jpeg 215w,
+            " sizes="(min-width: 1600px) 14rem, (min-width:800px) 14vw, 14rem" type="image/jpeg">
+            <img src="./assets/img/star.avif" alt="star">
+          </picture>
+          <div class="indian indian--hover">
+            <p>Indian Maharajas</p>
+          </div>
+          <picture class="indian indian--img">
+            <source srcset="
+            ./assets/img/indian-100.avif 100w,
+            ./assets/img/indian-135.avif 135w,
+            ./assets/img/indian-175.avif 175w,
+            " sizes="(min-width: 1600px) 12rem, (min-width:800px) 12vw, 12rem" type="image/avif">
+            <source srcset="
+            ./assets/img/indian-100.webp 100w,
+            ./assets/img/indian-135.webp 135w,
+            ./assets/img/indian-175.webp 175w,
+            " sizes="(min-width: 1600px) 12rem, (min-width:800px) 12vw, 12rem" type="image/webp">
+            <source srcset="
+            ./assets/img/indian-100.jpeg 100w,
+            ./assets/img/indian-135.jpeg 135w,
+            ./assets/img/indian-175.jpeg 175w,
+            " sizes="(min-width: 1600px) 12rem, (min-width:800px) 12vw, 12rem" type="image/jpeg">
+            <img src="./assets/img/indian.avif" alt="indian">
+          </picture>
+          <div class="writer writer--hover">
+            <p>artists and writers</p>
+          </div>
+          <picture class="writer writer--img">
+            <source srcset="
+            ./assets/img/writer-120.avif 120w,
+            ./assets/img/writer-160.avif 160w,
+            ./assets/img/writer-215.avif 215w,
+            " sizes="(min-width: 1600px) 15rem, (min-width:800px) 15vw, 15rem" type="image/avif">
+            <source srcset="
+            ./assets/img/writer-120.webp 120w,
+            ./assets/img/writer-160.webp 160w,
+            ./assets/img/writer-215.webp 215w,
+            " sizes="(min-width: 1600px) 15rem, (min-width:800px) 15vw, 15rem" type="image/webp">
+            <source srcset="
+            ./assets/img/writer-120.jpeg 120w,
+            ./assets/img/writer-160.jpeg 160w,
+            ./assets/img/writer-215.jpeg 215w,
+            " sizes="(min-width: 1600px) 15rem, (min-width:800px) 15vw, 15rem" type="image/jpeg">
+            <img src="./assets/img/writer.avif" alt="writer">
+          </picture>
+          <img class="passengers__passenger passengers__passenger1" src="./assets/img/passengers-1.svg"
+            alt="passenegrs">
+          <img class="passengers__passenger passengers__passenger2" src="./assets/img/passengers-2.svg"
+            alt="passenegrs">
+          <img class="passengers__passenger passengers__passenger3" src="./assets/img/passengers-3.svg"
+            alt="passenegrs">
+          <img class="passengers__passenger passengers__passenger4" src="./assets/img/passengers-4.svg"
+            alt="passenegrs">
         </div>
       </div>
       <div class="train__container">
