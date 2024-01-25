@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://use.typekit.net/vpq8onc.css">
   <link rel="stylesheet" href="https://use.typekit.net/vpq8onc.css">
 
+  <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="an interactive story about the journey from Paris to Cairo with the Orient Express in 1930.">
@@ -135,17 +137,24 @@
             I
             shared a compartment with the daughter, while the mother and father each had their own.
           </p>
-          <div class="tip tip--room">
-            <p>
-              Solo traveler? Share a room with a stranger of the same sex. You get to save money and meet new people at
-              the same time.
-            </p>
-            <div class="tip__frame">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
+          <div class="tip__wrapper tip__wrapper--room">
+            <dotlottie-player class="tip" src="./assets/ani/tip.lottie" background="transparent" speed="1" direction="1"
+              mode="normal" loop autoplay>
+            </dotlottie-player>
+            <dialog class="tip__popup">
+              <div class="tip__popup--wrapper">
+                <p>
+                  Solo travelers? Share a room with a stranger of the same sex. You get to save money and meet new
+                  people at the same time.
+                </p>
+                <div class="tip__frame">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+            </dialog>
           </div>
         </div>
         <div class="room__img">
@@ -254,8 +263,11 @@
           <img class="knife" src="./assets/img/cutlery-knife.png" alt="knife">
           <img class="small__fork" src="./assets/img/cutlery-small-fork.png" alt="small fork">
         </div>
-        <div class="journal journal--table">
+        <div class="journal__wrapper journal__wrapper--table">
           <p>drag you favorite meal in the journal</p>
+          <dotlottie-player class="journal" src="./assets/ani/journal.lottie" background="transparent" speed="1"
+            direction="1" mode="normal" loop autoplay>
+          </dotlottie-player>
         </div>
       </div>
     </section>
@@ -292,17 +304,25 @@
             <div></div>
           </div>
         </div>
-        <div class="tip tip--cities">
-          <p>
-            Discover the charm of sleeper trains! Drift off in one country and wake up in another. It's like a magical
-            journey through the night!
-          </p>
-          <div class="tip__frame">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+        <div class="tip__wrapper tip__wrapper--cities">
+          <dotlottie-player class="tip" src="./assets/ani/tip.lottie" background="transparent" speed="1" direction="1"
+            mode="normal" loop autoplay>
+          </dotlottie-player>
+          <dialog class="tip__popup">
+            <div class="tip__popup--wrapper">
+              <p>
+                Discover the charm of sleeper trains! Drift off in one country and wake up in another. It's like a
+                magical
+                journey through the night!
+              </p>
+              <div class="tip__frame">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </dialog>
         </div>
         <div class="cities__wrapper">
           <article class="city__wrapper">
@@ -586,8 +606,11 @@
             </dialog>
           </article>
         </div>
-        <div class="journal journal--cities">
+        <div class="journal__wrapper journal__wrapper--cities">
           <p>add your favorite desitnation to the journal</p>
+          <dotlottie-player class="journal" src="./assets/ani/journal.lottie" background="transparent" speed="1"
+            direction="1" mode="normal" loop autoplay>
+          </dotlottie-player>
         </div>
         <div class="map__quote">
           <p class="quote">The further we went ...</p>

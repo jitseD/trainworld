@@ -96,7 +96,7 @@ img {
 }
 
 header {
-    block-size: 100vh;
+    block-size: 100svh;
 }
 
 h1,
@@ -130,7 +130,7 @@ h3,
 .big {
     font-size: var(--step-3);
     text-align: center;
-    inline-size: max-content;
+    max-inline-size: max-content;
 }
 
 .quote,
@@ -207,7 +207,41 @@ section {
     rotate: 180deg;
 }
 
-.tip {
+/* --- tip --- */
+
+.tip,
+.journal {
+    inline-size: 5rem;
+}
+
+.tip__wrapper {
+    position: relative;
+    inline-size: min-content;
+    block-size: min-content;
+    place-self: center;
+}
+
+.tip__wrapper:hover .tip__popup {
+    display: block;
+}
+
+.tip__popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+}
+
+dialog {
+    background-color: unset;
+    border: unset;
+    outline: unset;
+    padding: unset;
+}
+
+.tip__popup--wrapper {
+    inline-size: calc(100vw - 2*var(--space-s-xl));
     max-inline-size: 286px;
     background-color: var(--c-yellow);
     border: var(--c-yellow) 1px solid;
@@ -215,7 +249,7 @@ section {
     padding: var(--step-0);
     display: grid;
     align-self: center;
-    position: relative;
+    place-self: center;
 }
 
 .tip__frame {
@@ -255,11 +289,14 @@ section {
     background-position: bottom right;
 }
 
+/* --- journal --- */
+
+
 /* --- frame --- */
 
 .frame {
     inline-size: 100vw;
-    block-size: 100vh;
+    block-size: 100svh;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 3fr 1fr auto 1fr 3fr 1fr;
@@ -883,6 +920,11 @@ header .frame__img:nth-child(7) {
 
 /* --- cities --- */
 
+.map__wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
 .cities__wrapper {
     display: grid;
     grid-template-columns: repeat(10, calc(100vw - 2*var(--space-s)));
@@ -907,8 +949,6 @@ header .frame__img:nth-child(7) {
     position: relative;
     margin: var(--space-s);
     background-color: var(--c-beige);
-    border: unset;
-    outline: unset;
 }
 
 .city__info {
@@ -941,8 +981,8 @@ header .frame__img:nth-child(7) {
     block-size: calc(100% + 2*var(--space-s));
 }
 
-.tip--cities {
-    place-self: center;
+.tip__wrapper--cities {
+    padding-block: var(--space-m);
 }
 
 /* --- animation --- */
@@ -1417,7 +1457,7 @@ header .frame__img:nth-child(7) {
         grid-column: 1;
     }
 
-    .tip--room {
+    .tip__wrapper--room {
         grid-column: 2;
         grid-row: 1/4;
         place-self: center;
@@ -1520,13 +1560,19 @@ header .frame__img:nth-child(7) {
 
     /* --- cities --- */
 
+    .chapter--3 {
+        overflow: hidden visible;
+        padding-block-end: var(--space-2xl);
+    }
+
     .map__wrapper {
         display: grid;
         grid-template-columns: var(--space-m) 1fr 1fr var(--space-m);
+        gap: var(--space-s);
         margin-inline: calc(0rem - var(--space-m));
     }
 
-    .tip--cities {
+    .tip__wrapper--cities {
         grid-column: 2;
         grid-row: 1;
     }
@@ -1536,12 +1582,12 @@ header .frame__img:nth-child(7) {
         grid-row: 1;
     }
 
-    .journal--cities {
+    .journal__wrapper--cities {
         grid-column: 3;
         grid-row: 2;
     }
 
-    .map__quote{
+    .map__quote {
         grid-column: 2/-1;
         grid-row: 3;
     }
@@ -1563,11 +1609,11 @@ header .frame__img:nth-child(7) {
         grid-column: 1/-1;
         grid-row: 2;
         inline-size: 100%;
-        max-inline-size: 85rem;
+        max-inline-size: 95rem;
         aspect-ratio: 7/3;
         background-image: url(../assets/img/route-desktop.svg);
-        background-size: 95%;
-        background-position: center 10%;
+        background-size: 85%;
+        background-position: 20% 10%;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
@@ -1716,7 +1762,7 @@ header .frame__img:nth-child(7) {
         grid-template-columns: 1fr;
     }
 
-    .tip--room {
+    .tip__wrapper--room {
         grid-column: 1;
         grid-row: 4;
     }
@@ -1729,6 +1775,10 @@ header .frame__img:nth-child(7) {
         grid-template-rows: auto min-content;
         column-gap: var(--space-l-xl);
         row-gap: unset;
+    }
+
+    .big {
+        inline-size: max-content;
     }
 
     .subtitle__container {
