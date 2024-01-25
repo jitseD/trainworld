@@ -1,13 +1,28 @@
 
+let hoverSupported = false;
+
 const $idCard = document.querySelector(`.id__card`);
 
-const $citiesWrapper = document.querySelector(".cities__wrapper");
+// const $tipsButtons = document.querySelectorAll(`.tip`);
+// const $tipsPopups = document.querySelectorAll(`.tip__popup`);
+
+const $citiesWrapper = document.querySelector(`.cities__wrapper`);
 const $cityButtons = document.querySelectorAll(`.city__button`);
 const $cityPopups = document.querySelectorAll(`.city__popup`);
 const $closePopups = document.querySelectorAll(`.popup__close`);
 const $nextPopups = document.querySelectorAll(`.city__next`);
 const $lastPopups = document.querySelectorAll(`.city__last`);
 let currentPopup;
+
+const checkHoverSupport = () => {
+    const hoverQuery = window.matchMedia('(hover: hover)');
+    console.log(hoverQuery);
+    hoverSupported = hoverQuery.matches;
+    console.log(hoverSupported);
+    
+    const canHover = window.matchMedia('(hover: hover)').matches;
+    console.log(canHover);
+}
 
 const windowResizedHandle = e => {
     if (window.innerWidth >= 500) {
@@ -18,17 +33,36 @@ const windowResizedHandle = e => {
     }
 
     if (window.innerWidth <= 550) {
-        showAllPopups();
+        showAllCityPopups();
     } else {
-        closeAllPopups();
+        closeAllCityPopups();
     }
 }
 
 const openIdHanle = e => {
     $idCard.classList.toggle(`id__card--big`);
+    closeAllCityPopups();
 }
 
-const showAllPopups = () => {
+// const closeAllTipsPopups = () => {
+//     $tipsPopups.forEach($tipPopup => {
+//         $tipPopup.close();
+//     });
+// }
+
+// const openTipPopupHandle = e => {
+//     console.log(e.type);
+//     const tipPopup = e.currentTarget.nextElementSibling;
+//     tipPopup.show();
+// }
+
+// const clickTipPopupHandle = e => {
+//     console.log(e.type);
+//     const popup = e.currentTarget;
+//     popup.close();
+// }
+
+const showAllCityPopups = () => {
     $cityPopups.forEach($cityPopup => {
         $cityPopup.show();
     });
@@ -38,19 +72,19 @@ const showAllPopups = () => {
     }
 }
 
-const closeAllPopups = () => {
+const closeAllCityPopups = () => {
     $cityPopups.forEach($cityPopup => {
         $cityPopup.close();
     });
 }
 
-const openPopupHadle = e => {
+const openCityPopupHadle = e => {
     const cityPopup = e.currentTarget.nextElementSibling;
     currentPopup = Array.from($cityPopups).indexOf(cityPopup);
     cityPopup.showModal();
 }
 
-const clickPopupHandle = e => {
+const clickCityPopupHandle = e => {
     const popup = e.currentTarget;
     const popupDimeensions = popup.getBoundingClientRect();
     if (
@@ -59,29 +93,29 @@ const clickPopupHandle = e => {
         e.clientY < popupDimeensions.top ||
         e.clientY > popupDimeensions.bottom
     ) {
-        popup.close()
+        popup.close();
     }
 }
 
-const closePopupHandle = e => {
+const closeCityPopupHandle = e => {
     e.currentTarget.parentElement.parentElement.close();
 }
 
 const nextStopHandle = () => {
     if (currentPopup < $cityPopups.length - 1) {
         currentPopup++;
-        switchPopup(currentPopup);
+        switchCityPopup(currentPopup);
     }
 };
 
 const lastStopHandle = () => {
     if (currentPopup > 0) {
         currentPopup--;
-        switchPopup(currentPopup);
+        switchCityPopup(currentPopup);
     }
 };
 
-const switchPopup = (currentPopup) => {
+const switchCityPopup = (currentPopup) => {
     $cityPopups.forEach(($cityPopup, i) => {
         if (i === currentPopup) {
             $cityPopup.showModal();
@@ -92,35 +126,46 @@ const switchPopup = (currentPopup) => {
 }
 
 const init = () => {
-    window.addEventListener('resize', windowResizedHandle);
+    checkHoverSupport();
+    window.addEventListener(`resize`, windowResizedHandle);
+    window.addEventListener(`hover`, checkHoverSupport);
+
+    //  --- idCard --- //
+
     if (window.innerWidth >= 500) {
         $idCard.addEventListener(`click`, openIdHanle);
     }
 
+    // --- tipPopup --- //
+    // closeAllTipsPopups();
+    // $tipsButtons.forEach($tipButton => {
+    //     $tipButton.addEventListener('click', openTipPopupHandle);
+    // });
+    // $tipsPopups.forEach($tipPopup => {
+    //     $tipPopup.addEventListener('click', clickTipPopupHandle);
+    // });
+
+    // --- cityPopups --- //
+
     if (window.innerWidth <= 550) {
-        showAllPopups();
+        showAllCityPopups();
     }
-    
     if (window.innerWidth >= 550) {
-        closeAllPopups();
+        closeAllCityPopups();
     }
 
     $cityButtons.forEach($cityButton => {
-        $cityButton.addEventListener(`click`, openPopupHadle);
+        $cityButton.addEventListener(`click`, openCityPopupHadle);
     });
-
     $cityPopups.forEach($cityPopup => {
-        $cityPopup.addEventListener(`click`, clickPopupHandle);
+        $cityPopup.addEventListener(`click`, clickCityPopupHandle);
     })
-
     $closePopups.forEach($closePopup => {
-        $closePopup.addEventListener(`click`, closePopupHandle);
+        $closePopup.addEventListener(`click`, closeCityPopupHandle);
     })
-
     $nextPopups.forEach(($nextPopup) => {
         $nextPopup.addEventListener(`click`, nextStopHandle);
     });
-
     $lastPopups.forEach(($lastPopup) => {
         $lastPopup.addEventListener(`click`, lastStopHandle);
     });
