@@ -44,10 +44,10 @@ const openIdHanle = e => {
     closeAllCityPopups();
 }
 
-const conversation = () => {
+const convoAnimation = () => {
     gsap.from(".intro__convo", {
         scrollTrigger: {
-            markers: {},
+            // markers: {},
             trigger: ".intro__convo",
             start: "top 70%",
             toggleClass: "intro__convo--animation",
@@ -70,6 +70,33 @@ const trainArrival = () => {
         duration: 1.5,
         ease: "power1.out",
     })
+}
+
+const tableFood = () => {
+    const $tableObjects = document.querySelectorAll(`.table__wrapper > *`);
+    const objectMargins = {
+        top: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
+        bottom: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
+        left: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
+        right: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
+    }
+
+    for (let i = 0; i < $tableObjects.length; i++) {
+        gsap.from([i], {
+            // marginTop: objectMargins.top[i],
+            // marginBottom: objectMargins.bottom[i],
+            scrollTrigger: {
+                markers: {},
+                trigger: ".table__wrapper",
+                start: "top 0%",
+                end: "bottom 100%",
+                scrub: 1,
+            },
+            duration: 1.5,
+            ease: "power1.out",
+            stagger: 0.5,
+        })
+    }
 }
 
 // const closeAllTipsPopups = () => {
@@ -168,8 +195,9 @@ const init = () => {
 
     // --- scrolltriggers --- //
 
-    conversation();
+    convoAnimation();
     trainArrival();
+    tableFood();
 
     // --- tipPopup --- //
     // closeAllTipsPopups();
