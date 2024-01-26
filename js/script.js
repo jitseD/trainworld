@@ -1,10 +1,15 @@
+import '@dotlottie/player-component';
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 let hoverSupported = false;
 
 const $idCard = document.querySelector(`.id__card`);
 
-// const $tipsButtons = document.querySelectorAll(`.tip`);
-// const $tipsPopups = document.querySelectorAll(`.tip__popup`);
+const $foodDropzone = document.querySelector(`.dropzone`);
+const $imgages = document.querySelectorAll(`img`);
+const $foodImages = document.querySelectorAll(`.table__wrapper img`)
+let dragged;
 
 const $citiesWrapper = document.querySelector(`.cities__wrapper`);
 const $cityButtons = document.querySelectorAll(`.city__button`);
@@ -99,23 +104,31 @@ const tableFood = () => {
     }
 }
 
-// const closeAllTipsPopups = () => {
-//     $tipsPopups.forEach($tipPopup => {
-//         $tipPopup.close();
-//     });
-// }
+const dragStartHandle = (e) => {
+    dragged = e.target;
+    console.log(`dragStartHandle`);
+    e.dataTransfer.effectAllowed = 'copy';
+};
 
-// const openTipPopupHandle = e => {
-//     console.log(e.type);
-//     const tipPopup = e.currentTarget.nextElementSibling;
-//     tipPopup.show();
-// }
+const dragOverHandle = (e) => {
+    e.preventDefault();
+    console.log(`dragEnterHandle`);
+    e.currentTarget.style.backgroundColor = '#A3C3CE';
+};
 
-// const clickTipPopupHandle = e => {
-//     console.log(e.type);
-//     const popup = e.currentTarget;
-//     popup.close();
-// }
+const dragLeaveHandle = (e) => {
+    e.preventDefault();
+    console.log(`dragLeaveHandle`);
+    e.currentTarget.style.backgroundColor = 'unset';
+};
+
+const dropHandle = (e) => {
+    e.preventDefault();
+    console.log(`dropHandle`);
+    e.currentTarget.style.backgroundColor = 'unset';
+    const clone = dragged.cloneNode(true);
+    e.currentTarget.appendChild(clone);
+};
 
 const showAllCityPopups = () => {
     $cityPopups.forEach($cityPopup => {
@@ -199,14 +212,23 @@ const init = () => {
     trainArrival();
     tableFood();
 
-    // --- tipPopup --- //
-    // closeAllTipsPopups();
-    // $tipsButtons.forEach($tipButton => {
-    //     $tipButton.addEventListener('click', openTipPopupHandle);
-    // });
-    // $tipsPopups.forEach($tipPopup => {
-    //     $tipPopup.addEventListener('click', clickTipPopupHandle);
-    // });
+    // --- food --- //
+
+    document.addEventListener('dragstart', dragStartHandle);
+
+    $imgages.forEach($image => {
+        $image.setAttribute(`draggable`, false);
+    });
+    $foodImages.forEach(($foodImage) => {
+        $foodImage.setAttribute('draggable', true);
+        // $foodImage.addEventListener('dragenter', dragOverHandle);
+        // $foodImage.addEventListener('dragleave', dragLeaveHandle);
+        // $foodImage.addEventListener('drop', dropHandle);
+    });
+
+    $foodDropzone.addEventListener('dragover', dragOverHandle);
+    $foodDropzone.addEventListener('drop', dropHandle);
+    $foodDropzone.addEventListener('dragleave', dragLeaveHandle);
 
     // --- cityPopups --- //
 

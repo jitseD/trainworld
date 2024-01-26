@@ -805,8 +805,13 @@ header .frame__img:nth-child(7) {
 }
 
 .table__wrapper div img {
-    filter: grayscale();
+    filter: grayscale(1);
     inline-size: inherit;
+    transition: filter 0.25s ease-in-out;
+}
+
+.table__wrapper div:hover img {
+    filter: grayscale(0);
 }
 
 .table__wrapper div {
