@@ -192,7 +192,7 @@ section {
 .cta::before,
 .cta::after {
     position: absolute;
-    block-size: 13px;
+    block-size: 0.8125rem;
     aspect-ratio: 19/13;
     background-position: top right;
     background-image: url(../assets/img/cta-ornament.svg);
@@ -206,12 +206,12 @@ section {
 
 .cta::before {
     left: 0;
-    transform: translate(-18px, 7px);
+    transform: translate(-1.125rem, 0.4375rem);
 }
 
 .cta::after {
     right: 0;
-    transform: translate(-18px, -7px);
+    transform: translate(-1.125rem, -0.4375rem);
     rotate: 180deg;
 }
 
@@ -254,7 +254,7 @@ dialog {
 
 .tip__popup--wrapper {
     inline-size: calc(100vw - 2*var(--space-s-xl));
-    max-inline-size: 286px;
+    max-inline-size: 17.875rem;
     background-color: var(--c-yellow);
     border: var(--c-yellow) 1px solid;
     color: var(--c-beige);
@@ -272,10 +272,10 @@ dialog {
 }
 
 .tip__frame {
-    top: -7px;
-    left: -7px;
-    inline-size: calc(100% + 14px);
-    block-size: calc(100% + 14px);
+    top: -0.4375rem;
+    left: -0.4375rem;
+    inline-size: calc(100% + 0.875rem);
+    block-size: calc(100% + 0.875rem);
 }
 
 .tip__frame div {
@@ -335,7 +335,7 @@ dialog {
     inline-size: 100%;
     block-size: 100%;
     background-image: url(../assets/img/line-frame.svg);
-    background-size: 25px;
+    background-size: 1.5625rem;
     background-repeat: no-repeat;
 }
 
@@ -399,10 +399,10 @@ dialog {
     block-size: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    inline-size: calc(100% + 40px);
-    block-size: calc(100% + 40px);
-    top: -20px;
-    left: -20px;
+    inline-size: calc(100% + 2.5rem);
+    block-size: calc(100% + 2.5rem);
+    top: -1.25rem;
+    left: -1.25rem;
     z-index: -10;
 }
 
@@ -446,7 +446,7 @@ header .frame {
 
 header .frame__img {
     background-image: url(../assets/img/line-frame-rotated.svg);
-    background-size: 400px;
+    background-size: 25rem;
 }
 
 header .frame__img:nth-child(1) {
@@ -500,7 +500,7 @@ header .frame__img:nth-child(7) {
     transition: rotation 0.5s ease-in-out, position 0.5s ease-in-out, inline-size 0.5s ease-in-out;
 }
 
-.id__card img{
+.id__card img {
     max-inline-size: 34rem;
 }
 
@@ -540,7 +540,7 @@ header .frame__img:nth-child(7) {
     max-block-size: 100svh;
     overflow-y: hidden;
     inline-size: 100%;
-    max-inline-size: 600px;
+    max-inline-size: 37.5rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, max-content);
@@ -563,12 +563,12 @@ header .frame__img:nth-child(7) {
 }
 
 .convo__text--left {
-    border-radius: 40px 40px 40px 0;
+    border-radius: 2.5rem 2.5rem 2.5rem 0;
     border: solid 2px var(--c-yellow);
 }
 
 .convo__text--right {
-    border-radius: 40px 40px 0 40px;
+    border-radius: 2.5rem 2.5rem 0 2.5rem;
     border: solid 2px var(--c-blue);
     text-align: end;
     justify-self: flex-end;
@@ -576,11 +576,11 @@ header .frame__img:nth-child(7) {
 
 .convo__text:nth-child(1),
 .convo__text:nth-child(2) {
-    max-inline-size: calc(225px + 2 * var(--space-s));
+    max-inline-size: calc(14rem + 2 * var(--space-s));
 }
 
 .convo__text:nth-child(3) {
-    max-inline-size: calc(320px + 2 * var(--space-s));
+    max-inline-size: calc(20rem + 2 * var(--space-s));
 }
 
 .convo__man {
@@ -738,7 +738,7 @@ header .frame__img:nth-child(7) {
     transform: translateY(-75%);
 }
 
-.train__img img{
+.train__img img {
     max-inline-size: 100rem;
 }
 
@@ -771,7 +771,7 @@ header .frame__img:nth-child(7) {
 .room__img {
     display: grid;
     place-self: center;
-    max-inline-size: 700px;
+    max-inline-size: 43.75rem;
 }
 
 .room__img * {
@@ -791,7 +791,7 @@ header .frame__img:nth-child(7) {
     block-size: max-content;
     background-color: var(--c-yellow);
     color: var(--c-beige);
-    padding: 10px;
+    padding: 0.625rem;
     justify-self: center;
     margin-block-start: calc(0rem - var(--space-s));
     z-index: 10;
@@ -833,7 +833,7 @@ header .frame__img:nth-child(7) {
 
 .table__wrapper {
     display: grid;
-    inline-size: 360px;
+    inline-size: 22.5rem;
     aspect-ratio: 18/47;
 }
 
@@ -873,8 +873,8 @@ header .frame__img:nth-child(7) {
 }
 
 .soup__wrapper::after {
-    inline-size: 15%;
     border: var(--c-yellow) 3px solid;
+    inline-size: 15%;
     left: 30%;
     top: 90%;
 }
@@ -1341,7 +1341,7 @@ header .frame__img:nth-child(7) {
     .frame__img,
     header .frame__img {
         background-image: url(../assets/img/rect-frame.svg);
-        background-size: 1000px;
+        background-size: 62.5rem;
     }
 
     .frame__img:nth-child(1) {
@@ -1428,7 +1428,7 @@ header .frame__img:nth-child(7) {
     .train__img {
         transform: translateY(-85%);
     }
-    
+
     .train__track {
         inline-size: 125vw;
         transform: translateY(7%);
@@ -1454,7 +1454,7 @@ header .frame__img:nth-child(7) {
     }
 
     .intro__crowd p {
-        width: 280px;
+        width: 17.5rem;
         text-align: end;
         height: fit-content;
         margin-inline: var(--space-s);
@@ -1560,7 +1560,7 @@ header .frame__img:nth-child(7) {
         transform: translate(-50%, -50%);
         overflow: visible;
         inline-size: 80vw;
-        max-inline-size: 600px;
+        max-inline-size: 37.5rem;
         margin: unset;
         padding: var(--space-s);
     }
@@ -1630,7 +1630,7 @@ header .frame__img:nth-child(7) {
     /* --- cities --- */
 
     .city__popup {
-        max-inline-size: 750px;
+        max-inline-size: 46.875rem;
     }
 
     .city__info {
@@ -1755,7 +1755,7 @@ header .frame__img:nth-child(7) {
     /* --- table --- */
 
     .table__wrapper {
-        inline-size: 834px;
+        inline-size: 52.125rem;
         aspect-ratio: 417/370;
     }
 
@@ -1975,7 +1975,7 @@ header .frame__img:nth-child(7) {
         text-align: unset;
         margin: unset;
         margin-block: var(--space-m);
-        inline-size: 300px;
+        inline-size: 18.75rem;
     }
 
     .crowd__container {
@@ -2369,17 +2369,17 @@ header .frame__img:nth-child(7) {
     }
 }
 
-@media (min-width:1300px) {
+@media (min-width: 1300px) {
 
     /* --- table --- */
 
     .table__wrapper {
-        inline-size: 1512px;
+        inline-size: 94.5rem;
         aspect-ratio: 5/3;
     }
 
     .table__wrapper div::after {
-        border-width: 4px;
+        border-width: 0.25rem;
     }
 
     .asperges__wrapper {
@@ -2389,7 +2389,7 @@ header .frame__img:nth-child(7) {
 
     .icecake__wrapper {
         inline-size: 25.5rem;
-        transform: translate(560px, 50%) rotate(-15deg);
+        transform: translate(135%, 50%) rotate(-15deg);
     }
 
     .salmon__wrapper {
@@ -2437,7 +2437,7 @@ header .frame__img:nth-child(7) {
     }
 }
 
-@media (min-width:1600px) {
+@media (min-width: 1600px) {
 
     /* --- passengers --- */
 
@@ -2530,7 +2530,7 @@ html:has(.id__card--big) {
     margin: unset;
 }
 
-.id__card--big img{
+.id__card--big img {
     inline-size: 90vw;
     max-inline-size: 68.75rem;
 }
