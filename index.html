@@ -46,7 +46,19 @@
           wealthy businessman's family, accompanying them on their <strong>journey to Cairo</strong>. The clock struck
           nine in the evening, and the train was set to depart in half an hour.
         </p>
-        <img class="id__card" src="./assets/img/id-louise-marechal.png" alt="Louises id" width="430">
+        <picture class="id__card">
+          <source srcset="
+            ./assets/img/id-louise-marechal-430.avif 430w,
+            ./assets/img/id-louise-marechal-630.avif 630w,
+            ./assets/img/id-louise-marechal-1100.avif 1100w,
+            " sizes="(min-width: 500px) 45vw, 135vw" type="image/avif">
+          <source srcset="
+            ./assets/img/id-louise-marechal-430.webp 430w,
+            ./assets/img/id-louise-marechal-630.webp 630w,
+            ./assets/img/id-louise-marechal-1100.webp 1100w,
+            " sizes="(min-width: 500px) 45vw, 135vw" type="image/webp">
+          <img src="./assets/img/id-louise-marechal.png" alt="Louises id">
+        </picture>
       </div>
       <div class="intro__crowd">
         <p>
@@ -54,8 +66,32 @@
           <strong>the trains' history</strong>.
         </p>
         <div class="crowd__container">
-          <img class="crowd__louise" src="./assets/img/louise-marechal.png" alt="louise maréchal" width="120">
-          <img class="crowd__men" src="./assets/img/talking-men.png" alt="talking men" width="140">
+          <picture class="crowd__louise">
+            <source srcset="
+              ./assets/img/louise-marechal-130.avif 130w,
+              ./assets/img/louise-marechal-260.avif 260w,
+              ./assets/img/louise-marechal-360.avif 360w,
+              " sizes="(min-width: 1000px) 22rem, (min-width: 550px) 15.5rem, 7.5rem" type="image/avif">
+            <source srcset="
+              ./assets/img/louise-marechal-130.webp 130w,
+              ./assets/img/louise-marechal-260.webp 260w,
+              ./assets/img/louise-marechal-360.webp 360w,
+              " sizes="(min-width: 1000px) 22rem, (min-width: 550px) 15.5rem,7.5rem" type="image/webp">
+            <img src="./assets/img/louise-marechal.png" alt="louise maréchal">
+          </picture>
+          <picture class="crowd__men">
+            <source srcset="
+              ./assets/img/talking-men-140.avif 140w,
+              ./assets/img/talking-men-270.avif 270w,
+              ./assets/img/talking-men-380.avif 380w,
+              " sizes="(min-width: 1000px) 23.75rem, (min-width: 550px) 16.875rem, 8.75rem" type="image/avif">
+            <source srcset="
+              ./assets/img/talking-men-140.webp 140w,
+              ./assets/img/talking-men-270.webp 270w,
+              ./assets/img/talking-men-380.webp 380w,
+              " sizes="(min-width: 1000px) 23.75rem, (min-width: 550px) 16.875rem,8.75rem" type="image/webp">
+            <img src="./assets/img/talking-men.png" alt="talking men">
+          </picture>
           <img class="crowd__crowd" src="./assets/img/crowd.svg" alt="crowd">
         </div>
       </div>
@@ -70,9 +106,28 @@
           </p>
           <p class="convo__text convo__text--right">Ah, that fella!</p>
         </div>
-        <img class="convo__man convo__man--left" src="./assets/img/talking-man-left.png" alt="talking man" width="100">
-        <img class="convo__man convo__man--right" src="./assets/img/talking-man-right.png" alt="talking man"
-          width="140">
+        <picture class="convo__man convo__man--left">
+          <source srcset="
+            ./assets/img/talking-man-left-100.avif 100w,
+            ./assets/img/talking-man-left-140.avif 140w,
+            " sizes="(min-width: 1000px) 8.75rem, 6.25rem" type="image/avif">
+          <source srcset="
+            ./assets/img/talking-man-left-100.webp 100w,
+            ./assets/img/talking-man-left-140.webp 140w,
+            " sizes="(min-width: 1000px) 8.75rem, 6.25rem" type="image/webp">
+          <img src="./assets/img/talking-man--left.png" alt="talking man left">
+        </picture>
+        <picture class="convo__man convo__man--right">
+          <source srcset="
+            ./assets/img/talking-man-right-140.avif 140w,
+            ./assets/img/talking-man-right-200.avif 200w,
+            " sizes="(min-width: 1000px) 12.5rem, 8.75rem" type="image/avif">
+          <source srcset="
+            ./assets/img/talking-man-right-140.webp 140w,
+            ./assets/img/talking-man-right-200.webp 200w,
+            " sizes="(min-width: 1000px) 12.5rem, 8.75rem" type="image/webp">
+          <img src="./assets/img/talking-man--right.png" alt="talking man right">
+        </picture>
       </div>
     </section>
     <section class="chapter chapter--1">
@@ -109,21 +164,16 @@
           </div>
           <picture class="diplomat diplomat--img">
             <source srcset="
-                      ./assets/img/diplomat-175.avif 175w,
-                      ./assets/img/diplomat-230.avif 230w,
-                      ./assets/img/diplomat-300.avif 300w,
-                      " sizes="(min-width: 1600px) 20rem, (min-width:800px) 20vw, 20rem" type="image/avif">
+              ./assets/img/diplomat-175.avif 175w,
+              ./assets/img/diplomat-230.avif 230w,
+              ./assets/img/diplomat-300.avif 300w,
+              " sizes="(min-width: 1600px) 20rem, (min-width:800px) 20vw, 20rem" type="image/avif">
             <source srcset="
-                      ./assets/img/diplomat-175.webp 175w,
-                      ./assets/img/diplomat-230.webp 230w,
-                      ./assets/img/diplomat-300.webp 300w,
-                      " sizes="(min-width: 1600px) 20rem, (min-width:800px) 20vw, 20rem" type="image/webp">
-            <source srcset="
-                      ./assets/img/diplomat-175.jpeg 175w,
-                      ./assets/img/diplomat-230.jpeg 230w,
-                      ./assets/img/diplomat-300.jpeg 300w,
-                      " sizes="(min-width: 1600px) 20rem, (min-width:800px) 20vw, 20rem" type="image/jpeg">
-            <img src="./assets/img/diplomat.avif" alt="diplomat">
+              ./assets/img/diplomat-175.webp 175w,
+              ./assets/img/diplomat-230.webp 230w,
+              ./assets/img/diplomat-300.webp 300w,
+              " sizes="(min-width: 1600px) 20rem, (min-width:800px) 20vw, 20rem" type="image/webp">
+            <img src="./assets/img/diplomat.png" alt="diplomat">
           </picture>
           <img class="passengers__passenger passengers__passenger--2" src="./assets/img/passengers-2.svg"
             alt="passenegrs">
@@ -132,94 +182,89 @@
           </div>
           <picture class="star star--img">
             <source srcset="
-                      ./assets/img/star-115.avif 115w,
-                      ./assets/img/star-165.avif 165w,
-                      ./assets/img/star-215.avif 215w,
-                      " sizes="(min-width: 1600px) 14rem, (min-width:800px) 14vw, 14rem" type="image/avif">
+              ./assets/img/star-115.avif 115w,
+              ./assets/img/star-165.avif 165w,
+              ./assets/img/star-215.avif 215w,
+              " sizes="(min-width: 1600px) 14rem, (min-width:800px) 14vw, 14rem" type="image/avif">
             <source srcset="
-                      ./assets/img/star-115.webp 115w,
-                      ./assets/img/star-165.webp 165w,
-                      ./assets/img/star-215.webp 215w,
-                      " sizes="(min-width: 1600px) 14rem, (min-width:800px) 14vw, 14rem" type="image/webp">
-            <source srcset="
-                      ./assets/img/star-115.jpeg 115w,
-                      ./assets/img/star-165.jpeg 165w,
-                      ./assets/img/star-215.jpeg 215w,
-                      " sizes="(min-width: 1600px) 14rem, (min-width:800px) 14vw, 14rem" type="image/jpeg">
-            <img src="./assets/img/star.avif" alt="star">
+              ./assets/img/star-115.webp 115w,
+              ./assets/img/star-165.webp 165w,
+              ./assets/img/star-215.webp 215w,
+              " sizes="(min-width: 1600px) 14rem, (min-width:800px) 14vw, 14rem" type="image/webp">
+            <img src="./assets/img/star.png" alt="star">
           </picture>
           <div class="writer writer--hover">
             <p>artists and writers</p>
           </div>
           <picture class="writer writer--img">
             <source srcset="
-                                ./assets/img/writer-120.avif 120w,
-                                ./assets/img/writer-160.avif 160w,
-                                ./assets/img/writer-215.avif 215w,
-                                " sizes="(min-width: 1600px) 15rem, (min-width:800px) 15vw, 15rem" type="image/avif">
+              ./assets/img/writer-120.avif 120w,
+              ./assets/img/writer-160.avif 160w,
+              ./assets/img/writer-215.avif 215w,
+              " sizes="(min-width: 1600px) 15rem, (min-width:800px) 15vw, 15rem" type="image/avif">
             <source srcset="
-                                ./assets/img/writer-120.webp 120w,
-                                ./assets/img/writer-160.webp 160w,
-                                ./assets/img/writer-215.webp 215w,
-                                " sizes="(min-width: 1600px) 15rem, (min-width:800px) 15vw, 15rem" type="image/webp">
-            <source srcset="
-                                ./assets/img/writer-120.jpeg 120w,
-                                ./assets/img/writer-160.jpeg 160w,
-                                ./assets/img/writer-215.jpeg 215w,
-                                " sizes="(min-width: 1600px) 15rem, (min-width:800px) 15vw, 15rem" type="image/jpeg">
-            <img src="./assets/img/writer.avif" alt="writer">
+                ./assets/img/writer-120.webp 120w,
+                ./assets/img/writer-160.webp 160w,
+                ./assets/img/writer-215.webp 215w,
+                " sizes="(min-width: 1600px) 15rem, (min-width:800px) 15vw, 15rem" type="image/webp">
+            <img src="./assets/img/writer.png" alt="writer">
           </picture>
           <div class="trader trader--hover">
             <p>traders from the East</p>
           </div>
           <picture class="trader trader--img">
             <source srcset="
-                                ./assets/img/trader-90.avif 90w,
-                                ./assets/img/trader-125.avif 125w,
-                                ./assets/img/trader-160.avif 160w,
-                                " sizes="(min-width: 1600px) 11rem, (min-width:800px) 11vw, 11rem" type="image/avif">
+              ./assets/img/trader-90.avif 90w,
+              ./assets/img/trader-125.avif 125w,
+              ./assets/img/trader-160.avif 160w,
+              " sizes="(min-width: 1600px) 11rem, (min-width:800px) 11vw, 11rem" type="image/avif">
             <source srcset="
-                                ./assets/img/trader-90.webp 90w,
-                                ./assets/img/trader-125.webp 125w,
-                                ./assets/img/trader-160.webp 160w,
-                                " sizes="(min-width: 1600px) 11rem, (min-width:800px) 11vw, 11rem" type="image/webp">
-            <source srcset="
-                                ./assets/img/trader-90.jpeg 90w,
-                                ./assets/img/trader-125.jpeg 125w,
-                                ./assets/img/trader-160.jpeg 160w,
-                                " sizes="(min-width: 1600px) 11rem, (min-width:800px) 11vw, 11rem" type="image/jpeg">
-            <img src="./assets/img/trader.avif" alt="trader">
+              ./assets/img/trader-90.webp 90w,
+              ./assets/img/trader-125.webp 125w,
+              ./assets/img/trader-160.webp 160w,
+              " sizes="(min-width: 1600px) 11rem, (min-width:800px) 11vw, 11rem" type="image/webp">
+            <img src="./assets/img/trader.png" alt="trader">
           </picture>
           <div class="indian indian--hover">
             <p>Indian Maharajas</p>
           </div>
           <picture class="indian indian--img">
             <source srcset="
-                                ./assets/img/indian-100.avif 100w,
-                                ./assets/img/indian-135.avif 135w,
-                                ./assets/img/indian-175.avif 175w,
-                                " sizes="(min-width: 1600px) 12rem, (min-width:800px) 12vw, 12rem" type="image/avif">
+              ./assets/img/indian-100.avif 100w,
+              ./assets/img/indian-135.avif 135w,
+              ./assets/img/indian-175.avif 175w,
+              " sizes="(min-width: 1600px) 12rem, (min-width:800px) 12vw, 12rem" type="image/avif">
             <source srcset="
-                                ./assets/img/indian-100.webp 100w,
-                                ./assets/img/indian-135.webp 135w,
-                                ./assets/img/indian-175.webp 175w,
-                                " sizes="(min-width: 1600px) 12rem, (min-width:800px) 12vw, 12rem" type="image/webp">
-            <source srcset="
-                                ./assets/img/indian-100.jpeg 100w,
-                                ./assets/img/indian-135.jpeg 135w,
-                                ./assets/img/indian-175.jpeg 175w,
-                                " sizes="(min-width: 1600px) 12rem, (min-width:800px) 12vw, 12rem" type="image/jpeg">
-            <img src="./assets/img/indian.avif" alt="indian">
+              ./assets/img/indian-100.webp 100w,
+              ./assets/img/indian-135.webp 135w,
+              ./assets/img/indian-175.webp 175w,
+              " sizes="(min-width: 1600px) 12rem, (min-width:800px) 12vw, 12rem" type="image/webp">
+            <img src="./assets/img/indian.png" alt="indian">
           </picture>
           <img class="passengers__passenger passengers__passenger--3" src="./assets/img/passengers-3.svg"
-            alt="passenegrs">
+          alt="passenegrs">
           <img class="passengers__passenger passengers__passenger--4" src="./assets/img/passengers-4.svg"
-            alt="passenegrs">
+          alt="passenegrs">
         </div>
       </div>
       <div class="train__container">
         <img class="train__track" src="./assets/img/train-track.svg" alt="train tracks">
-        <img class="train__img" src="./assets/img/train.png" alt="train">
+        <picture class="train__img">
+          <source srcset="
+            ./assets/img/train-500.avif 500w,
+            ./assets/img/train-750.avif 750w,
+            ./assets/img/train-1000.avif 1000w,
+            ./assets/img/train-1600.avif 1600w,
+            " sizes="(min-width: 750px) 100vw, (min-width: 500px) 125vw, 200vw" type="image/avif">
+          <source srcset="
+            ./assets/img/train-500.webp 500w,
+            ./assets/img/train-750.webp 750w,
+            ./assets/img/train-1000.webp 1000w,
+            ./assets/img/train-1000.webp 1000w,
+            ./assets/img/train-1600.webp 1600w,
+            " sizes="(min-width: 750px) 100vw, (min-width :500px) 125vw, 200vw" type="image/webp">
+          <img src="./assets/img/train.png" alt="train">
+        </picture>
       </div>
       <div class="room__container">
         <div class="room__info">
@@ -317,12 +362,7 @@
                 ./assets/img/icecake-320.webp 320w,
                 ./assets/img/icecake-410.webp 410w,
                 " sizes="(min-width:1300px) 25.5rem, (min-width:750px) 20rem, 13.75rem" type="image/webp">
-              <source srcset="
-                ./assets/img/icecake-220.jpeg 220w,
-                ./assets/img/icecake-320.jpeg 320w,
-                ./assets/img/icecake-410.jpeg 410w,
-                " sizes="(min-width:1300px) 25.5rem, (min-width:750px) 20rem, 13.75rem" type="image/jpeg">
-              <img src="./assets/img/icecake.avif" alt="souffle alaska">
+              <img src="./assets/img/icecake.png" alt="souffle alaska">
             </picture>
           </div>
           <div class="asperges__wrapper">
@@ -337,12 +377,7 @@
                 ./assets/img/asperges-200.webp 200w,
                 ./assets/img/asperges-275.webp 275w,
                 " sizes="(min-width:1300px) 17rem, (min-width:750px) 12.5rem, 9.5rem" type="image/webp">
-              <source srcset="
-                ./assets/img/asperges-155.jpeg 155w,
-                ./assets/img/asperges-200.jpeg 200w,
-                ./assets/img/asperges-275.jpeg 275w,
-                " sizes="(min-width:1300px) 17rem, (min-width:750px) 12.5rem, 9.5rem" type="image/jpeg">
-              <img src="./assets/img/asperges.avif" alt="asperges">
+              <img src="./assets/img/asperges.png" alt="asperges">
             </picture>
           </div>
           <picture>
@@ -356,12 +391,7 @@
               ./assets/img/cutlery-fork-25.webp 25w,
               ./assets/img/cutlery-fork-35.webp 35w,
               " sizes="(min-width:1300px) 2rem, (min-width:750px) 1.5rem, 1.25rem" type="image/webp">
-            <source srcset="
-              ./assets/img/cutlery-fork-20.jpeg 20w,
-              ./assets/img/cutlery-fork-25.jpeg 25w,
-              ./assets/img/cutlery-fork-35.jpeg 35w,
-              " sizes="(min-width:1300px) 2rem, (min-width:750px) 1.5rem, 1.25rem" type="image/jpeg">
-            <img class="fork" src="./assets/img/cutlery-fork.avif" alt="fork">
+            <img class="fork" src="./assets/img/cutlery-fork.png" alt="fork">
           </picture>
           <picture>
             <source srcset="
@@ -374,12 +404,7 @@
               ./assets/img/cutlery-knife-15.webp 15w,
               ./assets/img/cutlery-knife-20.webp 20w,
               " sizes="(min-width:1300px) 1.25rem, (min-width:750px) 1rem, 0.625rem" type="image/webp">
-            <source srcset="
-              ./assets/img/cutlery-knife-10.jpeg 10w,
-              ./assets/img/cutlery-knife-15.jpeg 15w,
-              ./assets/img/cutlery-knife-20.jpeg 20w,
-              " sizes="(min-width:1300px) 1.25rem, (min-width:750px) 1rem, 0.625rem" type="image/jpeg">
-            <img class="knife" src="./assets/img/cutlery-knife.avif" alt="knife">
+            <img class="knife" src="./assets/img/cutlery-knife.png" alt="knife">
           </picture>
           <picture>
             <source srcset="
@@ -392,12 +417,7 @@
               ./assets/img/drink-rasberry-85.webp 85w,
               ./assets/img/drink-rasberry-100.webp 100w,
               " sizes="(min-width:1300px) 6.25rem, (min-width:750px) 5rem, 4rem" type="image/webp">
-            <source srcset="
-              ./assets/img/drink-rasberry-65.jpeg 65w,
-              ./assets/img/drink-rasberry-85.jpeg 85w,
-              ./assets/img/drink-rasberry-100.jpeg 100w,
-              " sizes="(min-width:1300px) 6.25rem, (min-width:750px) 5rem, 4rem" type="image/jpeg">
-            <img class="rasberry" src="./assets/img/drink-rasberry.avif" alt="drink-rasberry">
+            <img class="rasberry" src="./assets/img/drink-rasberry.png" alt="drink-rasberry">
           </picture>
           <div class="meat__wrapper">
             <picture>
@@ -411,12 +431,7 @@
                 ./assets/img/meat-235.webp 235w,
                 ./assets/img/meat-330.webp 330w,
                 " sizes="(min-width:1300px) 20.5rem, (min-width:750px) 14.5rem, 11.5rem" type="image/webp">
-              <source srcset="
-                ./assets/img/meat-185.jpeg 185w,
-                ./assets/img/meat-235.jpeg 235w,
-                ./assets/img/meat-330.jpeg 330w,
-                " sizes="(min-width:1300px) 20.5rem, (min-width:750px) 14.5rem, 11.5rem" type="image/jpeg">
-              <img src="./assets/img/meat.avif" alt="cuissot de veau ecarlate">
+              <img src="./assets/img/meat.png" alt="cuissot de veau ecarlate">
             </picture>
           </div>
           <picture>
@@ -430,12 +445,7 @@
               ./assets/img/drink-lemon-90.webp 90w,
               ./assets/img/drink-lemon-120.webp 120w,
               " sizes="(min-width:1300px) 7.5rem, (min-width:750px) 5.5rem, 4rem" type="image/webp">
-            <source srcset="
-              ./assets/img/drink-lemon-70.jpeg 70w,
-              ./assets/img/drink-lemon-90.jpeg 90w,
-              ./assets/img/drink-lemon-120.jpeg 120w,
-              " sizes="(min-width:1300px) 7.5rem, (min-width:750px) 5.5rem, 4rem" type="image/jpeg">
-            <img class="lemon" src="./assets/img/drink-lemon.avif" alt="drink-lemon">
+            <img class="lemon" src="./assets/img/drink-lemon.png" alt="drink-lemon">
           </picture>
           <div class="fruit__wrapper">
             <picture>
@@ -449,12 +459,7 @@
                 ./assets/img/fruit-155.webp 155w,
                 ./assets/img/fruit-210.webp 210w,
                 " sizes="(min-width:1300px) 13rem, (min-width:750px) 9.5rem, 7.5rem" type="image/webp">
-              <source srcset="
-                ./assets/img/fruit-120.jpeg 120w,
-                ./assets/img/fruit-155.jpeg 155w,
-                ./assets/img/fruit-210.jpeg 210w,
-                " sizes="(min-width:1300px) 13rem, (min-width:750px) 9.5rem, 7.5rem" type="image/jpeg">
-              <img src="./assets/img/fruit.avif" alt="corbeille de fruits">
+              <img src="./assets/img/fruit.png" alt="corbeille de fruits">
             </picture>
           </div>
           <picture>
@@ -468,12 +473,7 @@
               ./assets/img/cutlery-small-fork-20.webp 20w,
               ./assets/img/cutlery-small-fork-25.webp 25w,
               " sizes="(min-width:1300px) 1.5rem, (min-width:750px) 1.25rem, 1rem" type="image/webp">
-            <source srcset="
-              ./assets/img/cutlery-small-fork-15.jpeg 15w,
-              ./assets/img/cutlery-small-fork-20.jpeg 20w,
-              ./assets/img/cutlery-small-fork-25.jpeg 25w,
-              " sizes="(min-width:1300px) 1.5rem, (min-width:750px) 1.25rem, 1rem" type="image/jpeg">
-            <img class="small__fork" src="./assets/img/cutlery-small-fork.avif" alt="small fork">
+            <img class="small__fork" src="./assets/img/cutlery-small-fork.png" alt="small fork">
           </picture>
           <div class="soup__wrapper">
             <picture>
@@ -487,12 +487,7 @@
                 ./assets/img/soup-165.webp 165w,
                 ./assets/img/soup-225.webp 225w,
                 " sizes="(min-width:1300px) 14rem, (min-width:750px) 10rem, 8rem" type="image/webp">
-              <source srcset="
-                ./assets/img/soup-130.jpeg 130w,
-                ./assets/img/soup-165.jpeg 165w,
-                ./assets/img/soup-225.jpeg 225w,
-                " sizes="(min-width:1300px) 14rem, (min-width:750px) 10rem, 8rem" type="image/jpeg">
-              <img src="./assets/img/soup.avif" alt="cconsomme xavier">
+              <img src="./assets/img/soup.png" alt="cconsomme xavier">
             </picture>
           </div>
           <picture>
@@ -506,12 +501,7 @@
                 ./assets/img/cutlery-spoon-90.webp 90w,
                 ./assets/img/cutlery-spoon-135.webp 135w,
                 " sizes="(min-width:1300px) 8.5rem, (min-width:750px) 5.5rem, 4.5rem" type="image/webp">
-            <source srcset="
-                ./assets/img/cutlery-spoon-70.jpeg 70w,
-                ./assets/img/cutlery-spoon-90.jpeg 90w,
-                ./assets/img/cutlery-spoon-135.jpeg 135w,
-                " sizes="(min-width:1300px) 8.5rem, (min-width:750px) 5.5rem, 4.5rem" type="image/jpeg">
-            <img class="spoon" src="./assets/img/cutlery-spoon.avif" alt="spoon">
+            <img class="spoon" src="./assets/img/cutlery-spoon.png" alt="spoon">
           </picture>
           <div class="salmon__wrapper">
             <picture>
@@ -525,12 +515,7 @@
                 ./assets/img/salmon-325.webp 325w,
                 ./assets/img/salmon-425.webp 425w,
                 " sizes="(min-width:1300px) 26.5rem, (min-width:750px) 20rem, 16rem" type="image/webp">
-              <source srcset="
-                ./assets/img/salmon-255.jpeg 255w,
-                ./assets/img/salmon-325.jpeg 325w,
-                ./assets/img/salmon-425.jpeg 425w,
-                " sizes="(min-width:1300px) 26.5rem, (min-width:750px) 20rem, 16rem" type="image/jpeg">
-              <img src="./assets/img/salmon.avif" alt="saumon en bellevue">
+              <img src="./assets/img/salmon.png" alt="saumon en bellevue">
             </picture>
           </div>
         </div>
@@ -948,13 +933,7 @@
                 ./assets/img/dome-600.webp 600w,
                 " sizes="(min-width: 1600px) 37.5rem,(min-width: 1200px) 29.6rem, (min-width:700px) 24.5rem, 12.5rem"
                 type="image/webp">
-              <source srcset="
-                ./assets/img/dome-200.jpeg 200w,
-                ./assets/img/dome-400.jpeg 400w,
-                ./assets/img/dome-600.jpeg 600w,
-                " sizes="(min-width: 1600px) 37.5rem,(min-width: 1200px) 29.6rem, (min-width:700px) 24.5rem, 12.5rem"
-                type="image/jpeg">
-              <img class="station__dome" src="./assets/img/dome.avif" alt="dome">
+              <img class="station__dome" src="./assets/img/dome.png" alt="dome">
             </picture>
             <picture>
               <source srcset="
@@ -969,13 +948,7 @@
                 ./assets/img/rosa-135.webp 135w,
                 " sizes="(min-width: 1600px) 8.125rem,(min-width: 1200px) 6.625rem, (min-width: 700px) 5.5rem, 2.8rem"
                 type="image/webp">
-              <source srcset="
-                ./assets/img/rosa-45.jpeg 45w,
-                ./assets/img/rosa-90.jpeg 90w,
-                ./assets/img/rosa-135.jpeg 135w,
-                " sizes="(min-width: 1600px) 8.125rem,(min-width: 1200px) 6.625rem, (min-width: 700px) 5.5rem, 2.8rem"
-                type="image/jpeg">
-              <img class="station__rosa" src="./assets/img/rosa.avif" alt="rosa">
+              <img class="station__rosa" src="./assets/img/rosa.png" alt="rosa">
             </picture>
             <picture>
               <source srcset="
@@ -990,13 +963,7 @@
                 ./assets/img/brick-left-80.webp 80w,
                 " sizes="(min-width: 1600px) 5rem,(min-width: 1200px) 4rem, (min-width:700px) 3.125rem, 1.625rem"
                 type="image/webp">
-              <source srcset="
-                ./assets/img/brick-left-25.jpeg 25w,
-                ./assets/img/brick-left-50.jpeg 50w,
-                ./assets/img/brick-left-80.jpeg 80w,
-                " sizes="(min-width: 1600px) 5rem,(min-width: 1200px) 4rem, (min-width:700px) 3.125rem, 1.625rem"
-                type="image/jpeg">
-              <img class="station__brick--left" src="./assets/img/brick-left.avif" alt="brick-left">
+              <img class="station__brick--left" src="./assets/img/brick-left.png" alt="brick-left">
             </picture>
             <picture>
               <source srcset="
@@ -1011,13 +978,7 @@
                 ./assets/img/brick-right-80.webp 80w,
                 " sizes="(min-width: 1600px) 5rem,(min-width: 1200px) 4rem, (min-width:700px) 3.125rem, 1.625rem"
                 type="image/webp">
-              <source srcset="
-                ./assets/img/brick-right-25.jpeg 25w,
-                ./assets/img/brick-right-50.jpeg 50w,
-                ./assets/img/brick-right-80.jpeg 80w,
-                " sizes="(min-width: 1600px) 5rem,(min-width: 1200px) 4rem, (min-width:700px) 3.125rem, 1.625rem"
-                type="image/jpeg">
-              <img class="station__brick--right" src="./assets/img/brick-right.avif" alt="brick-right">
+              <img class="station__brick--right" src="./assets/img/brick-right.png" alt="brick-right">
             </picture>
             <picture>
               <source srcset="
@@ -1032,13 +993,7 @@
                 ./assets/img/window-left-125.webp 125w,
                 " sizes="(min-width: 1600px) 7.5rem,(min-width: 1200px) 6.125rem, (min-width:700px) 5rem, 2.5rem"
                 type="image/webp">
-              <source srcset="
-                ./assets/img/window-left-40.jpeg 40w,
-                ./assets/img/window-left-80.jpeg 80w,
-                ./assets/img/window-left-125.jpeg 125w,
-                " sizes="(min-width: 1600px) 7.5rem,(min-width: 1200px) 6.125rem, (min-width:700px) 5rem, 2.5rem"
-                type="image/jpeg">
-              <img class="station__window--left" src="./assets/img/window-left.avif" alt="window-left">
+              <img class="station__window--left" src="./assets/img/window-left.png" alt="window-left">
             </picture>
             <picture>
               <source srcset="
@@ -1053,13 +1008,7 @@
                 ./assets/img/window-right-130.webp 130w,
                 " sizes="(min-width: 1600px) 8rem,(min-width: 1200px) 6.3rem, (min-width:700px) 5.125rem, 2.57rem"
                 type="image/webp">
-              <source srcset="
-                ./assets/img/window-right-45.jpeg 45w,
-                ./assets/img/window-right-85.jpeg 85w,
-                ./assets/img/window-right-130.jpeg 130w,
-                " sizes="(min-width: 1600px) 8rem,(min-width: 1200px) 6.3rem, (min-width:700px) 5.125rem, 2.57rem"
-                type="image/jpeg">
-              <img class="station__window--right" src="./assets/img/window-right.avif" alt="window-right">
+              <img class="station__window--right" src="./assets/img/window-right.png" alt="window-right">
             </picture>
             <picture>
               <source srcset="
@@ -1074,13 +1023,7 @@
                 ./assets/img/tower-left-125.webp 125w,
                 " sizes="(min-width: 1600px) 7.5rem,(min-width: 1200px) 6,2rem, (min-width:700px) 5rem, 2.58rem"
                 type="image/webp">
-              <source srcset="
-                ./assets/img/tower-left-40.jpeg 40w,
-                ./assets/img/tower-left-80.jpeg 80w,
-                ./assets/img/tower-left-125.jpeg 125w,
-                " sizes="(min-width: 1600px) 7.5rem,(min-width: 1200px) 6,2rem, (min-width:700px) 5rem, 2.58rem"
-                type="image/jpeg">
-              <img class="station__tower--left" src="./assets/img/tower-left.avif" alt="tower-left">
+              <img class="station__tower--left" src="./assets/img/tower-left.png" alt="tower-left">
             </picture>
             <picture>
               <source srcset="
@@ -1095,13 +1038,7 @@
                 ./assets/img/tower-right-115.webp 115w,
                 " sizes="(min-width: 1600px) 7.125rem,(min-width: 1200px) 5.75rem, (min-width: 700px) 4.5rem, 2.41rem"
                 type="image/webp">
-              <source srcset="
-                ./assets/img/tower-right-40.jpeg 40w,
-                ./assets/img/tower-right-75.jpeg 75w,
-                ./assets/img/tower-right-115.jpeg 115w,
-                " sizes="(min-width: 1600px) 7.125rem,(min-width: 1200px) 5.75rem, (min-width: 700px) 4.5rem, 2.41rem"
-                type="image/jpeg">
-              <img class="station__tower--right" src="./assets/img/tower-right.avif" alt="tower-right">
+              <img class="station__tower--right" src="./assets/img/tower-right.png" alt="tower-right">
             </picture>
             <picture>
               <source srcset="
@@ -1116,13 +1053,7 @@
                 ./assets/img/station-870.webp 870w,
                 " sizes="(min-width: 1600px) 54.25rem,(min-width: 1200px) 43rem, (min-width: 700px) 35.5rem, 18rem"
                 type="image/webp">
-              <source srcset="
-                ./assets/img/station-285.jpeg 285w,
-                ./assets/img/station-570.jpeg 570w,
-                ./assets/img/station-870.jpeg 870w,
-                " sizes="(min-width: 1600px) 54.25rem,(min-width: 1200px) 43rem, (min-width: 700px) 35.5rem, 18rem"
-                type="image/jpeg">
-              <img class="station__station" src="./assets/img/station.avif" alt="station">
+              <img class="station__station" src="./assets/img/station.png" alt="station">
             </picture>
             <img class="station__decoration" src="./assets/img/station-decoration.svg" alt="" width="">
           </div>

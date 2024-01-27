@@ -494,13 +494,14 @@ header .frame__img:nth-child(7) {
 
 .id__card {
     rotate: 15deg;
-    display: inline-block;
-    inline-size: 135vw;
-    max-inline-size: 550px;
     place-self: center;
     margin-block: var(--space-xl) var(--space-l);
     margin-inline-end: calc(0rem - var(--space-m));
     transition: rotation 0.5s ease-in-out, position 0.5s ease-in-out, inline-size 0.5s ease-in-out;
+}
+
+.id__card img{
+    max-inline-size: 34rem;
 }
 
 .intro__crowd {
@@ -529,7 +530,7 @@ header .frame__img:nth-child(7) {
 }
 
 .crowd__crowd {
-    inline-size: 800px;
+    inline-size: 50rem;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -728,7 +729,6 @@ header .frame__img:nth-child(7) {
 .train__container * {
     grid-column: 1;
     grid-row: 1;
-    inline-size: 200vw;
 }
 
 .train__img {
@@ -736,12 +736,16 @@ header .frame__img:nth-child(7) {
     justify-self: flex-end;
     margin-inline-end: calc(0rem - var(--space-s-m));
     transform: translateY(-75%);
-    max-inline-size: 1600px;
+}
+
+.train__img img{
+    max-inline-size: 100rem;
 }
 
 .train__track {
     z-index: -10;
-    max-inline-size: 1600px;
+    inline-size: 200vw;
+    max-inline-size: 100rem;
     transform: translateY(17%);
     margin-inline-start: var(--negative-margin);
 }
@@ -1412,7 +1416,6 @@ header .frame__img:nth-child(7) {
     }
 
     .id__card {
-        inline-size: 45vw;
         margin: unset;
         transform: translate(70%, -40%);
         margin-bottom: calc(0rem - var(--space-2xl));
@@ -1422,15 +1425,12 @@ header .frame__img:nth-child(7) {
 
     /* --- train --- */
 
-    .train__container * {
-        inline-size: 125vw;
-    }
-
     .train__img {
         transform: translateY(-85%);
     }
-
+    
     .train__track {
+        inline-size: 125vw;
         transform: translateY(7%);
     }
 }
@@ -1466,16 +1466,8 @@ header .frame__img:nth-child(7) {
         background-size: 110%;
     }
 
-    .crowd__louise {
-        inline-size: 250px;
-    }
-
-    .crowd__men {
-        inline-size: 270px;
-    }
-
     .crowd__crowd {
-        inline-size: 1300px;
+        inline-size: 80rem;
     }
 
     /* --- cities --- */
@@ -1733,13 +1725,13 @@ header .frame__img:nth-child(7) {
 
     /* --- train --- */
 
-    .train__container * {
-        inline-size: 100vw;
-    }
-
     .train__img {
         margin-inline-end: var(--space-xl);
         transform: translateY(-85%);
+    }
+
+    .train__track {
+        inline-size: 100vw;
     }
 
     /* --- room --- */
@@ -1923,8 +1915,8 @@ header .frame__img:nth-child(7) {
     }
 
     .passengers__img p {
-        display: none;
-        transition: display 0.25s ease-in-out;
+        opacity: 0;
+        transition: opacity 0.25s ease-in-out;
     }
 
     .diplomat--hover {
@@ -1965,7 +1957,7 @@ header .frame__img:nth-child(7) {
     .writer--hover:hover p,
     .trader--hover:hover p,
     .indian--hover:hover p {
-        display: unset;
+        opacity: unset;
     }
 }
 
@@ -2154,16 +2146,8 @@ header .frame__img:nth-child(7) {
 
     /* --- intro --- */
 
-    .crowd__louise {
-        inline-size: 350px;
-    }
-
-    .crowd__men {
-        inline-size: 380px;
-    }
-
     .crowd__crowd {
-        inline-size: 1800px;
+        inline-size: 110rem;
     }
 
     .intro__convo {
@@ -2184,14 +2168,6 @@ header .frame__img:nth-child(7) {
 
     .convo__text {
         padding: var(--space-xs);
-    }
-
-    .convo__man--left {
-        inline-size: 140px;
-    }
-
-    .convo__man--right {
-        inline-size: 200px;
     }
 
     /* --- room --- */
@@ -2546,12 +2522,15 @@ html:has(.id__card--big) {
 }
 
 .id__card--big {
-    inline-size: 90vw;
-    max-inline-size: 1100px;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     rotate: unset;
     margin: unset;
+}
+
+.id__card--big img{
+    inline-size: 90vw;
+    max-inline-size: 68.75rem;
 }
