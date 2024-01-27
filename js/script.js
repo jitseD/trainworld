@@ -11,6 +11,8 @@ const $imgages = document.querySelectorAll(`img`);
 const $foodImages = document.querySelectorAll(`.table__wrapper img`)
 let dragged;
 
+const station = { size: [], top: [], left: [] };
+
 const $citiesWrapper = document.querySelector(`.cities__wrapper`);
 const $cityButtons = document.querySelectorAll(`.city__button`);
 const $cityPopups = document.querySelectorAll(`.city__popup`);
@@ -42,6 +44,8 @@ const windowResizedHandle = e => {
     } else {
         closeAllCityPopups();
     }
+
+    setStationValues();
 }
 
 const openIdHanle = e => {
@@ -79,19 +83,19 @@ const trainArrival = () => {
 
 const tableFood = () => {
     const $tableObjects = document.querySelectorAll(`.table__wrapper > *`);
-    const objectMargins = {
-        top: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
-        bottom: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
-        left: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
-        right: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
-    }
+    // const objectMargins = {
+    //     top: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
+    //     bottom: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
+    //     left: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
+    //     right: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
+    // }
 
     for (let i = 0; i < $tableObjects.length; i++) {
         gsap.from([i], {
             // marginTop: objectMargins.top[i],
             // marginBottom: objectMargins.bottom[i],
             scrollTrigger: {
-                markers: {},
+                // markers: {},
                 trigger: ".table__wrapper",
                 start: "top 0%",
                 end: "bottom 100%",
@@ -102,6 +106,83 @@ const tableFood = () => {
             stagger: 0.5,
         })
     }
+}
+
+const setStationValues = () => {
+    if (window.matchMedia('(min-width: 1600px)').matches) {
+        station.top = [32, 319, 461, 466, 473, 475, 22, 0];
+        station.left = [137, 369, 102, 684, 198, 542, 0, 753];
+        station.size = ['37.5rem', '8.3rem', '5rem', '5rem', '7.5rem', '8rem', '7.8rem', '7.25rem'];
+    } else if (window.matchMedia('(min-width: 1200px)').matches) {
+        station.top = [25, 250, 365, 370, 375, 377, 16, 0];
+        station.left = [110, 293, 80, 543, 155, 430, 0, 598];
+        station.size = ['29.7rem', '6.625rem', '4rem', '4rem', '6.125rem', '6.3rem', '6.2rem', '5.75rem'];
+    } else if (window.matchMedia('(min-width: 700px)').matches) {
+        station.top = [20, 208, 303, 305, 309, 310, 14, 0];
+        station.left = [89, 241, 68, 448, 129, 355, 0, 493];
+        station.size = ['24.6rem', '5.5rem', '3.3rem', '3.3rem', '5rem', '5.125rem', '5.1rem', '4.74rem'];
+    } else {
+        station.top = [11, 105, 154, 156, 157, 158, 8, 0];
+        station.left = [45, 121, 34, 227, 66, 182, 0, 250];
+        station.size = ['12.5rem', '2.8rem', '1.625rem', '1.625rem', '2.5rem', '2.57rem', '2.58rem', '2.41rem'];
+    }
+}
+
+const stationBuilding = () => {
+    const mm = gsap.matchMedia();
+
+    mm.add(
+        {
+            isMobile: "(max-width: 699px)",
+            isTablet: "(min-width: 700px) and (max-width: 999px)",
+            isDesktop: "(min-width: 1000px)",
+        },
+        (context) => {
+            const { conditions } = context;
+            const $stationElements = document.querySelectorAll(`.station__img picture img`);
+
+            for (let i = 0; i < $stationElements.length - 1; i++) {
+                const tl = gsap.timeline();
+                
+                tl.to($stationElements[i], {
+                    inlineSize: station.size[i],
+                    top: station.top[i],
+                    left: station.left[i],
+                    rotate: 0,
+                    ease: "power1.out",
+                })
+
+                if (conditions.isDesktop) {
+                    ScrollTrigger.create({
+                        markers: {},
+                        trigger: ".station__img",
+                        scrub: 1,
+                        start: "top 30%",
+                        end: "bottom 70%",
+                        animation: tl,
+                    })
+                } else if (conditions.isTablet) {
+                    ScrollTrigger.create({
+                        markers: {},
+                        trigger: ".station__img",
+                        start: "50% 50%",
+                        end: "150% 50%",
+                        animation: tl,
+                        scrub: 1,
+                    })
+                } else {
+                    ScrollTrigger.create({
+                        markers: {},
+                        trigger: ".station__img",
+                        start: "bottom 50%",
+                        end: "200% 50%",
+                        animation: tl,
+                        scrub: 1,
+                    })
+                }
+            }
+        }
+    )
 }
 
 const dragStartHandle = (e) => {
@@ -211,6 +292,8 @@ const init = () => {
     convoAnimation();
     trainArrival();
     tableFood();
+    setStationValues();
+    stationBuilding();
 
     // --- food --- //
 
