@@ -390,6 +390,7 @@ dialog {
     flex-direction: column;
     align-items: center;
     gap: var(--space-s);
+    max-inline-size: 100%;
 }
 
 .subtitle__frame {
@@ -434,7 +435,7 @@ header .frame {
     top: 0;
     left: 0;
     inline-size: 100vw;
-    block-size: 100vh;
+    block-size: 100svh;
     margin: unset;
 }
 
@@ -1922,6 +1923,7 @@ header .frame__img:nth-child(7) {
     }
 
     .passengers__img p {
+        display: none;
         transition: display 0.25s ease-in-out;
     }
 
@@ -2009,7 +2011,7 @@ header .frame__img:nth-child(7) {
     }
 
     .subtitle__container--cities {
-        grid-column: 3;
+        grid-column: 3/-1;
         grid-row: 1;
         inline-size: min-content;
         padding: var(--space-s);
@@ -2029,7 +2031,7 @@ header .frame__img:nth-child(7) {
     }
 
     .journal__wrapper--cities {
-        grid-column: 3;
+        grid-column: 3/-1;
         grid-row: 2;
         place-self: flex-start flex-end;
         z-index: 20;
@@ -2277,7 +2279,7 @@ header .frame__img:nth-child(7) {
         inline-size: max-content;
     }
 
-    .station__wrapper .subtitle__container--station p {
+    .subtitle__container--station p {
         inline-size: 100%;
     }
 
