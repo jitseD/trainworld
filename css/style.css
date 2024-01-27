@@ -317,6 +317,16 @@ dialog {
     text-align: end;
 }
 
+.dragging {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.journal{
+transition: mix-blend-mode 0.25s ease-in-out;
+}
+
 /* --- frame --- */
 
 .frame {
@@ -829,6 +839,16 @@ header .frame__img:nth-child(7) {
     background-color: var(--c-beige);
     border: var(--c-yellow) solid 1px;
     max-inline-size: calc(16rem + 2* var(--space-2xs));
+    transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+.dropzone--hover {
+    background-color: var(--c-yellow);
+    color: var(--c-beige);
+}
+
+.dropzone--hover .journal {
+    mix-blend-mode: screen;
 }
 
 .table__wrapper {

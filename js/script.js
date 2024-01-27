@@ -2,14 +2,19 @@ import '@dotlottie/player-component';
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-let hoverSupported = false;
-
 const $idCard = document.querySelector(`.id__card`);
 
 const $foodDropzone = document.querySelector(`.dropzone`);
 const $imgages = document.querySelectorAll(`img`);
-const $foodImages = document.querySelectorAll(`.table__wrapper img`)
-let dragged;
+const $foodImages = document.querySelectorAll(`.table__wrapper div img`);
+const foodJournal = {
+    dragged: null,
+    dragImg: null,
+    pos: null,
+    type: null,
+    url: null,
+    journal: false,
+}
 
 const station = { size: [], top: [], left: [] };
 
@@ -21,16 +26,6 @@ const $nextPopups = document.querySelectorAll(`.city__next`);
 const $lastPopups = document.querySelectorAll(`.city__last`);
 let currentPopup;
 
-const checkHoverSupport = () => {
-    const hoverQuery = window.matchMedia('(hover: hover)');
-    console.log(hoverQuery);
-    hoverSupported = hoverQuery.matches;
-    console.log(hoverSupported);
-
-    const canHover = window.matchMedia('(hover: hover)').matches;
-    console.log(canHover);
-}
-
 const windowResizedHandle = e => {
     if (window.innerWidth >= 500) {
         $idCard.addEventListener(`click`, openIdHanle)
@@ -39,7 +34,7 @@ const windowResizedHandle = e => {
         $idCard.classList.remove(`id__card--big`);
     }
 
-    if (window.innerWidth <= 550) {
+    if (window.innerWidth < 550) {
         showAllCityPopups();
     } else {
         closeAllCityPopups();
@@ -236,30 +231,67 @@ const stationBuilding = () => {
     )
 }
 
-const dragStartHandle = (e) => {
-    dragged = e.target;
-    console.log(`dragStartHandle`);
-    e.dataTransfer.effectAllowed = 'copy';
+const dragStartHandle = e => {
+    foodJournal.dragged = e.target;
+    foodJournal.type = e.target.getAttribute(`data-food`);
+    foodJournal.url = e.target.src
+    foodJournal.dragImg = document.createElement(`img`);
+    foodJournal.dragImg.classList.add(`dragging`);
+    foodJournal.dragImg.setAttribute(`src`, foodJournal.url);
+    foodJournal.dragImg.setAttribute(`width`, e.target.width * 0.8);
 };
 
-const dragOverHandle = (e) => {
+const draggingHandle = e => {
     e.preventDefault();
-    console.log(`dragEnterHandle`);
-    e.currentTarget.style.backgroundColor = '#A3C3CE';
-};
+    if (!document.querySelector(`.dragging`)) {
+        document.querySelector(`.table__wrapper`).appendChild(foodJournal.dragImg);
+    }
 
-const dragLeaveHandle = (e) => {
-    e.preventDefault();
-    console.log(`dragLeaveHandle`);
-    e.currentTarget.style.backgroundColor = 'unset';
-};
+    foodJournal.dragImg.style.rotate = foodJournal.dragged.style.rotate;
+    foodJournal.dragImg.style.top = e.touches[0].clientY + 'px';
+    foodJournal.dragImg.style.left = e.touches[0].clientX + 'px';
 
-const dropHandle = (e) => {
-    e.preventDefault();
-    console.log(`dropHandle`);
-    e.currentTarget.style.backgroundColor = 'unset';
-    const clone = dragged.cloneNode(true);
-    e.currentTarget.appendChild(clone);
+    foodJournal.pos = { x: e.touches[0].clientX, y: e.touches[0].clientY }
+
+    if (checkBoundingBox()) {
+        $foodDropzone.classList.add(`dropzone--hover`);
+    } else {
+        $foodDropzone.classList.remove(`dropzone--hover`);
+    }
+}
+
+const checkBoundingBox = () => {
+    const dropzone = $foodDropzone.getBoundingClientRect();
+
+    if (foodJournal.pos.x >= dropzone.left && foodJournal.pos.x <= dropzone.right) {
+        if (foodJournal.pos.y >= dropzone.top && foodJournal.pos.y <= dropzone.bottom) {
+            return true;
+        }
+    } else {
+        return false;
+    }
+}
+
+const dropHandle = e => {
+    if (document.querySelector(`.dragging`)) {
+        document.querySelector(`.table__wrapper`).removeChild(foodJournal.dragImg);
+    }
+
+    if (foodJournal.pos) {
+        if (checkBoundingBox()) {
+            console.log(`${foodJournal.type} food`);
+            foodJournal.journal = true;
+        } else {
+            console.log(`don't add food`);
+            foodJournal.dragged = null;
+            foodJournal.dragImg = null;
+            foodJournal.pos = null;
+            foodJournal.type = null;
+            foodJournal.journal = false;
+        }
+    }
+
+    $foodDropzone.classList.remove(`dropzone--hover`);
 };
 
 const showAllCityPopups = () => {
@@ -328,9 +360,7 @@ const switchCityPopup = (currentPopup) => {
 const init = () => {
     gsap.registerPlugin(ScrollTrigger);
 
-    checkHoverSupport();
     window.addEventListener(`resize`, windowResizedHandle);
-    window.addEventListener(`hover`, checkHoverSupport);
 
     //  --- idCard --- //
 
@@ -348,25 +378,28 @@ const init = () => {
 
     // --- food --- //
 
-    document.addEventListener('dragstart', dragStartHandle);
+    // document.addEventListener('dragstart', dragStartHandle);
 
     $imgages.forEach($image => {
         $image.setAttribute(`draggable`, false);
     });
     $foodImages.forEach(($foodImage) => {
         $foodImage.setAttribute('draggable', true);
+        $foodImage.addEventListener(`touchstart`, dragStartHandle);
+        $foodImage.addEventListener(`touchmove`, draggingHandle);
+        $foodImage.addEventListener(`touchend`, dropHandle);
         // $foodImage.addEventListener('dragenter', dragOverHandle);
         // $foodImage.addEventListener('dragleave', dragLeaveHandle);
         // $foodImage.addEventListener('drop', dropHandle);
     });
 
-    $foodDropzone.addEventListener('dragover', dragOverHandle);
-    $foodDropzone.addEventListener('drop', dropHandle);
-    $foodDropzone.addEventListener('dragleave', dragLeaveHandle);
+    // $foodDropzone.addEventListener('dragover', dragOverHandle);
+    // $foodDropzone.addEventListener('drop', dropHandle);
+    // $foodDropzone.addEventListener('dragleave', dragLeaveHandle);
 
     // --- cityPopups --- //
 
-    if (window.innerWidth <= 550) {
+    if (window.innerWidth < 550) {
         showAllCityPopups();
     }
     if (window.innerWidth >= 550) {
