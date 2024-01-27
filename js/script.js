@@ -53,6 +53,57 @@ const openIdHanle = e => {
     closeAllCityPopups();
 }
 
+const passengersHorizontalScroll = () => {
+    if (window.innerWidth < 800) {
+
+        const tl = gsap.timeline();
+
+        const imageWidth = document.querySelector(`.passengers__img`).offsetWidth;
+        const scrollAmount = imageWidth - window.innerWidth - 150;
+        let parallexValue = 200;
+        let parallexScrollAmount;
+
+        const $backgroundPassengers = document.querySelectorAll(`.passengers__img > img`);
+        for (let i = 0; i < $backgroundPassengers.length; i++) {
+            parallexScrollAmount = scrollAmount - i * parallexValue;
+
+            tl.to($backgroundPassengers[i], {
+                x: -parallexScrollAmount,
+                ease: 'linear',
+            }, 0);
+        }
+
+        const $labels = document.querySelectorAll(`.passengers__img div`);
+        const $passengers = document.querySelectorAll(`.passengers__img picture`);
+
+        for (let i = 0; i < $passengers.length; i++) {
+            const xPos = $passengers[i].getBoundingClientRect().left;
+            parallexValue = 10;
+            parallexScrollAmount = scrollAmount - xPos + i * parallexValue;
+
+            const labelTween = gsap.to($labels[i], {
+                x: -parallexScrollAmount,
+                ease: 'linear',
+            }, 0);
+            const passengerTween = gsap.to($passengers[i], {
+                x: -parallexScrollAmount,
+                ease: 'linear',
+            }, 0);
+            tl.add([labelTween, passengerTween], 0);
+        }
+
+        ScrollTrigger.create({
+            markers: {},
+            trigger: `.passengers__container`,
+            start: 'bottom bottom',
+            end: 'bottom center',
+            scrub: true,
+            pin: true,
+            animation: tl,
+        });
+    }
+}
+
 const convoAnimation = () => {
     gsap.from(".intro__convo", {
         scrollTrigger: {
@@ -143,7 +194,7 @@ const stationBuilding = () => {
 
             for (let i = 0; i < $stationElements.length - 1; i++) {
                 const tl = gsap.timeline();
-                
+
                 tl.to($stationElements[i], {
                     inlineSize: station.size[i],
                     top: station.top[i],
@@ -154,7 +205,7 @@ const stationBuilding = () => {
 
                 if (conditions.isDesktop) {
                     ScrollTrigger.create({
-                        markers: {},
+                        // markers: {},
                         trigger: ".station__img",
                         scrub: 1,
                         start: "top 30%",
@@ -163,7 +214,7 @@ const stationBuilding = () => {
                     })
                 } else if (conditions.isTablet) {
                     ScrollTrigger.create({
-                        markers: {},
+                        // markers: {},
                         trigger: ".station__img",
                         start: "50% 50%",
                         end: "150% 50%",
@@ -172,7 +223,7 @@ const stationBuilding = () => {
                     })
                 } else {
                     ScrollTrigger.create({
-                        markers: {},
+                        // markers: {},
                         trigger: ".station__img",
                         start: "bottom 50%",
                         end: "200% 50%",
@@ -288,7 +339,7 @@ const init = () => {
     }
 
     // --- scrolltriggers --- //
-
+    passengersHorizontalScroll();
     convoAnimation();
     trainArrival();
     tableFood();

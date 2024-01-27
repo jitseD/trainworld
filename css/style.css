@@ -64,6 +64,8 @@
     --space-s-xl: clamp(1.5rem, -0.375rem + 8.3333vw, 7.5rem);
     /* Space xs-2xs: 18px → 20px */
     --space-xs-2xs: clamp(1.125rem, 1.0859rem + 0.1736vw, 1.25rem);
+
+    --negative-margin: calc(0rem - var(--space-s-xl));
 }
 
 html {
@@ -323,7 +325,7 @@ dialog {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 3fr 1fr auto 1fr 3fr 1fr;
-    margin: calc(0rem - var(--space-s-xl)) calc(0rem - var(--space-s-xl)) 0;
+    margin: var(--negative-margin) var(--negative-margin) 0;
     place-items: center;
     padding: var(--space-s-xl);
     z-index: -10;
@@ -506,7 +508,7 @@ header .frame__img:nth-child(7) {
 
 .crowd__container {
     inline-size: 100vw;
-    margin-inline: calc(0rem - var(--space-s-xl));
+    margin-inline: var(--negative-margin);
     display: grid;
     grid-template-columns: 2fr 4fr;
     align-items: flex-end;
@@ -630,7 +632,7 @@ header .frame__img:nth-child(7) {
 
 .passengers__img {
     justify-self: flex-start;
-    margin-inline: calc(0rem - var(--space-s-xl));
+    margin-inline: var(--negative-margin);
     display: grid;
     grid-template-columns: 100rem;
     grid-template-rows: 100%;
@@ -648,61 +650,57 @@ header .frame__img:nth-child(7) {
     inline-size: 100rem;
 }
 
-.passengers__passenger1 {
+.passengers__passenger--1 {
     z-index: 10;
     transform: translateY(165%);
 }
 
-.passengers__passenger2 {
+.passengers__passenger--2 {
     z-index: 8;
     transform: translateY(65%);
 }
 
-.passengers__passenger3 {
+.passengers__passenger--3 {
     z-index: 6;
 }
 
-.passengers__passenger4 {
+.passengers__passenger--4 {
     z-index: 5;
 }
 
 .diplomat {
     inline-size: 20rem;
+    aspect-ratio: 1;
     transform: translate(20%, 70%);
     z-index: 7;
 }
 
 .star {
     inline-size: 14rem;
+    aspect-ratio: 7/10;
     transform: translate(210%, 55%);
     z-index: 7;
 }
 
 .writer {
     inline-size: 15rem;
+    aspect-ratio: 1;
     transform: translate(300%, 100%);
     z-index: 9;
 }
 
 .trader {
     inline-size: 11rem;
+    aspect-ratio: 11/20;
     transform: translate(580%, 55%);
     z-index: 7;
 }
 
 .indian {
     inline-size: 12rem;
+    aspect-ratio: 7/10;
     transform: translate(650%, 100%);
     z-index: 9;
-}
-
-.diplomat,
-.star,
-.writer,
-.trader,
-.indian {
-    inline-size: min-content;
-    block-size: min-content;
 }
 
 .passengers__img div {
@@ -715,35 +713,9 @@ header .frame__img:nth-child(7) {
     color: var(--c-beige);
     padding: var(--space-3xs);
     background-color: var(--c-yellow);
-    display: none;
-    transition: display 0.25s ease-in-out;
-    inline-size: max-content;
+    inline-size: 100%;
 }
 
-.diplomat--hover {
-    inline-size: 20vw;
-    aspect-ratio: 1;
-}
-
-.star--hover {
-    inline-size: 14vw;
-    aspect-ratio: 7/10;
-}
-
-.writer--hover {
-    inline-size: 15vw;
-    aspect-ratio: 1;
-}
-
-.trader--hover {
-    inline-size: 11vw;
-    aspect-ratio: 11/20;
-}
-
-.indian--hover {
-    inline-size: 12vw;
-    aspect-ratio: 7/10;
-}
 
 /* --- train --- */
 
@@ -770,7 +742,7 @@ header .frame__img:nth-child(7) {
     z-index: -10;
     max-inline-size: 1600px;
     transform: translateY(17%);
-    margin-inline-start: calc(0rem - var(--space-s-xl));
+    margin-inline-start: var(--negative-margin);
 }
 
 /* --- room --- */
@@ -844,7 +816,7 @@ header .frame__img:nth-child(7) {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: max-content max-content;
-    margin-inline: calc(0rem - var(--space-s-xl));
+    margin-inline: var(--negative-margin);
     place-items: center;
 }
 
@@ -1043,7 +1015,7 @@ header .frame__img:nth-child(7) {
     gap: var(--space-2xs);
     scroll-snap-type: x mandatory;
     overflow-x: auto;
-    margin-inline: calc(0rem - var(--space-s-xl));
+    margin-inline: var(--negative-margin);
     padding-inline: var(--space-s-xl);
     place-items: center;
 }
@@ -1880,10 +1852,6 @@ header .frame__img:nth-child(7) {
         inline-size: 100vw;
     }
 
-    .passengers__passenger4 {
-        display: none;
-    }
-
     .passengers__img>* {
         grid-column: 1;
         grid-row: 1;
@@ -1896,22 +1864,22 @@ header .frame__img:nth-child(7) {
         max-inline-size: 100rem;
     }
 
-    .passengers__passenger1 {
+    .passengers__passenger--1 {
         z-index: 10;
         transform: translateY(165%);
     }
 
-    .passengers__passenger2 {
+    .passengers__passenger--2 {
         z-index: 8;
         transform: translateY(65%);
     }
 
-    .passengers__passenger3 {
+    .passengers__passenger--3 {
         z-index: 6;
     }
 
-    .passengers__passenger4 {
-        z-index: 5;
+    .passengers__passenger--4 {
+        display: none;
     }
 
     .diplomat {
@@ -1953,44 +1921,28 @@ header .frame__img:nth-child(7) {
         block-size: min-content;
     }
 
-    .passengers__img div {
-        display: grid;
-        place-items: flex-end center;
-        z-index: 20;
-    }
-
     .passengers__img p {
-        color: var(--c-beige);
-        padding: var(--space-3xs);
-        background-color: var(--c-yellow);
-        display: none;
         transition: display 0.25s ease-in-out;
-        inline-size: 100%;
     }
 
     .diplomat--hover {
         inline-size: 20vw;
-        aspect-ratio: 1;
     }
 
     .star--hover {
         inline-size: 14vw;
-        aspect-ratio: 7/10;
     }
 
     .writer--hover {
         inline-size: 15vw;
-        aspect-ratio: 1;
     }
 
     .trader--hover {
         inline-size: 11vw;
-        aspect-ratio: 11/20;
     }
 
     .indian--hover {
         inline-size: 12vw;
-        aspect-ratio: 7/10;
     }
 
     .diplomat--hover:hover,
@@ -2048,7 +2000,7 @@ header .frame__img:nth-child(7) {
         display: grid;
         grid-template-columns: var(--space-m) 1fr max-content var(--space-m);
         gap: var(--space-s);
-        margin-inline: calc(0rem - var(--space-m));
+        margin-inline: s-xlalc(0rem - var(--space-m));
     }
 
     .tip__wrapper--cities {
@@ -2114,7 +2066,7 @@ header .frame__img:nth-child(7) {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
         place-items: flex-start;
-        margin-inline: calc(0rem - var(--space-s-xl));
+        margin-inline: var(--negative-margin);
         place-self: center;
         position: relative;
     }
@@ -2356,7 +2308,7 @@ header .frame__img:nth-child(7) {
     .station__container {
         grid-template-columns: repeat(3, min-content);
         grid-template-rows: 1fr;
-        margin-inline: calc(0rem - var(--space-s-xl));
+        margin-inline: var(--negative-margin);
     }
 
     .station__label--west {
