@@ -378,8 +378,6 @@ const init = () => {
 
     // --- food --- //
 
-    // document.addEventListener('dragstart', dragStartHandle);
-
     $imgages.forEach($image => {
         $image.setAttribute(`draggable`, false);
     });
@@ -388,14 +386,7 @@ const init = () => {
         $foodImage.addEventListener(`touchstart`, dragStartHandle);
         $foodImage.addEventListener(`touchmove`, draggingHandle);
         $foodImage.addEventListener(`touchend`, dropHandle);
-        // $foodImage.addEventListener('dragenter', dragOverHandle);
-        // $foodImage.addEventListener('dragleave', dragLeaveHandle);
-        // $foodImage.addEventListener('drop', dropHandle);
-    });
-
-    // $foodDropzone.addEventListener('dragover', dragOverHandle);
-    // $foodDropzone.addEventListener('drop', dropHandle);
-    // $foodDropzone.addEventListener('dragleave', dragLeaveHandle);
+    })
 
     // --- cityPopups --- //
 
