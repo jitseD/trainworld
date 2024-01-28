@@ -2,18 +2,36 @@ import '@dotlottie/player-component';
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
+let touchDevice;
+
 const $idCard = document.querySelector(`.id__card`);
 
 const $foodDropzone = document.querySelector(`.dropzone`);
 const $imgages = document.querySelectorAll(`img`);
 const $foodImages = document.querySelectorAll(`.table__wrapper div img`);
 const foodJournal = {
+    dragging: false,
     dragged: null,
     dragImg: null,
     pos: null,
     type: null,
     url: null,
     journal: false,
+}
+
+const $citiesButton = document.querySelector(`.journal__wrapper--cities`);
+const $citiesButtons = document.querySelectorAll(`.city__add`);
+const $citiesJournalText = $citiesButton.querySelector(`p`);
+const citiesJournal = {
+    city: {
+        name: null,
+        url: null,
+    },
+    carousel: {
+        closestCity: null,
+        closestCityName: null,
+        closestDist: Infinity,
+    }
 }
 
 const station = { size: [], top: [], left: [] };
@@ -36,8 +54,12 @@ const windowResizedHandle = e => {
 
     if (window.innerWidth < 550) {
         showAllCityPopups();
+        if (citiesJournal.city.name) {
+            updateJournalText(citiesJournal.city.name, `city`);
+        }
     } else {
         closeAllCityPopups();
+        $citiesJournalText.textContent = `add your favorite city to the journal`;
     }
 
     setStationValues();
@@ -88,7 +110,7 @@ const passengersHorizontalScroll = () => {
         }
 
         ScrollTrigger.create({
-            markers: {},
+            // markers: {},
             trigger: `.passengers__container`,
             start: 'bottom bottom',
             end: 'bottom center',
@@ -238,25 +260,31 @@ const dragStartHandle = e => {
     foodJournal.dragImg = document.createElement(`img`);
     foodJournal.dragImg.classList.add(`dragging`);
     foodJournal.dragImg.setAttribute(`src`, foodJournal.url);
-    foodJournal.dragImg.setAttribute(`width`, e.target.width * 0.8);
+    foodJournal.dragImg.setAttribute(`width`, e.target.width);
+    foodJournal.dragging = true;
 };
 
 const draggingHandle = e => {
     e.preventDefault();
-    if (!document.querySelector(`.dragging`)) {
-        document.querySelector(`.table__wrapper`).appendChild(foodJournal.dragImg);
-    }
 
-    foodJournal.dragImg.style.rotate = foodJournal.dragged.style.rotate;
-    foodJournal.dragImg.style.top = e.touches[0].clientY + 'px';
-    foodJournal.dragImg.style.left = e.touches[0].clientX + 'px';
+    if (foodJournal.dragging) {
+        if (!document.querySelector(`.dragging`)) {
+            document.querySelector(`.table__wrapper`).appendChild(foodJournal.dragImg);
+        }
 
-    foodJournal.pos = { x: e.touches[0].clientX, y: e.touches[0].clientY }
+        const clientX = touchDevice ? e.touches[0].clientX : e.clientX;
+        const clientY = touchDevice ? e.touches[0].clientY : e.clientY;
 
-    if (checkBoundingBox()) {
-        $foodDropzone.classList.add(`dropzone--hover`);
-    } else {
-        $foodDropzone.classList.remove(`dropzone--hover`);
+        foodJournal.dragImg.style.rotate = foodJournal.dragged.style.rotate;
+        foodJournal.dragImg.style.top = clientY + 'px';
+        foodJournal.dragImg.style.left = clientX + 'px';
+        foodJournal.pos = { x: clientX, y: clientY }
+
+        if (checkBoundingBox()) {
+            $foodDropzone.classList.add(`dropzone--hover`);
+        } else {
+            $foodDropzone.classList.remove(`dropzone--hover`);
+        }
     }
 }
 
@@ -273,6 +301,8 @@ const checkBoundingBox = () => {
 }
 
 const dropHandle = e => {
+    foodJournal.dragging = false;
+
     if (document.querySelector(`.dragging`)) {
         document.querySelector(`.table__wrapper`).removeChild(foodJournal.dragImg);
     }
@@ -283,6 +313,7 @@ const dropHandle = e => {
             foodJournal.journal = true;
         } else {
             console.log(`don't add food`);
+            foodJournal.touch = false;
             foodJournal.dragged = null;
             foodJournal.dragImg = null;
             foodJournal.pos = null;
@@ -293,6 +324,53 @@ const dropHandle = e => {
 
     $foodDropzone.classList.remove(`dropzone--hover`);
 };
+
+const addCityCarouselHandle = e => {
+    citiesJournal.carousel.closestCity = null;
+    citiesJournal.carousel.closestCityName = null;
+    citiesJournal.carousel.closestDist = Infinity;
+
+    findCurrentCity();
+
+    citiesJournal.city.name = citiesJournal.carousel.closestCityName;
+    citiesJournal.city.url = citiesJournal.carousel.closestCity.querySelector(`.city__img`).getAttribute(`src`);
+    
+    updateJournalText(citiesJournal.city.name, `city`);
+    console.log(citiesJournal);
+}
+
+const findCurrentCity = () => {
+    const screenCenter = window.innerWidth / 2;
+    
+    const $cities = document.querySelectorAll(`.city__wrapper`);
+    
+    $cities.forEach(city => {
+        const bb = city.getBoundingClientRect();
+        const distToCenter = Math.abs(bb.left + bb.width / 2 - screenCenter);
+        
+        if (distToCenter < citiesJournal.carousel.closestDist) {
+            citiesJournal.carousel.closestDist = distToCenter;
+            citiesJournal.carousel.closestCity = city
+            citiesJournal.carousel.closestCityName = city.querySelector(`.city__name`).textContent
+        }
+    });
+}
+
+const addCityMapHandle = e => {
+    console.log(e.currentTarget.parentElement);
+    const info = e.currentTarget.parentElement;
+    
+    citiesJournal.city.name = info.querySelector(`.city__name`).textContent;
+    citiesJournal.city.url = info.querySelector(`.city__img`).getAttribute(`src`);
+    console.log(citiesJournal.city);
+    
+    e.currentTarget.querySelector(`p`).textContent = `added as favorite city`
+    updateJournalText(citiesJournal.city.name, `city`);
+}
+
+const updateJournalText = (name, type) => {
+    $citiesJournalText.innerHTML = `<strong>${name}</strong> is added as your favorite ${type}`;
+}
 
 const showAllCityPopups = () => {
     $cityPopups.forEach($cityPopup => {
@@ -359,8 +437,8 @@ const switchCityPopup = (currentPopup) => {
 
 const init = () => {
     gsap.registerPlugin(ScrollTrigger);
-
     window.addEventListener(`resize`, windowResizedHandle);
+    touchDevice = 'ontouchstart' in window;
 
     //  --- idCard --- //
 
@@ -369,6 +447,7 @@ const init = () => {
     }
 
     // --- scrolltriggers --- //
+
     passengersHorizontalScroll();
     convoAnimation();
     trainArrival();
@@ -376,17 +455,34 @@ const init = () => {
     setStationValues();
     stationBuilding();
 
-    // --- food --- //
+    // --- foodJournal --- //
 
     $imgages.forEach($image => {
         $image.setAttribute(`draggable`, false);
     });
     $foodImages.forEach(($foodImage) => {
         $foodImage.setAttribute('draggable', true);
-        $foodImage.addEventListener(`touchstart`, dragStartHandle);
-        $foodImage.addEventListener(`touchmove`, draggingHandle);
-        $foodImage.addEventListener(`touchend`, dropHandle);
+
+        if (touchDevice) {
+            $foodImage.addEventListener('touchstart', dragStartHandle);
+            $foodImage.addEventListener('touchmove', draggingHandle);
+            $foodImage.addEventListener('touchend', dropHandle);
+        } else {
+            $foodImage.addEventListener('mousedown', dragStartHandle);
+            document.addEventListener('mousemove', draggingHandle);
+            document.addEventListener('mouseup', dropHandle);
+        }
     })
+
+    // --- citiesJournal --- //
+
+    $citiesButton.addEventListener(`click`, addCityCarouselHandle);
+    if(window.innerWidth >=550){
+        $citiesButton.removeEventListener(`click`, addCityCarouselHandle);
+        $citiesButtons.forEach($cityButton => {
+            $cityButton.addEventListener(`click`, addCityMapHandle)
+        });
+    }
 
     // --- cityPopups --- //
 

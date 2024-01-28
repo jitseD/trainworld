@@ -835,20 +835,26 @@ header .frame__img:nth-child(7) {
     background-image: url(../assets/img/pattern.svg);
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: max-content max-content;
+    grid-template-rows: 1fr;
     margin-inline: var(--negative-margin);
     place-items: center;
 }
 
+.table__container>* {
+    grid-column: 1;
+    grid-row: 1;
+}
+
 .journal__wrapper--table {
     background-color: var(--c-beige);
-    border: var(--c-yellow) solid 1px;
+    border: var(--c-blue) solid 1px;
     max-inline-size: calc(16rem + 2* var(--space-2xs));
-    transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+    transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, border-color 0.25s ease-in-out;
 }
 
 .dropzone--hover {
     background-color: var(--c-yellow);
+    border-color: var(--c-yellow);
     color: var(--c-beige);
 }
 
@@ -859,7 +865,7 @@ header .frame__img:nth-child(7) {
 .table__wrapper {
     display: grid;
     inline-size: 22.5rem;
-    aspect-ratio: 18/47;
+    block-size: calc(58.75rem + 10rem);
 }
 
 .table__wrapper>* {
@@ -879,8 +885,9 @@ header .frame__img:nth-child(7) {
 }
 
 .table__wrapper div p {
-    z-index: 10;
+    z-index: 20;
     opacity: 0;
+    position: absolute;
     transition: opacity 0.25s ease-in-out;
 }
 
@@ -904,7 +911,7 @@ header .frame__img:nth-child(7) {
 
 .soup__wrapper {
     inline-size: 8rem;
-    transform: translate(160%, 485%);
+    transform: translate(160%, calc(485% + 10rem));
 }
 
 .soup__wrapper::after {
@@ -925,7 +932,6 @@ header .frame__img:nth-child(7) {
     background-image: url(../assets/img/soup-mobile.svg);
     inline-size: 8.3125rem;
     block-size: 3.6875rem;
-    position: absolute;
     top: -1.7rem;
     left: -1rem;
 }
@@ -953,14 +959,13 @@ header .frame__img:nth-child(7) {
     background-image: url(../assets/img/asperges-mobile.svg);
     inline-size: 8.4375rem;
     block-size: 6.25rem;
-    position: absolute;
     top: 4.8rem;
     left: 2.6rem;
 }
 
 .fruit__wrapper {
     inline-size: 7.5rem;
-    transform: translate(30%, 450%) rotate(30deg);
+    transform: translate(30%, calc(450% + 10rem)) rotate(30deg);
 }
 
 .fruit__wrapper::after {
@@ -981,7 +986,6 @@ header .frame__img:nth-child(7) {
     background-image: url(../assets/img/fruit-mobile.svg);
     inline-size: 8rem;
     block-size: 4.4525rem;
-    position: absolute;
     top: -1.5rem;
     left: -1.2rem;
 }
@@ -1009,14 +1013,13 @@ header .frame__img:nth-child(7) {
     background-image: url(../assets/img/icecake-mobile.svg);
     inline-size: 7.375rem;
     block-size: 1.875rem;
-    position: absolute;
     top: -1.6rem;
     left: 3.9rem;
 }
 
 .salmon__wrapper {
     inline-size: 16rem;
-    transform: translate(10%, 700%) rotate(25deg);
+    transform: translate(10%, calc(700% + 10rem)) rotate(25deg);
 }
 
 .salmon__wrapper::after {
@@ -1037,7 +1040,6 @@ header .frame__img:nth-child(7) {
     background-image: url(../assets/img/salmon-mobile.svg);
     inline-size: 9.75rem;
     block-size: 4.0625rem;
-    position: absolute;
     top: -1.7rem;
     left: -1.2rem;
 }
@@ -1065,7 +1067,6 @@ header .frame__img:nth-child(7) {
     background-image: url(../assets/img/meat-mobile.svg);
     inline-size: 11.875rem;
     block-size: 3.1875rem;
-    position: absolute;
     top: -1.7rem;
     left: -0.5rem;
 }
@@ -1083,7 +1084,7 @@ header .frame__img:nth-child(7) {
 }
 
 .small__fork {
-    transform: translate(1000%, 620%) rotate(15deg);
+    transform: translate(1000%, calc(620% + 10rem)) rotate(15deg);
 }
 
 .knife {
@@ -1091,7 +1092,11 @@ header .frame__img:nth-child(7) {
 }
 
 .spoon {
-    transform: translate(260%, 4200%) rotate(50deg);
+    transform: translate(260%, calc(4200% + 10rem)) rotate(50deg);
+}
+
+.journal__wrapper--table {
+    margin-block-start: 9rem;
 }
 
 /* --- cities --- */
@@ -1167,6 +1172,10 @@ header .frame__img:nth-child(7) {
     place-self: center;
 }
 
+.journal__wrapper--cities:hover{
+    border-color: var(--c-beige);
+}
+
 .map__quote {
     grid-row: 3;
     display: flex;
@@ -1178,6 +1187,14 @@ header .frame__img:nth-child(7) {
 .map__quote p {
     inline-size: 100%;
     text-align: center;
+}
+
+.city__add {
+    display: none;
+}
+
+.city__add:hover p {
+    color: var(--c-blue);
 }
 
 /* --- station --- */
@@ -1676,6 +1693,19 @@ header .frame__img:nth-child(7) {
         background-size: 200%;
     }
 
+    .city__add {
+        padding-block: var(--space-2xs);
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        gap: var(--space-2xs);
+        align-items: center;
+    }
+
+    .journal--small {
+        inline-size: 1.5rem;
+        block-size: 1.875rem;
+    }
+
     .popup__close {
         display: unset;
         position: absolute;
@@ -1725,6 +1755,7 @@ header .frame__img:nth-child(7) {
     .city__info {
         display: grid;
         grid-template-columns: 3fr 4fr;
+        grid-template-rows: 2fr 3fr min-content;
         gap: var(--space-2xs);
     }
 
@@ -1733,12 +1764,21 @@ header .frame__img:nth-child(7) {
     }
 
     .city__desc {
+        grid-column: 2;
+        grid-row: 2;
         align-self: flex-start;
+    }
+
+    .city__add {
+        grid-column: 2;
+        grid-row: 3;
+        place-self: flex-end flex-start;
+        padding: unset;
     }
 
     .city__img {
         grid-column: 1;
-        grid-row: 1/3;
+        grid-row: 1/4;
     }
 
     /* --- station --- */
@@ -1845,7 +1885,8 @@ header .frame__img:nth-child(7) {
 
     .table__wrapper {
         inline-size: 52.125rem;
-        aspect-ratio: 417/370;
+        block-size: calc(46.25rem + var(--space-m) + var(--space-xl));
+        padding-block: var(--space-m) var(--space-xl);
     }
 
     .asperges__wrapper {
@@ -1948,6 +1989,11 @@ header .frame__img:nth-child(7) {
 
     .spoon {
         transform: translate(655%, 2350%) rotate(50deg);
+    }
+
+    .journal__wrapper--table {
+        place-self: flex-end;
+        margin: var(--space-m);
     }
 }
 
@@ -2196,8 +2242,8 @@ header .frame__img:nth-child(7) {
         max-inline-size: 95rem;
         aspect-ratio: 7/3;
         background-image: url(../assets/img/route-desktop.svg);
-        background-size: 85%;
-        background-position: 20% 10%;
+        background-size: 100%;
+        background-position: center center;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
@@ -2525,9 +2571,14 @@ header .frame__img:nth-child(7) {
 
     /* --- table --- */
 
+    .table__container {
+        block-size: 100vh;
+    }
+
     .table__wrapper {
         inline-size: 94.5rem;
-        aspect-ratio: 5/3;
+        padding: unset;
+        margin-block-start: -3rem;
     }
 
     .table__wrapper div::after {
@@ -2645,6 +2696,12 @@ header .frame__img:nth-child(7) {
         place-self: center;
     }
 
+    /* --- cities --- */
+
+    .map__wrapper {
+        max-inline-size: 84rem;
+    }
+
     /* --- station --- */
 
     .station__img {
@@ -2703,6 +2760,8 @@ header .frame__img:nth-child(7) {
         inline-size: 68.5rem;
         margin-inline-start: -7rem;
     }
+
+
 }
 
 @media (hover: hover) {
@@ -2716,10 +2775,6 @@ header .frame__img:nth-child(7) {
 }
 
 /* --- popups --- */
-
-html:has(.id__card--big) {
-    overflow: hidden;
-}
 
 .id__card--big {
     position: fixed;
