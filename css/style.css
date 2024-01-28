@@ -64,6 +64,8 @@
     --space-s-xl: clamp(1.5rem, -0.375rem + 8.3333vw, 7.5rem);
     /* Space xs-2xs: 18px → 20px */
     --space-xs-2xs: clamp(1.125rem, 1.0859rem + 0.1736vw, 1.25rem);
+    /* Space 3xl-l: 144px → 120px */
+    --space-3xl-xl: clamp(7.5rem, 9.469rem + -2.083vi, 9rem);
 
     --negative-margin: calc(0rem - var(--space-s-xl));
 }
@@ -1510,6 +1512,122 @@ main::after {
     margin-inline-start: -2.3rem;
 }
 
+/* --- hotel --- */
+
+.hotel__wrapper {
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.hotel__wrapper p:nth-of-type(2) {
+    grid-row: 4;
+}
+
+.hotel__img {
+    display: grid;
+    grid-template-columns: repeat(2, 25%) 50%;
+    margin-inline: var(--negative-margin);
+    padding-block: var(--space-s-m);
+}
+
+.hotel__img>* {
+    grid-row: 1;
+}
+
+.hotel__george {
+    grid-column: 1;
+    margin-inline-start: 1rem;
+    transform: scaleX(-1);
+}
+
+.hotel__logo {
+    grid-column: 2;
+    z-index: -10;
+    justify-self: center;
+    margin-block-start: 1rem;
+    margin-inline-start: 3rem;
+}
+
+.hotel__hotel {
+    grid-column: 3;
+    place-self: flex-end;
+    margin-inline-end: -2.5rem;
+    margin-block-end: 1rem;
+}
+
+/* --- stats --- */
+
+.stats__wrapper {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 25vw calc(var(--space-3xl-xl) + var(--space-xl)) auto;
+}
+
+.stats__wrapper>* {
+    grid-column: 1;
+}
+
+.stats__wrapper>p {
+    grid-row: 2;
+    align-self: center;
+    margin-block-start: calc(0rem - var(--space-s));
+}
+
+.stats__img {
+    grid-row: 1/4;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: min-content calc(var(--space-3xl-xl) + var(--space-xl)) min-content;
+    place-items: center;
+}
+
+.stats__city {
+    inline-size: 25vw;
+    z-index: 10;
+}
+
+.stats__city:nth-of-type(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.stats__city:nth-of-type(2) {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.stats__city:nth-of-type(3) {
+    grid-column: 4;
+    grid-row: 3;
+}
+
+.stats__img::before {
+    content: "";
+    inline-size: 130vw;
+    block-size: 6vw;
+    background-image: url(../assets/img/stats-mobile-1.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    grid-column: 1/-1;
+    grid-row: 1;
+    justify-self: flex-start;
+    margin-inline-start: -15vw;
+}
+
+.stats__img::after {
+    content: "";
+    inline-size: 88vw;
+    aspect-ratio: 395/100;
+    background-image: url(../assets/img/stats-mobile-2.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    grid-column: 1/-1;
+    grid-row: 3;
+    place-self: flex-end;
+    margin-inline-end: -8vw;
+    margin-block-end: 18vw;
+}
+
 /* --- animation --- */
 
 @keyframes convoText {
@@ -2114,6 +2232,109 @@ main::after {
         inline-size: 44.9rem;
         margin-inline-start: -4.6rem;
     }
+
+    /* --- hotel --- */
+
+    .hotel__wrapper {
+        grid-template-columns: 55% 45%;
+    }
+
+    .hotel__wrapper>p {
+        grid-column: 1;
+    }
+
+    .hotel__wrapper p:nth-of-type(2) {
+        grid-row: 3;
+        padding-block-start: var(--space-s);
+    }
+
+    .hotel__img {
+        grid-column: 2;
+        grid-row: 1/4;
+        padding: unset;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        block-size: 40vw;
+        align-self: center;
+    }
+
+    .hotel__img * {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .hotel__george {
+        transform: unset;
+        place-self: flex-end center;
+        margin-block-end: -1rem;
+        margin-inline-end: 5rem;
+    }
+
+    .hotel__hotel {
+        margin-inline-end: -1rem;
+    }
+
+    .hotel__logo {
+        margin-block-start: unset;
+    }
+
+    /* --- stats --- */
+
+    .stats__wrapper {
+        grid-template-columns: 1fr 22rem;
+        grid-template-rows: 15vw calc(var(--space-2xl) + var(--space-2xl) - var(--space-2xs)) 15vw;
+    }
+
+    .stats__wrapper>p {
+        grid-column: 2;
+        margin: unset;
+    }
+
+    .stats__img {
+        grid-column: 1/-1;
+        grid-template-rows: max-content calc(var(--space-2xl) + var(--space-2xl) - var(--space-2xs)) max-content;
+        block-size: 100%;
+    }
+
+    .stats__city {
+        inline-size: 15vw;
+    }
+
+    .stats__city:nth-of-type(1) {
+        grid-column: 4;
+        justify-self: flex-end;
+    }
+
+    .stats__city:nth-of-type(2) {
+        grid-column: 3;
+        justify-self: flex-start;
+    }
+
+    .stats__city:nth-of-type(3) {
+        grid-column: 3;
+        justify-self: flex-start;
+    }
+
+    .stats__img::before {
+        display: none;
+    }
+
+    .stats__img::after {
+        background-image: url(../assets/img/stats-tablet.svg);
+        inline-size: 90vw;
+        aspect-ratio: 188/100;
+        grid-column: 1/-1;
+        grid-row: 1/5;
+        align-self: center;
+        margin-block: unset;
+        margin-inline-end: -10vw;
+    }
+
+    .tip__wrapper--stats {
+        grid-column: 1;
+        grid-row: 2;
+        margin-inline-end: -5rem;
+    }
 }
 
 @media (min-width: 750px) {
@@ -2131,7 +2352,6 @@ main::after {
         right: -7.5rem;
         top: -15rem;
     }
-
 
     /* --- train --- */
 
@@ -2810,6 +3030,125 @@ main::after {
     .station__img {
         margin-block: unset;
     }
+
+    /* --- hotel --- */
+
+    .hotel__wrapper {
+        padding-inline-start: var(--space-xl);
+        grid-template-rows: 1fr repeat(3, min-content) 1fr;
+        column-gap: var(--space-l);
+        position: relative;
+        max-block-size: 40rem;
+    }
+
+    .hotel__wrapper::before {
+        content: "";
+        inline-size: 14vw;
+        max-inline-size: 14rem;
+        max-block-size: max-content;
+        aspect-ratio: 210/800;
+        background-image: url(../assets/img/stats-desktop-2.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0;
+        left: var(--negative-margin);
+    }
+
+    .hotel__wrapper h2 {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .hotel__wrapper p:nth-of-type(1) {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .hotel__wrapper p:nth-of-type(2) {
+        padding-block-start: var(--space-xs);
+        grid-column: 1;
+        grid-row: 4;
+    }
+
+    .hotel__img {
+        grid-row: 1/6;
+        inline-size: 45vw;
+        block-size: calc(45vw * 9/10);
+        max-inline-size: 45rem;
+        max-block-size: calc(45rem * 9/10);
+        justify-self: flex-end;
+        grid-template-columns: 30% 70%;
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .hotel__george {
+        justify-self: flex-start;
+        margin-inline-start: 3.5rem;
+        margin-block-end: -3.5rem;
+        grid-column: 1;
+        grid-row: 1/3;
+    }
+
+    .hotel__hotel {
+        grid-column: 2;
+        grid-row: 1/3;
+        margin: unset;
+        justify-self: flex-start;
+    }
+
+    .hotel__logo {
+        grid-column: 1/-1;
+        grid-row: 1/3;
+        margin: unset;
+        place-self: flex-start;
+    }
+
+    /* --- stats --- */
+
+    .stats__wrapper {
+        grid-template-columns: max-content 1fr 1fr;
+        grid-template-rows: 20vw auto 20vw;
+        margin-block-start: calc(0rem - var(--space-s));
+    }
+
+    .stats__wrapper>p {
+        grid-column: 1;
+    }
+
+    .stats__city {
+        inline-size: 20vw;
+        max-inline-size: 18.75rem;
+    }
+
+    .stats__city:nth-of-type(1) {
+        grid-column: 1;
+        margin-inline-start: var(--negative-margin);
+        place-self: flex-start;
+    }
+
+    .stats__city:nth-of-type(2) {
+        grid-column: 2/4;
+        justify-self: center;
+    }
+
+    .stats__city:nth-of-type(3) {
+        grid-column: 1;
+    }
+
+    .stats__img::after {
+        background-image: url(../assets/img/stats-desktop-1.png);
+        background-size: contain;
+        inline-size: 67vw;
+        max-inline-size: 63.75rem;
+        aspect-ratio: 155/100;
+        justify-self: flex-start;
+    }
+
+    .tip__wrapper--stats {
+        grid-column: 2;
+        margin: unset;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -2852,6 +3191,8 @@ main::after {
         grid-template-columns: repeat(3, min-content);
         grid-template-rows: 1fr;
         margin-inline: var(--negative-margin);
+        inline-size: max-content;
+        justify-self: center;
     }
 
     .station__label--west {
