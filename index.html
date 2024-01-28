@@ -16,15 +16,56 @@
 
 <body>
   <header>
-    <h1>The Orient Express</h1>
+    <div class="header__wrapper">
+      <div class="title__wrapper">
+        <h1 class="header__title">The Orient Express</h1>
+        <p>Paris - <span class="gold">1930</span></p>
+      </div>
+      <div class="header__quote">
+        <p class="quote">O train de luxe!</p>
+        <p>- by Louise Maréchal</p>
+      </div>
+      <p class="header__cta">
+        <span class="cta">scroll down</span>
+      </p>
+      <div class="header__img">
+        <div class="header__louise">
+          <picture>
+            <source srcset="
+              ./assets/img/louise-marechal-130.avif 130w,
+              ./assets/img/louise-marechal-260.avif 260w,
+              ./assets/img/louise-marechal-360.avif 360w,
+              " sizes="(min-width: 1000px) 20vw, (min-width: 550px) 40vw, 55vw" type="image/avif">
+            <source srcset="
+              ./assets/img/louise-marechal-130.webp 130w,
+              ./assets/img/louise-marechal-260.webp 260w,
+              ./assets/img/louise-marechal-360.webp 360w,
+              " sizes="(min-width: 1000px) 20vw, (min-width: 550px) 40vw, 55vw" type="image/webp">
+            <img src="./assets/img/louise-marechal.png" alt="louise maréchal">
+          </picture>
+        </div>
+        <picture class="header__cities">
+          <source srcset="
+            ./assets/img/header-cities-400.avif 400w,
+            ./assets/img/header-cities-630.avif 630w,
+            ./assets/img/header-cities-1000.avif 1000w,
+            " sizes="(min-width: 1000px) 65vw, (min-width: 550px) 75vw, 105vw" type="image/avif">
+          <source srcset="
+            ./assets/img/header-cities-400.webp 400w,
+            ./assets/img/header-cities-630.webp 630w,
+            ./assets/img/header-cities-1000.webp 1000w,
+            " sizes="(min-width: 1000px) 65vw, (min-width: 550px) 75vw, 105vw" type="image/webp">
+          <img src="./assets/img/header-cities.png" alt="Paris Constantinople and Cairo">
+        </picture>
+        <img class="header__track" src="./assets/img/header-track.svg" alt="train track">
+      </div>
+    </div>
     <nav>
       <ul>
         <li>home</li>
         <li>stories</li>
       </ul>
     </nav>
-    <p>O train de luxe!</p>
-    <p>by Louise Maréchal</p>
     <div class="frame">
       <div class="frame__img"></div>
       <div class="frame__img"></div>
@@ -40,17 +81,18 @@
   <main>
     <section class="instructions">
       <h2 class="visually-hidden">Instructions</h2>
-      <p>This is an <strong>interactive story</strong> about the Orient Express told by a fictional character called Louise Maréchal.</p>
+      <p>This is an <strong>interactive story</strong> about the Orient Express told by a fictional character called
+        Louise Maréchal.</p>
       <p>Throughout the story you will find the following icons.</p>
       <ul class="instructions__icons">
         <li>
-          <dotlottie-player class="tip tip--instructions" src="./animations/tip.lottie" background="transparent" speed="1" direction="1"
-            mode="normal" loop autoplay>
+          <dotlottie-player class="tip tip--instructions" src="./animations/tip.lottie" background="transparent"
+            speed="1" direction="1" mode="normal" loop autoplay>
           </dotlottie-player>
           <p>Discover <strong>tips and tricks</strong> and learn some essential travel advice.</p>
         <li>
-          <dotlottie-player class="journal journal--instructions" src="./animations/journal.lottie" background="transparent" speed="1" direction="1"
-            mode="normal" loop autoplay>
+          <dotlottie-player class="journal journal--instructions" src="./animations/journal.lottie"
+            background="transparent" speed="1" direction="1" mode="normal" loop autoplay>
           </dotlottie-player>
           <p>Collect memories and create your own <strong>custom travel journal</strong>.</p>
         </li>

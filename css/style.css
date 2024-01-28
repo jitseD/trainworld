@@ -113,6 +113,7 @@ header {
 h1,
 h2,
 h3,
+.title__wrapper,
 .chapter__day,
 .quote,
 .chapter__subtitle,
@@ -129,6 +130,8 @@ h1 {
 }
 
 h2,
+.title__wrapper,
+.title__wrapper .gold,
 .station__label {
     font-size: var(--step-3);
     padding-block-end: var(--space-xs);
@@ -193,7 +196,6 @@ section {
 .cta {
     color: var(--c-yellow);
     padding: var(--space-3xs) var(--space-2xs);
-    align-items: center;
     position: relative;
     border-block-end: var(--c-yellow) 1px solid;
 }
@@ -450,18 +452,140 @@ dialog {
 
 header {
     position: relative;
+    place-self: center;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 100%;
+    block-size: 100svh;
+    grid-template-rows: min-content 1fr;
+    padding-inline: var(--space-xs);
+}
+
+nav {
+    grid-row: 1;
+}
+
+.header__wrapper {
+    max-inline-size: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(2, max-content) 1fr;
+}
+
+.title__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3xs);
+    padding-block: var(--space-m);
+}
+
+.header__quote {
+    grid-column: 1;
+    grid-row: 2;
+    inline-size: max-content;
+    block-size: max-content;
+    border-radius: 2rem 2rem 0 2rem;
+    border: var(--c-yellow) 1px solid;
+    padding: var(--space-xs);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    position: relative;
+}
+
+.header__quote .quote {
+    font-size: var(--step-3);
+}
+
+.header__quote::after {
+    content: "";
+    inline-size: 0.6rem;
+    aspect-ratio: 1;
+    background-image: url(../assets/img/frame-ornament.svg);
+    background-size: 100%;
+    position: absolute;
+    top: 100%;
+    left: 100%;
+}
+
+.header__cta {
+    grid-column: 1;
+    grid-row: 3;
+    margin: var(--space-m);
+}
+
+.header__img {
+    grid-column: 1;
+    grid-row: 2/4;
+    align-self: flex-end;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr;
+}
+
+.header__img>* {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.header__louise {
+    place-self: flex-end;
+    margin-inline-end: -8vw;
+    margin-block-end: -2px;
+    transform: scaleX(-1);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.header__louise>* {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.header__louise::after {
+    grid-column: 1;
+    grid-row: 1;
+    content: "";
+    inline-size: 35vw;
+    max-inline-size: 12.5rem;
+    aspect-ratio: 1;
+    transform: translate(0%, -40%);
+    border-radius: 100%;
+    background-color: var(--c-yellow);
+    z-index: -10;
+}
+
+.header__louise img {
+    max-inline-size: 20rem;
+}
+
+.header__cities {
+    margin-inline-start: -40vw;
+    margin-block-end: 3rem;
+    align-self: flex-end;
+}
+
+.header__cities img {
+    max-inline-size: 65rem;
+}
+
+.header__track {
+    place-self: flex-end center;
+    inline-size: 82rem;
+    block-size: 2.7rem;
+    margin-block-end: 1.3rem;
 }
 
 header .frame {
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
     inline-size: 100vw;
     block-size: 100svh;
     margin: unset;
-}
-
-header .frame {
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: repeat(2, 1fr);
 }
@@ -476,6 +600,7 @@ header .frame__img:nth-child(1) {
 }
 
 header .frame__img:nth-child(2) {
+    display: unset;
     background-position: top center;
 }
 
@@ -496,6 +621,7 @@ header .frame__img:nth-child(6) {
 }
 
 header .frame__img:nth-child(7) {
+    display: unset;
     background-position: bottom right;
 }
 
@@ -508,6 +634,7 @@ header .frame__img:nth-child(7) {
     gap: 2rem;
     max-inline-size: 30rem;
     overflow-x: hidden;
+    padding-block-start: var(--space-xl);
 }
 
 .instructions__icons {
@@ -1260,7 +1387,7 @@ main::after {
 .journal__wrapper--station {
     grid-row: 3;
     place-self: center;
-    max-inline-size: calc(15rem + 2 * var(--space-2xs));
+    max-inline-size: calc(17rem + 2 * var(--space-2xs));
 }
 
 .station__container {
@@ -1489,6 +1616,9 @@ main::after {
 /* --- media queries --- */
 
 @media (min-width: 500px) {
+
+    /* --- frame --- */
+
     .frame {
         grid-template-columns: 1fr 3fr 1fr;
         grid-template-rows: 1fr 3fr 1fr;
@@ -1509,19 +1639,19 @@ main::after {
         display: unset;
         background-position: top center;
     }
-    
+
     .frame__img:nth-child(3) {
         background-position: top right;
     }
-    
+
     .frame__img:nth-child(4) {
         background-position: center left;
     }
-    
+
     .frame__img:nth-child(6) {
         background-position: center right;
     }
-    
+
     .frame__img:nth-child(7) {
         display: unset;
         background-position: bottom left;
@@ -1543,13 +1673,6 @@ main::after {
     .chapter__info {
         grid-column: 2;
         grid-row: 2;
-    }
-
-    /* --- header --- */
-
-    header .frame__img:nth-child(5) {
-        display: unset;
-        background-position: bottom left;
     }
 
     /* ---intro --- */
@@ -1595,6 +1718,66 @@ main::after {
 }
 
 @media (min-width: 550px) {
+
+    /* --- header --- */
+
+    header {
+        padding: unset;
+    }
+
+    .header__wrapper {
+        inline-size: calc(100vw - 2 * var(--space-xs) - 3.6rem);
+        grid-column: 1;
+        grid-row: 2;
+        grid-template-rows: 6fr 10fr;
+        justify-self: center;
+        margin-block: 3.3rem;
+        overflow: hidden;
+        padding-inline: var(--space-s);
+    }
+
+    .title__wrapper {
+        place-self: center;
+        font-size: var(--step-2);
+    }
+
+    .header__quote {
+        gap: var(--space-3xs);
+    }
+
+    .header__cta {
+        grid-row: 2;
+        block-size: max-content;
+        margin: var(--space-3xl) var(--space-xl);
+    }
+
+    .header__louise {
+        margin-inline-end: unset;
+        aspect-ratio: 6/10;
+        margin-inline-end: calc(0rem - var(--space-xs));
+    }
+
+    .header__louise::after {
+        inline-size: 22vw;
+    }
+
+    .header__cities {
+        margin-inline-start: -15vw;
+        margin-block-end: 2.5rem;
+    }
+
+    header .frame {
+        grid-column: 1;
+        grid-row: 2;
+        display: grid;
+        position: unset;
+        block-size: 100%;
+    }
+
+    header .frame__img:nth-child(5) {
+        display: unset;
+        background-position: bottom left;
+    }
 
     /* --- instructions --- */
 
@@ -1810,6 +1993,25 @@ main::after {
 
 @media(min-width: 700px) {
 
+    /* --- instructions --- */
+
+    .header__track {
+        justify-self: flex-start;
+        margin-inline-start: calc(9rem - 3 * var(--space-s) - 1.8rem);
+    }
+
+    body::before {
+        content: "";
+        background-image: url(../assets/img/track-instructions-yellow.svg);
+        background-repeat: no-repeat;
+        inline-size: 10rem;
+        block-size: 31.875rem;
+        position: absolute;
+        top: calc(100svh - 7.4rem);
+        left: -1rem;
+        z-index: 20;
+    }
+
     /* --- cities --- */
 
     .city__popup {
@@ -1930,7 +2132,6 @@ main::after {
         top: -15rem;
     }
 
-    .instructions {}
 
     /* --- train --- */
 
@@ -1966,8 +2167,8 @@ main::after {
 
     .table__wrapper {
         inline-size: 52.125rem;
-        block-size: calc(46.25rem + var(--space-m) + var(--space-xl));
-        padding-block: var(--space-m) var(--space-xl);
+        block-size: calc(46.25rem + var(--space-s) + var(--space-l));
+        padding-block: var(--space-s) var(--space-l);
     }
 
     .asperges__wrapper {
@@ -2259,7 +2460,7 @@ main::after {
         display: grid;
         grid-template-columns: var(--space-m) 1fr max-content var(--space-m);
         gap: var(--space-s);
-        margin-inline: s-xlalc(0rem - var(--space-m));
+        margin-inline: calc(0rem - var(--space-m));
     }
 
     .tip__wrapper--cities {
@@ -2273,6 +2474,7 @@ main::after {
         inline-size: min-content;
         padding: var(--space-s);
         position: relative;
+        justify-self: flex-end;
     }
 
     .subtitle__container--cities .chapter__subtitle {
@@ -2414,6 +2616,59 @@ main::after {
 
 @media (min-width: 1000px) {
 
+    /* --- header --- */
+
+    header {
+        min-block-size: 50rem;
+    }
+
+    .header__wrapper {
+        grid-template-columns: 52.5% 47.5%;
+        margin-block: 3.5rem;
+    }
+
+    .title__wrapper {
+        place-self: flex-start;
+        padding: unset;
+        grid-column: 1/-1;
+        grid-row: 1/3;
+        align-items: flex-start;
+        margin: var(--space-m);
+    }
+
+    .header__quote,
+    .header__cta {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .header__quote {
+        margin-block-start: -3rem;
+    }
+
+    .header__quote .quote {
+        font-size: calc(var(--step-2) + 0.25rem);
+    }
+
+    .header__cta {
+        margin: unset;
+        margin-block-start: var(--space-2xl);
+        margin-inline-start: var(--space-xl);
+    }
+
+    .header__img {
+        grid-column: 1/-1;
+        grid-row: 1/3;
+    }
+
+    .header__louise::after {
+        inline-size: 12.5vw;
+    }
+
+    .header__cities {
+        margin-block-end: 2.2rem;
+    }
+
     /* --- intro --- */
 
     .crowd__crowd {
@@ -2469,7 +2724,7 @@ main::after {
 
     .food__container {
         display: grid;
-        grid-template-columns: fit-content auto;
+        grid-template-columns: max-content auto;
         grid-template-rows: auto min-content;
         column-gap: var(--space-l-xl);
         row-gap: unset;
@@ -2480,9 +2735,11 @@ main::after {
     }
 
     .food__container .subtitle__container {
-        inline-size: min-content;
+        inline-size: max-content;
         padding: var(--space-s);
         position: relative;
+        grid-column: 1;
+        grid-row: 1/3;
     }
 
     .chapter__subtitle {
@@ -2491,11 +2748,6 @@ main::after {
 
     .subtitle__container p {
         inline-size: 100%;
-    }
-
-    .food__container .subtitle__container {
-        grid-column: 1;
-        grid-row: 1/3;
     }
 
     .food__container .subtitle__frame {
@@ -2688,7 +2940,7 @@ main::after {
 
     .table__container {
         min-block-size: 55rem;
-        max-block-size: 100vh;
+        max-block-size: 100dvh;
     }
 
     .table__wrapper {
@@ -2823,6 +3075,11 @@ main::after {
 
     header {
         max-inline-size: 100rem;
+    }
+
+
+    .header__wrapper {
+        inline-size: calc(100rem - 2 * var(--space-xs) - 3.6rem);
     }
 
     /* --- station --- */
