@@ -54,15 +54,12 @@ const windowResizedHandle = e => {
 
     if (window.innerWidth < 550) {
         showAllCityPopups();
-        if (citiesJournal.city.name) {
-            updateJournalText(citiesJournal.city.name, `city`);
-        }
     } else {
         closeAllCityPopups();
-        $citiesJournalText.textContent = `add your favorite city to the journal`;
     }
 
     setStationValues();
+    addCityJournal();
 }
 
 const openIdHanle = e => {
@@ -325,6 +322,16 @@ const dropHandle = e => {
     $foodDropzone.classList.remove(`dropzone--hover`);
 };
 
+const addCityJournal = () => {
+    $citiesButton.addEventListener(`click`, addCityCarouselHandle);
+    if (window.innerWidth >= 550) {
+        $citiesButton.removeEventListener(`click`, addCityCarouselHandle);
+        $citiesButtons.forEach($cityButton => {
+            $cityButton.addEventListener(`click`, addCityMapHandle)
+        });
+    }
+}
+
 const addCityCarouselHandle = e => {
     citiesJournal.carousel.closestCity = null;
     citiesJournal.carousel.closestCityName = null;
@@ -334,20 +341,20 @@ const addCityCarouselHandle = e => {
 
     citiesJournal.city.name = citiesJournal.carousel.closestCityName;
     citiesJournal.city.url = citiesJournal.carousel.closestCity.querySelector(`.city__img`).getAttribute(`src`);
-    
+
     updateJournalText(citiesJournal.city.name, `city`);
     console.log(citiesJournal);
 }
 
 const findCurrentCity = () => {
     const screenCenter = window.innerWidth / 2;
-    
+
     const $cities = document.querySelectorAll(`.city__wrapper`);
-    
+
     $cities.forEach(city => {
         const bb = city.getBoundingClientRect();
         const distToCenter = Math.abs(bb.left + bb.width / 2 - screenCenter);
-        
+
         if (distToCenter < citiesJournal.carousel.closestDist) {
             citiesJournal.carousel.closestDist = distToCenter;
             citiesJournal.carousel.closestCity = city
@@ -359,11 +366,11 @@ const findCurrentCity = () => {
 const addCityMapHandle = e => {
     console.log(e.currentTarget.parentElement);
     const info = e.currentTarget.parentElement;
-    
+
     citiesJournal.city.name = info.querySelector(`.city__name`).textContent;
     citiesJournal.city.url = info.querySelector(`.city__img`).getAttribute(`src`);
     console.log(citiesJournal.city);
-    
+
     e.currentTarget.querySelector(`p`).textContent = `added as favorite city`
     updateJournalText(citiesJournal.city.name, `city`);
 }
@@ -476,13 +483,7 @@ const init = () => {
 
     // --- citiesJournal --- //
 
-    $citiesButton.addEventListener(`click`, addCityCarouselHandle);
-    if(window.innerWidth >=550){
-        $citiesButton.removeEventListener(`click`, addCityCarouselHandle);
-        $citiesButtons.forEach($cityButton => {
-            $cityButton.addEventListener(`click`, addCityMapHandle)
-        });
-    }
+    addCityJournal();
 
     // --- cityPopups --- //
 
