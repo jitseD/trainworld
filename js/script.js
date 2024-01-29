@@ -12,6 +12,7 @@ const $idCard = document.querySelector(`.id__card`);
 const $foodDropzone = document.querySelector(`.dropzone`);
 const $imgages = document.querySelectorAll(`img`);
 const $foodImages = document.querySelectorAll(`.table__wrapper div img`);
+const $foodJournalText = document.querySelector(`.dropzone p`);
 const foodJournal = {
     dragging: false,
     dragged: null,
@@ -19,6 +20,7 @@ const foodJournal = {
     pos: null,
     type: null,
     url: null,
+    name: null,
     journal: false,
 }
 
@@ -37,6 +39,8 @@ const citiesJournal = {
     }
 }
 
+const $addStation = document.querySelector(`.journal__wrapper--station`);
+let stationHighlight;
 const station = { size: [], top: [], left: [] };
 
 const $citiesWrapper = document.querySelector(`.cities__wrapper`);
@@ -51,6 +55,10 @@ const $peopleButtons = document.querySelectorAll(`.person__button`);
 const $peoplePopups = document.querySelectorAll(`.person__popup`);
 const $signatureButtons = document.querySelectorAll(`.ask__signature`);
 const peopleJournal = [];
+
+const $journal = document.querySelector(`.notebook__wrapper`);
+const $journalSignatures = document.querySelectorAll(`.notebook__signature`);
+const $createJournal = document.querySelector(`.create__notebook`);
 
 const windowResizedHandle = e => {
     if (window.innerWidth >= 500) {
@@ -263,9 +271,9 @@ const stationBuilding = () => {
 }
 
 const dragStartHandle = e => {
-    foodJournal.dragged = e.target;
-    foodJournal.type = e.target.getAttribute(`data-food`);
-    foodJournal.url = e.target.src
+    foodJournal.dragged = e.currentTarget;
+    foodJournal.url = e.currentTarget.src
+    foodJournal.name = e.currentTarget.getAttribute(`alt`);
     foodJournal.dragImg = document.createElement(`img`);
     foodJournal.dragImg.classList.add(`dragging`);
     foodJournal.dragImg.setAttribute(`src`, foodJournal.url);
@@ -275,7 +283,6 @@ const dragStartHandle = e => {
 
 const draggingHandle = e => {
     e.preventDefault();
-
     if (foodJournal.dragging) {
         if (!document.querySelector(`.dragging`)) {
             document.querySelector(`.table__wrapper`).appendChild(foodJournal.dragImg);
@@ -289,7 +296,7 @@ const draggingHandle = e => {
         foodJournal.dragImg.style.left = clientX + 'px';
         foodJournal.pos = { x: clientX, y: clientY }
 
-        if (checkBoundingBox()) {
+        if (checkBoundingBox($foodDropzone)) {
             $foodDropzone.classList.add(`dropzone--hover`);
         } else {
             $foodDropzone.classList.remove(`dropzone--hover`);
@@ -297,11 +304,10 @@ const draggingHandle = e => {
     }
 }
 
-const checkBoundingBox = () => {
-    const dropzone = $foodDropzone.getBoundingClientRect();
-
-    if (foodJournal.pos.x >= dropzone.left && foodJournal.pos.x <= dropzone.right) {
-        if (foodJournal.pos.y >= dropzone.top && foodJournal.pos.y <= dropzone.bottom) {
+const checkBoundingBox = (element) => {
+    const boundingBox = element.getBoundingClientRect();
+    if (foodJournal.pos.x >= boundingBox.left && foodJournal.pos.x <= boundingBox.right) {
+        if (foodJournal.pos.y >= boundingBox.top && foodJournal.pos.y <= boundingBox.bottom) {
             return true;
         }
     } else {
@@ -310,28 +316,31 @@ const checkBoundingBox = () => {
 }
 
 const dropHandle = e => {
-    foodJournal.dragging = false;
+    if (foodJournal.dragging) {
 
-    if (document.querySelector(`.dragging`)) {
-        document.querySelector(`.table__wrapper`).removeChild(foodJournal.dragImg);
-    }
+        foodJournal.dragging = false;
 
-    if (foodJournal.pos) {
-        if (checkBoundingBox()) {
-            console.log(`${foodJournal.type} food`);
-            foodJournal.journal = true;
-        } else {
-            console.log(`don't add food`);
-            foodJournal.touch = false;
-            foodJournal.dragged = null;
-            foodJournal.dragImg = null;
-            foodJournal.pos = null;
-            foodJournal.type = null;
-            foodJournal.journal = false;
+        if (document.querySelector(`.dragging`)) {
+            document.querySelector(`.table__wrapper`).removeChild(foodJournal.dragImg);
         }
-    }
 
-    $foodDropzone.classList.remove(`dropzone--hover`);
+        if (foodJournal.pos) {
+            if (checkBoundingBox($foodDropzone)) {
+                foodJournal.journal = true;
+                console.log($foodJournalText);
+                updateJournalText($foodJournalText, foodJournal.name, `meal`);
+            } else {
+                foodJournal.dragged = null;
+                foodJournal.dragImg = null;
+                foodJournal.pos = null;
+                foodJournal.name = null;
+                foodJournal.journal = false;
+                foodJournal.url = null;
+            }
+        }
+
+        $foodDropzone.classList.remove(`dropzone--hover`);
+    }
 };
 
 const addCityJournal = () => {
@@ -354,7 +363,7 @@ const addCityCarouselHandle = e => {
     citiesJournal.city.name = citiesJournal.carousel.closestCityName;
     citiesJournal.city.url = citiesJournal.carousel.closestCity.querySelector(`.city__img`).getAttribute(`src`);
 
-    updateJournalText(citiesJournal.city.name, `city`);
+    updateJournalText($citiesJournalText, citiesJournal.city.name, `city`);
     console.log(citiesJournal);
 }
 
@@ -384,11 +393,11 @@ const addCityMapHandle = e => {
     console.log(citiesJournal.city);
 
     e.currentTarget.querySelector(`p`).textContent = `added as favorite city`
-    updateJournalText(citiesJournal.city.name, `city`);
+    updateJournalText($citiesJournalText, citiesJournal.city.name, `city`);
 }
 
-const updateJournalText = (name, type) => {
-    $citiesJournalText.innerHTML = `<strong>${name}</strong> is added as your favorite ${type}`;
+const updateJournalText = (element, name, type) => {
+    element.innerHTML = `<strong>${name}</strong> is added as your favorite ${type}`;
 }
 
 const showAllCityPopups = () => {
@@ -454,6 +463,11 @@ const switchCityPopup = (currentPopup) => {
     });
 }
 
+const addStationHandle = e => {
+    e.currentTarget.querySelector(`p`).textContent = `this moment is added to your journal`;
+    stationHighlight = true;
+}
+
 const openPersonPopupHadle = e => {
     const personPopup = e.currentTarget.nextElementSibling;
     personPopup.showModal();
@@ -464,14 +478,41 @@ const addSignatureHandle = e => {
     const person = e.currentTarget.parentElement.querySelector(`.person__name`).textContent;
     const buttonText = e.currentTarget.querySelector(`p`);
     const journalAnimation = e.currentTarget.querySelector(`dotlottie-player`);
-    journalAnimation.pause();
+    const personPopup = e.currentTarget.parentElement.parentElement.parentElement;
+    const currentPerson = Array.from($peoplePopups).indexOf(personPopup);
 
+    journalAnimation.pause();
     signature.play();
-    peopleJournal.push(person);
+    peopleJournal.push(currentPerson);
 
     setTimeout(() => {
         buttonText.textContent = `${person} signed your travel journal`;
     }, "2000");
+}
+
+const createJournaHandle = e => {
+    if (foodJournal.url) {
+        $journal.querySelector(`.notebook__food`).classList.remove(`hide`);
+        $journal.querySelector(`.food__img`).setAttribute(`src`, foodJournal.url);
+        $journal.querySelector(`.food__label`).textContent = foodJournal.name;
+    }
+    if (citiesJournal.city.url) {
+        $journal.querySelector(`.notebook__city`).classList.remove(`hide`);
+        $journal.querySelector(`.city__img`).setAttribute(`src`, citiesJournal.city.url);
+        $journal.querySelector(`.city__label`).textContent = citiesJournal.city.name;
+    }
+    for (let i = 0; i < peopleJournal.length; i++) {
+        console.log(peopleJournal[i]);
+        const num = peopleJournal[i];
+        $journalSignatures[num].classList.remove(`hide`);
+    }
+    if (stationHighlight) {
+        $journal.querySelector(`.notebook__highlight`).classList.remove(`hide`);
+    }
+
+    $journal.querySelector(`.notebook__img`).classList.remove(`hide`);
+    document.querySelector(`.download__notebook`).classList.remove(`hide`);
+    $createJournal.classList.add(`hide`);
 }
 
 const init = () => {
@@ -546,6 +587,10 @@ const init = () => {
         $lastPopup.addEventListener(`click`, lastStopHandle);
     });
 
+    // --- station --- //
+
+    $addStation.addEventListener(`click`, addStationHandle);
+
     // --- people --- //
 
     $peopleButtons.forEach($personButton => {
@@ -557,6 +602,10 @@ const init = () => {
     $signatureButtons.forEach($signatureBuuton => {
         $signatureBuuton.addEventListener(`click`, addSignatureHandle);
     })
+
+    // --- journal --- //
+
+    $createJournal.addEventListener(`click`, createJournaHandle);
 }
 
 init();

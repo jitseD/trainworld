@@ -112,6 +112,14 @@ header {
     inline-size: 100%;
 }
 
+button {
+    outline: unset;
+    background-color: unset;
+    border: var(--c-yellow) 1px solid;
+    appearance: unset;
+    padding: var(--space-2xs);
+}
+
 h1,
 h2,
 h3,
@@ -124,7 +132,8 @@ h3,
 .city__name,
 .person__name,
 .hotel__title,
-.fear__title {
+.fear__title,
+.notebook__wrapper p {
     font-family: "century-old-style-std", serif;
     font-weight: 400;
     font-style: normal;
@@ -150,7 +159,8 @@ h2,
 h3,
 .chapter__day,
 .chapter__subtitle,
-.city__name {
+.city__name,
+.notebook__wrapper p {
     font-size: var(--step-1);
 }
 
@@ -400,7 +410,8 @@ dialog {
     display: none;
 }
 
-.chapter {
+.chapter,
+.notebook {
     display: grid;
     grid-template-columns: 100%;
     gap: var(--space-m);
@@ -2071,6 +2082,23 @@ main::after {
     margin: 0 0 -3rem -0.5rem;
 }
 
+/* --- notebook --- */
+
+.notebook {
+    margin-block-start: -4rem;
+}
+
+.people__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.notebook__wrapper,
+.create__notebook {
+    display: none;
+}
+
 /* --- animation --- */
 
 @keyframes convoText {
@@ -2311,6 +2339,16 @@ main::after {
         inline-size: 125vw;
         transform: translateY(7%);
     }
+
+    /* --- notebook --- */
+
+    .notebook {
+        margin: unset;
+    }
+
+    .people__text {
+        max-inline-size: 25rem;
+    }
 }
 
 @media (min-width: 550px) {
@@ -2536,7 +2574,8 @@ main::after {
         display: unset;
     }
 
-    .city__add {
+    .city__wrapper .city__add {
+        display: unset;
         display: flex;
     }
 
@@ -3371,10 +3410,11 @@ main::after {
         transition: padding 0.25s ease-in-out, margin 0.25s ease-in-out, color 0.25s ease-in-out;
     }
 
-    .nav__days li:hover{
+    .nav__days li:hover {
         padding-inline: var(--space-2xs);
         margin-inline: var(--space-3xs);
     }
+
     .nav__days li:hover a {
         color: var(--c-yellow);
     }
@@ -3778,6 +3818,160 @@ main::after {
     .person__wrapper:nth-of-type(4) .person__button img {
         transform: unset;
     }
+
+    /* --- notebook --- */
+
+    .notebook {
+        display: grid;
+        grid-template-columns: 100%;
+        place-items: center;
+        /* inline-size: 75rem; */
+        margin-block-start: -10rem;
+    }
+
+    .people__text {
+        grid-column: 1;
+        grid-row: 1;
+        place-self: flex-start;
+    }
+
+    .create__notebook {
+        display: unset;
+        grid-column: 1;
+        grid-row: 1;
+        place-self: center;
+        z-index: 20;
+    }
+
+    .notebook__container {
+        place-self: center;
+        max-inline-size: 75rem;
+        block-size: 46rem;
+        background-image: url(../assets/img/notebook-background.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        margin: var(--space-m);
+        display: grid;
+        place-items: center;
+        grid-template-columns: 100%;
+        grid-template-rows: 46rem;
+        overflow: visible;
+        gap: var(--space-l);
+    }
+
+    .create__notebook,
+    .notebook__wrapper {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .notebook__wrapper {
+        overflow: visible;
+        display: grid;
+        grid-template-columns: 12.875rem 25.625rem 4.5rem 25.5rem 19.8125rem;
+        grid-template-rows: 5.5rem 13.8125rem 2.375rem 9.8125rem 1.5625rem 10.8125rem 2.75rem;
+        transform: rotate(5deg);
+        margin-inline-end: -5rem;
+    }
+
+    .notebook__wrapper img {
+        mix-blend-mode: multiply;
+        opacity: 0.8;
+    }
+
+    .notebook__wrapper .notebook__img {
+        mix-blend-mode: unset;
+        opacity: unset;
+        grid-column: 1/-1;
+        grid-row: 1/8;
+        z-index: -10;
+    }
+
+    .notebook__food {
+        grid-column: 2;
+        grid-row: 4;
+    }
+
+    .notebook__city,
+    .notebook__food {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        place-items: center;
+    }
+
+    .notebook__food .food__label,
+    .notebook__city .city__label {
+        inline-size: 100%;
+        text-align: center;
+    }
+
+    .notebook__food .food__img {
+        inline-size: 12.5rem;
+    }
+
+    .notebook__city {
+        grid-column: 2;
+        grid-row: 6;
+    }
+
+    .notebook__city .city__img {
+        grid-column: 1;
+        inline-size: 11.25rem;
+    }
+
+    .notebook__highlight {
+        grid-column: 4;
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: 1fr;
+        place-items: center;
+    }
+
+    .notebook__highlight .highlight__img {
+        inline-size: 20rem;
+    }
+
+    .notebook__signatures {
+        grid-column: 4;
+        grid-row: 5;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: var(--space-2xs);
+        padding-block-start: var(--space-s);
+        place-items: center;
+    }
+
+    .notebook__signature:nth-child(1) {
+        transform: rotate(-10deg);
+        grid-column: 1/-1;
+        grid-row: 2;
+    }
+
+    .notebook__signature:nth-child(2) {
+        transform: rotate(-5deg);
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .notebook__signature:nth-child(3) {
+        transform: rotate(10deg);
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .notebook__signature:nth-child(4) {
+        transform: rotate(10deg);
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .notebook__signature:nth-child(5) {
+        transform: rotate(5deg);
+        grid-column: 1;
+        grid-row: 3;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -4138,4 +4332,8 @@ main::after {
 .id__card--big img {
     inline-size: 90vw;
     max-inline-size: 68.75rem;
+}
+
+.hide {
+    display: none;
 }
