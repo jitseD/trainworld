@@ -1,4 +1,5 @@
 import '@dotlottie/player-component';
+
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -43,6 +44,11 @@ const $closePopups = document.querySelectorAll(`.popup__close`);
 const $nextPopups = document.querySelectorAll(`.city__next`);
 const $lastPopups = document.querySelectorAll(`.city__last`);
 let currentPopup;
+
+const $peopleButtons = document.querySelectorAll(`.person__button`);
+const $peoplePopups = document.querySelectorAll(`.person__popup`);
+const $signatureButtons = document.querySelectorAll(`.ask__signature`);
+const peopleJournal = []
 
 const windowResizedHandle = e => {
     if (window.innerWidth >= 500) {
@@ -401,7 +407,7 @@ const openCityPopupHadle = e => {
     cityPopup.showModal();
 }
 
-const clickCityPopupHandle = e => {
+const clickPopupHandle = e => {
     const popup = e.currentTarget;
     const popupDimeensions = popup.getBoundingClientRect();
     if (
@@ -440,6 +446,26 @@ const switchCityPopup = (currentPopup) => {
             $cityPopup.close();
         }
     });
+}
+
+const openPersonPopupHadle = e => {
+    const personPopup = e.currentTarget.nextElementSibling;
+    personPopup.showModal();
+}
+
+const addSignatureHandle = e => {
+    const signature = e.currentTarget.parentElement.nextElementSibling.nextElementSibling;
+    const person = e.currentTarget.parentElement.querySelector(`.person__name`).textContent;
+    const buttonText = e.currentTarget.querySelector(`p`);
+    const journalAnimation = e.currentTarget.querySelector(`dotlottie-player`);
+    journalAnimation.pause();
+
+    signature.play();
+    peopleJournal.push(person);
+
+    setTimeout(() => {
+        buttonText.textContent = `${person} signed your travel journal`;
+    }, "2000");
 }
 
 const init = () => {
@@ -498,7 +524,7 @@ const init = () => {
         $cityButton.addEventListener(`click`, openCityPopupHadle);
     });
     $cityPopups.forEach($cityPopup => {
-        $cityPopup.addEventListener(`click`, clickCityPopupHandle);
+        $cityPopup.addEventListener(`click`, clickPopupHandle);
     })
     $closePopups.forEach($closePopup => {
         $closePopup.addEventListener(`click`, closeCityPopupHandle);
@@ -509,6 +535,18 @@ const init = () => {
     $lastPopups.forEach(($lastPopup) => {
         $lastPopup.addEventListener(`click`, lastStopHandle);
     });
+
+    // --- people --- //
+
+    $peopleButtons.forEach($personButton => {
+        $personButton.addEventListener(`click`, openPersonPopupHadle);
+    });
+    $peoplePopups.forEach($personPopup => {
+        $personPopup.addEventListener(`click`, clickPopupHandle);
+    })
+    $signatureButtons.forEach($signatureBuuton => {
+        $signatureBuuton.addEventListener(`click`, addSignatureHandle);
+    })
 }
 
 init();

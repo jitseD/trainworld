@@ -119,7 +119,11 @@ h3,
 .chapter__day,
 .quote,
 .chapter__subtitle,
-.station__label {
+.station__label,
+.city__name,
+.person__name,
+.hotel__title,
+.fear__title {
     font-family: "century-old-style-std", serif;
     font-weight: 400;
     font-style: normal;
@@ -134,14 +138,18 @@ h1 {
 h2,
 .title__wrapper,
 .title__wrapper .gold,
-.station__label {
+.station__label,
+.hotel__title,
+.fear__title,
+.person__name {
     font-size: var(--step-3);
     padding-block-end: var(--space-xs);
 }
 
 h3,
 .chapter__day,
-.chapter__subtitle {
+.chapter__subtitle,
+.city__name {
     font-size: var(--step-1);
 }
 
@@ -295,22 +303,22 @@ dialog {
     background-image: url(../assets/img/tip-frame.svg);
 }
 
-.city__frame div {
-    background-image: url(../assets/img/city-frame.svg);
+.popup__frame div {
+    background-image: url(../assets/img/popup-frame.svg);
 }
 
 .tip__frame div:nth-child(2),
-.city__frame div:nth-child(2) {
+.popup__frame div:nth-child(2) {
     background-position: top right;
 }
 
 .tip__frame div:nth-child(3),
-.city__frame div:nth-child(3) {
+.popup__frame div:nth-child(3) {
     background-position: bottom left;
 }
 
 .tip__frame div:nth-child(4),
-.city__frame div:nth-child(4) {
+.popup__frame div:nth-child(4) {
     background-position: bottom right;
 }
 
@@ -1007,7 +1015,6 @@ main::after {
     place-items: center;
 }
 
-
 /* --- table --- */
 
 .table__container {
@@ -1319,19 +1326,27 @@ main::after {
     place-items: center;
 }
 
-.city__button,
-.popup__close,
-.city__nav {
-    display: none;
-}
-
 .city__img {
     grid-row: 1;
     inline-size: 100%;
     aspect-ratio: 1;
 }
 
-.city__frame {
+.journal--small {
+    inline-size: 1.5rem;
+    block-size: 1.875rem;
+}
+
+.popup {
+    overflow: visible;
+    padding: var(--space-s);
+}
+
+.city__wrapper .popup {
+    padding: unset;
+}
+
+.popup__frame {
     position: absolute;
     top: calc(0rem - var(--space-s));
     left: calc(0rem - var(--space-s));
@@ -1340,6 +1355,23 @@ main::after {
     grid-template-columns: repeat(2, 1fr);
     inline-size: calc(100% + 2*var(--space-s));
     block-size: calc(100% + 2*var(--space-s));
+}
+
+.popup::backdrop {
+    background: #D5A654;
+    opacity: 15%;
+}
+
+.popup__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: unset;
+    border: unset;
+}
+
+.popup__close::after {
+    content: url(../assets/img/close-popup.svg);
 }
 
 .tip__wrapper--cities {
@@ -1364,17 +1396,29 @@ main::after {
     text-align: center;
 }
 
-.city__add {
-    display: none;
+.popup__journal:hover p {
+    color: var(--c-blue);
 }
 
-.city__add:hover p {
-    color: var(--c-blue);
+.popup__journal {
+    padding-block: var(--space-2xs);
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: var(--space-2xs);
+    align-items: center;
 }
 
 .city__next:hover,
 .city__last:hover {
     color: var(--c-yellow);
+}
+
+.city__button,
+.city__wrapper .popup__close,
+.city__add,
+.city__nav,
+.city__wrapper .popup__journal {
+    display: none;
 }
 
 /* --- station --- */
@@ -1519,7 +1563,7 @@ main::after {
     grid-template-columns: 100%;
 }
 
-.hotel__wrapper p:nth-of-type(2) {
+.hotel__wrapper p:nth-of-type(3) {
     grid-row: 4;
 }
 
@@ -1626,6 +1670,222 @@ main::after {
     place-self: flex-end;
     margin-inline-end: -8vw;
     margin-block-end: 18vw;
+}
+
+/* --- fear --- */
+
+.fear__wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.journal__wrapper--fear {
+    margin-block: var(--space-m);
+    justify-self: center;
+}
+
+.journal__wrapper--fear:hover {
+    border-color: var(--c-beige);
+}
+
+/* --- people --- */
+
+.people__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    margin: var(--negative-margin);
+    place-items: center;
+    row-gap: var(--space-s);
+    background-image: url(../assets/img/people-tracks-mobile.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-block: 7rem;
+}
+
+.person__wrapper {
+    block-size: max-content;
+    inline-size: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.person__wrapper:nth-of-type(1) {
+    grid-column: 2;
+    grid-row: 1/3;
+    justify-self: flex-end;
+    margin-inline: -0.2rem;
+}
+
+.person__wrapper:nth-of-type(1) .person__button img {
+    max-inline-size: 15rem;
+}
+
+.person__wrapper:nth-of-type(2) {
+    grid-column: 2;
+    grid-row: 5/7;
+    justify-self: flex-end;
+    margin-inline: 1rem;
+}
+
+.person__wrapper:nth-of-type(2) .person__button img {
+    max-inline-size: 18rem;
+}
+
+.person__wrapper:nth-of-type(3) {
+    grid-column: 1;
+    grid-row: 4/6;
+    justify-self: flex-start;
+    margin: 2rem -1rem;
+}
+
+.person__wrapper:nth-of-type(3) .person__button img {
+    max-inline-size: 16.25rem;
+}
+
+.person__wrapper:nth-of-type(4) {
+    grid-column: 2;
+    grid-row: 3/5;
+    justify-self: flex-end;
+}
+
+.person__wrapper:nth-of-type(4) .person__button img {
+    max-inline-size: 15rem;
+}
+
+.person__wrapper:nth-of-type(5) {
+    grid-column: 1;
+    grid-row: 2/4;
+    justify-self: flex-start;
+    margin-inline: -1rem;
+}
+
+.person__wrapper:nth-of-type(5) .person__button img {
+    max-inline-size: 13.75rem;
+}
+
+.person__wrapper:nth-of-type(3) .person__button img,
+.person__wrapper:nth-of-type(4) .person__button img {
+    transform: scaleX(-1);
+}
+
+.person__popup {
+    min-inline-size: 20rem;
+    background-color: var(--c-beige);
+    border: var(--c-black) 1px solid;
+    inline-size: 80vw;
+    block-size: max-content;
+    padding: unset;
+}
+
+.person__info {
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.ask__signature {
+    margin-block-start: var(--space-xs);
+    inline-size: 100%;
+}
+
+.ask__signature p {
+    max-inline-size: 12rem;
+}
+
+.person__popup--wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: var(--space-s);
+}
+
+.person__popup--wrapper::after {
+    content: "";
+    inline-size: 6.25rem;
+    aspect-ratio: 1;
+    transform: translateX();
+    background-color: var(--c-blue);
+    border-radius: 100%;
+    position: absolute;
+    bottom: 5rem;
+    right: 0.5rem;
+    z-index: -1;
+}
+
+.person__img {
+    place-self: flex-end;
+    margin: 0 -1.8rem -2rem 0;
+}
+
+.person__img,
+.signature {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.signature {
+    place-self: flex-end flex-start;
+}
+
+.person__wrapper .popup__close {
+    padding: var(--space-xs);
+}
+
+.person__wrapper:nth-of-type(2) .person__popup--wrapper::after,
+.person__wrapper:nth-of-type(4) .person__popup--wrapper::after {
+    background-color: var(--c-yellow);
+}
+
+.person__wrapper:nth-of-type(3) .person__img,
+.person__wrapper:nth-of-type(4) .person__img,
+.person__wrapper:nth-of-type(5) .person__img {
+    transform: scaleX(-1);
+}
+
+.person__popup .popup__frame {
+    position: absolute;
+    top: calc(0rem - var(--space-2xs));
+    left: calc(0rem - var(--space-2xs));
+    z-index: -10;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    inline-size: calc(100% + 2 * var(--space-2xs));
+    block-size: calc(100% + 2 * var(--space-2xs));
+}
+
+
+.person__wrapper:nth-of-type(1) .signature {
+    rotate: -20deg;
+    inline-size: 55vw;
+    max-inline-size: 22rem;
+    margin: 0 0 -1rem -1rem;
+}
+
+.person__wrapper:nth-of-type(2) .signature {
+    rotate: 10deg;
+    inline-size: 55vw;
+    max-inline-size: 21.5rem;
+    margin: 0 0 -3rem -1rem;
+}
+
+.person__wrapper:nth-of-type(3) .signature {
+    rotate: 10deg;
+    inline-size: 55vw;
+    max-inline-size: 24rem;
+    margin: 0 0 -2rem -1rem;
+}
+
+.person__wrapper:nth-of-type(4) .signature {
+    rotate: -15deg;
+    inline-size: 55vw;
+    max-inline-size: 22rem;
+    margin: 0 0 -2rem -1rem;
+}
+
+.person__wrapper:nth-of-type(5) .signature {
+    rotate: -15deg;
+    inline-size: 55vw;
+    max-inline-size: 20.5rem;
+    margin: 0 0 -3rem -0.5rem;
 }
 
 /* --- animation --- */
@@ -1961,6 +2221,8 @@ main::after {
         inline-size: min-content;
     }
 
+
+
     .city__wrapper:nth-of-type(1) {
         grid-column: 1;
         grid-row: 1;
@@ -2020,12 +2282,11 @@ main::after {
         inline-size: 15vw;
     }
 
-    .city__popup {
+    .city__wrapper .popup {
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        overflow: visible;
         inline-size: 80vw;
         max-inline-size: 37.5rem;
         margin: unset;
@@ -2038,50 +2299,27 @@ main::after {
         gap: var(--space-s);
     }
 
-    .city__popup::backdrop {
-        background: #D5A654;
-        opacity: 15%;
-    }
-
-    .city__frame {
+    .popup__frame {
         top: calc(0rem - var(--space-s));
         left: calc(0rem - var(--space-s));
         inline-size: calc(100% + 2* var(--space-s));
         block-size: calc(100% + 2* var(--space-s));
     }
 
-    .city__frame div {
-        background-size: 200%;
-    }
-
-    .city__add {
-        padding-block: var(--space-2xs);
-        display: grid;
-        grid-template-columns: repeat(2, max-content);
-        gap: var(--space-2xs);
-        align-items: center;
+    .popup__frame div {
+        background-size: 150%;
     }
 
     .journal__wrapper--cities:hover {
         border-color: var(--c-beige);
     }
 
-    .journal--small {
-        inline-size: 1.5rem;
-        block-size: 1.875rem;
-    }
-
-    .popup__close {
+    .city__wrapper .popup__close {
         display: unset;
-        position: absolute;
-        top: 0;
-        right: 0;
-        background-color: unset;
-        border: unset;
     }
 
-    .popup__close::after {
-        content: url(../assets/img/close-popup.svg);
+    .city__add {
+        display: flex;
     }
 
     .city__nav {
@@ -2106,6 +2344,58 @@ main::after {
 
     .map__quote p {
         text-align: start;
+    }
+
+    /* --- people --- */
+
+    .people__wrapper {
+        background-image: url(../assets/img/people-tracks-tablet.svg);
+        padding-block: unset;
+    }
+
+    .person__wrapper:nth-of-type(1) .person__button img {
+        max-inline-size: unset;
+    }
+
+    .person__wrapper:nth-of-type(2) .person__button img {
+        max-inline-size: unset;
+    }
+
+    .person__wrapper:nth-of-type(3) .person__button img {
+        max-inline-size: unset;
+    }
+
+    .person__wrapper:nth-of-type(4) .person__button img {
+        max-inline-size: unset;
+    }
+
+    .person__wrapper:nth-of-type(5) .person__button img {
+        max-inline-size: unset;
+    }
+}
+
+@media (min-width: 600px) {
+
+    /* --- people --- */
+    .person__popup {
+        max-inline-size: 40rem;
+    }
+
+    .person__popup--wrapper {
+        padding: var(--space-l);
+    }
+
+    .person__img {
+        place-self: flex-end;
+        margin: 0 calc(0rem - var(--space-l) - 0.5rem) calc(0rem - var(--space-l) - 0.5rem) 0;
+    }
+
+    .person__wrapper .popup__close {
+        padding: var(--space-s);
+    }
+
+    .ask__signature p {
+        max-inline-size: unset;
     }
 }
 
@@ -2243,7 +2533,7 @@ main::after {
         grid-column: 1;
     }
 
-    .hotel__wrapper p:nth-of-type(2) {
+    .hotel__wrapper p:nth-of-type(3) {
         grid-row: 3;
         padding-block-start: var(--space-s);
     }
@@ -2334,6 +2624,17 @@ main::after {
         grid-column: 1;
         grid-row: 2;
         margin-inline-end: -5rem;
+    }
+
+    /* --- fear --- */
+
+    .fear__wrapper {
+        padding-inline: var(--space-s-m);
+    }
+
+    .journal__wrapper--fear {
+        justify-self: flex-end;
+        margin: unset;
     }
 }
 
@@ -3055,17 +3356,17 @@ main::after {
         left: var(--negative-margin);
     }
 
-    .hotel__wrapper h2 {
+    .hotel__title {
         grid-column: 1;
         grid-row: 2;
     }
 
-    .hotel__wrapper p:nth-of-type(1) {
+    .hotel__wrapper p:nth-of-type(2) {
         grid-column: 1;
         grid-row: 3;
     }
 
-    .hotel__wrapper p:nth-of-type(2) {
+    .hotel__wrapper p:nth-of-type(3) {
         padding-block-start: var(--space-xs);
         grid-column: 1;
         grid-row: 4;
@@ -3148,6 +3449,92 @@ main::after {
     .tip__wrapper--stats {
         grid-column: 2;
         margin: unset;
+    }
+
+    /* --- fear --- */
+
+    .fear__wrapper {
+        grid-template-columns: 1fr max-content;
+        column-gap: var(--space-m)
+    }
+
+    .journal__wrapper--fear {
+        align-self: flex-start;
+        grid-column: 2;
+        grid-row: 1/3;
+        inline-size: calc(19rem + 2 * var(--space-2xs));
+    }
+
+    /* --- people --- */
+
+    .people__wrapper {
+        grid-template-columns: repeat(4, 25%);
+        grid-template-rows: repeat(2, min-content);
+        gap: unset;
+        background-image: url(../assets/img/people-tracks-desktop.svg);
+        align-items: flex-start;
+    }
+
+    .person__wrapper:nth-of-type(1) {
+        grid-column: 2/4;
+        grid-row: 1;
+        margin-block-start: 5.5rem;
+    }
+
+    .person__wrapper:nth-of-type(1) .person__button img {
+        max-inline-size: unset;
+    }
+
+    .person__wrapper:nth-of-type(2) {
+        grid-column: 4;
+        grid-row: 1;
+        margin-block-start: 8.5rem;
+    }
+
+    .person__wrapper:nth-of-type(2) .person__button img {
+        max-inline-size: unset;
+    }
+
+    .person__wrapper:nth-of-type(3) {
+        grid-column: 3/5;
+        grid-row: 2;
+        place-self: flex-end;
+        place-items: flex-end;
+        margin-block-end: 10rem;
+        margin-inline-end: 10rem;
+    }
+
+    .person__wrapper:nth-of-type(3) .person__button img {
+        max-inline-size: unset;
+    }
+
+    .person__wrapper:nth-of-type(4) {
+        grid-column: 2/4;
+        grid-row: 2;
+        place-self: flex-start;
+        place-items: flex-start;
+        margin-block-start: -3rem;
+        margin-inline-start: -3rem;
+    }
+
+    .person__wrapper:nth-of-type(4) .person__button img {
+        max-inline-size: unset;
+    }
+
+    .person__wrapper:nth-of-type(5) {
+        grid-column: 1;
+        grid-row: 1;
+        margin-inline-start: 1rem;
+        margin-block-start: 13rem;
+    }
+
+    .person__wrapper:nth-of-type(5) .person__button img {
+        max-inline-size: unset;
+    }
+
+    .person__wrapper:nth-of-type(3) .person__button img,
+    .person__wrapper:nth-of-type(4) .person__button img {
+        transform: unset;
     }
 }
 
