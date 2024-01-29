@@ -339,7 +339,7 @@ const addCityCarouselHandle = e => {
     findCurrentCity();
 
     citiesJournal.city.name = citiesJournal.carousel.closestCityName;
-    citiesJournal.city.url = citiesJournal.carousel.closestCity.querySelector(`.city__img`).getAttribute(`src`);
+    citiesJournal.city.url = citiesJournal.carousel.closestCity.querySelector(`.city__img img`).getAttribute(`src`);
 
     updateJournalText($citiesJournalText, citiesJournal.city.name, `city`);
 }
@@ -363,9 +363,9 @@ const findCurrentCity = () => {
 
 const addCityMapHandle = e => {
     const info = e.currentTarget.parentElement;
-
+    
     citiesJournal.city.name = info.querySelector(`.city__name`).textContent;
-    citiesJournal.city.url = info.querySelector(`.city__img`).getAttribute(`src`);
+    citiesJournal.city.url = info.querySelector(`.city__img img`).getAttribute(`src`);
 
     e.currentTarget.querySelector(`p`).textContent = `added as favorite city`
     updateJournalText($citiesJournalText, citiesJournal.city.name, `city`);
