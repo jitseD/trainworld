@@ -3,6 +3,8 @@ import '@dotlottie/player-component';
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
+const $hamburger = document.querySelector(`.hamburger`);
+
 let touchDevice;
 
 const $idCard = document.querySelector(`.id__card`);
@@ -48,7 +50,7 @@ let currentPopup;
 const $peopleButtons = document.querySelectorAll(`.person__button`);
 const $peoplePopups = document.querySelectorAll(`.person__popup`);
 const $signatureButtons = document.querySelectorAll(`.ask__signature`);
-const peopleJournal = []
+const peopleJournal = [];
 
 const windowResizedHandle = e => {
     if (window.innerWidth >= 500) {
@@ -66,6 +68,10 @@ const windowResizedHandle = e => {
 
     setStationValues();
     addCityJournal();
+}
+
+const clickHamburgerHandle = e => {
+    $hamburger.classList.toggle(`hamburger--active`);
 }
 
 const openIdHanle = e => {
@@ -472,6 +478,10 @@ const init = () => {
     gsap.registerPlugin(ScrollTrigger);
     window.addEventListener(`resize`, windowResizedHandle);
     touchDevice = 'ontouchstart' in window;
+
+    // --- nav --- //
+
+    $hamburger.addEventListener(`click`, clickHamburgerHandle);
 
     //  --- idCard --- //
 

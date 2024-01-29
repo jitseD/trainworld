@@ -61,12 +61,61 @@
         <img class="header__track" src="./assets/img/header-track.svg" alt="train track">
       </div>
     </div>
-    <nav>
-      <ul>
-        <li>home</li>
-        <li>stories</li>
-      </ul>
-    </nav>
+    <div class="nav">
+      <nav class="nav__desktop">
+        <ul>
+          <li class="nav__home"><span class="visually-hidden">home</span></li>
+          <li><span class="nav__chapters">chapters</span>
+            <ul class="nav__days">
+              <li><a href="#day1">Day 1</a></li>
+              <li><a href="#day2">Day 2</a></li>
+              <li><a href="#day3">Day 3</a></li>
+              <li><a href="#day4">Day 4</a></li>
+              <li><a href="#day5">Day 5</a></li>
+              <li><a href="#day6">Day 6</a></li>
+            </ul>
+          </li>
+          <li class="nav__stories">more stories</li>
+        </ul>
+      </nav>
+      <div class="nav__wrapper--mobile">
+        <p class="nav__home"><span class="visually-hidden">home</span></p>
+        <nav class="nav__mobile">
+          <ul>
+            <li><span class="visually-hidden">chapters</span>
+              <ul class="nav__days">
+                <li><a href="#day1">Day 1</a></li>
+                <li><a href="#day2">Day 2</a></li>
+                <li><a href="#day3">Day 3</a></li>
+                <li><a href="#day4">Day 4</a></li>
+                <li><a href="#day5">Day 5</a></li>
+                <li><a href="#day6">Day 6</a></li>
+              </ul>
+            </li>
+            <li class="nav__primary">buy tickets</li>
+            <li class="nav__secondary">more stories</li>
+            <li>
+              <span class="contact__title">Contact</span>
+                <address class="nav__contact">
+                  <p class="contact__tel">+32 (0)2 224 74 37</p>
+                  <p class="contact__address">Princess Elisabeth square 5, 1030 Schaerbeek</p>
+                </address>
+            </li>
+            <li><span class="visually-hidden">socials</span>
+              <ul class="nav__socials">
+                <li class="socials__facebook"><span class="visually-hidden">facebook</span></li>
+                <li class="socials__instagram"><span class="visually-hidden">instagram</span></li>
+                <li class="socials__x"><span class="visually-hidden">x</span></li>
+                <li class="socials__youtube"><span class="visually-hidden">youtube</span></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <button class="hamburger">
+          <div class="hamburger__bar"></div>
+        </button>
+      </div>
+    </div>
     <div class="frame">
       <div class="frame__img"></div>
       <div class="frame__img"></div>
@@ -191,7 +240,7 @@
         </picture>
       </div>
     </section>
-    <section class="chapter chapter--1">
+    <section class="chapter chapter--1" id="day1">
       <div class="frame">
         <div class="frame__img"></div>
         <div class="frame__img"></div>
@@ -365,7 +414,7 @@
         </div>
       </div>
     </section>
-    <section class="chapter chapter--2">
+    <section class="chapter chapter--2" id="day2">
       <div class="frame">
         <div class="frame__img"></div>
         <div class="frame__img"></div>
@@ -594,7 +643,7 @@
         </div>
       </div>
     </section>
-    <section class="chapter chapter--3">
+    <section class="chapter chapter--3" id="day3">
       <div class="frame">
         <div class="frame__img"></div>
         <div class="frame__img"></div>
@@ -1000,7 +1049,7 @@
       </div>
 
     </section>
-    <section class="chapter chapter--4">
+    <section class="chapter chapter--4" id="day4">
       <div class="frame">
         <div class="frame__img"></div>
         <div class="frame__img"></div>
@@ -1185,7 +1234,7 @@
         </div>
       </div>
     </section>
-    <section class="chapter chapter--5">
+    <section class="chapter chapter--5" id="day5">
       <div class="frame">
         <div class="frame__img"></div>
         <div class="frame__img"></div>
@@ -1288,7 +1337,7 @@
         </div>
       </div>
     </section>
-    <section class="chapter chapter--6">
+    <section class="chapter chapter--6" id="day6">
       <div class="frame">
         <div class="frame__img"></div>
         <div class="frame__img"></div>
