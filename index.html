@@ -8,6 +8,7 @@
 
   <link rel="stylesheet" href="https://use.typekit.net/vpq8onc.css">
 
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="an interactive story about the journey from Paris to Cairo with the Orient Express in 1930.">
@@ -75,7 +76,7 @@
               <li><a href="#day6">Day 6</a></li>
             </ul>
           </li>
-          <li class="nav__stories">more stories</li>
+          <li class="nav__stories">Stories</li>
         </ul>
       </nav>
       <div class="nav__wrapper--mobile">
@@ -131,8 +132,10 @@
   <main>
     <section class="instructions">
       <h2 class="visually-hidden">Instructions</h2>
-      <p>This is an <strong>interactive story</strong> about the Orient Express told by a fictional character called
-        Louise Maréchal.</p>
+      <p>
+        This is an <strong>interactive story</strong> about the Orient Express told by a fictional character called
+        Louise Maréchal.
+      </p>
       <p>Throughout the story you will find the following icons.</p>
       <ul class="instructions__icons">
         <li>
@@ -156,6 +159,9 @@
           wealthy businessman's family, accompanying them on their <strong>journey to Cairo</strong>. The clock struck
           nine in the evening, and the train was set to depart in half an hour.
         </p>
+        <p class="id__cta">
+          <span class="cta">click the id to learn more about me</span>
+        </p>
         <picture class="id__card">
           <source srcset="
             ./assets/img/id-louise-marechal-430.avif 430w,
@@ -169,6 +175,25 @@
             " sizes="(min-width: 500px) 45vw, 135vw" type="image/webp">
           <img src="./assets/img/id-louise-marechal.png" alt="Louises id">
         </picture>
+        <div class="tip__wrapper tip__wrapper--id">
+          <dotlottie-player class="tip" src="./animations/tip.lottie" background="transparent" speed="1" direction="1"
+            mode="normal" loop autoplay>
+          </dotlottie-player>
+          <dialog class="tip__popup">
+            <div class="tip__popup--wrapper">
+              <p>
+                Traveling through <strong>multiple countries</strong>? Check the <strong>required documents</strong> for
+                each country when traveling across borders.
+              </p>
+              <div class="tip__frame">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </dialog>
+        </div>
       </div>
       <div class="intro__crowd">
         <p>
@@ -697,12 +722,40 @@
         <div class="cities__wrapper">
           <article class="city__wrapper">
             <h3 class="visually-hidden">Paris, France</h3>
-            <img class="city__button" src="./assets/img/paris.png" alt="paris">
+            <picture class="city__button">
+              <source srcset="
+              ./assets/img/paris-small-50.avif 50w,
+              ./assets/img/paris-small-80.avif 80w,
+              ./assets/img/paris-small-100.avif 100w,
+              ./assets/img/paris-small-130.avif 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/avif">
+              <source srcset="
+              ./assets/img/paris-small-50.webp 50w,
+              ./assets/img/paris-small-80.webp 80w,
+              ./assets/img/paris-small-100.webp 100w,
+              ./assets/img/paris-small-130.webp 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/webp">
+              <img src="./assets/img/paris-small.png" alt="paris">
+            </picture>
             <dialog class="popup city__popup">
               <div class="city__popup--wrapper">
                 <div class="city__info">
                   <p class="city__name">Paris, France</p>
-                  <img class="city__img" src="./assets/img/paris.png" alt="paris">
+                  <picture class="city__img">
+                    <source srcset="
+                    ./assets/img/paris-250.avif 250w,
+                    ./assets/img/paris-300.avif 300w,
+                    ./assets/img/paris-400.avif 400w,
+                    ./assets/img/paris-500.avif 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/avif">
+                    <source srcset="
+                    ./assets/img/paris-250.webp 250w,
+                    ./assets/img/paris-300.webp 300w,
+                    ./assets/img/paris-400.webp 400w,
+                    ./assets/img/paris-500.webp 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/webp">
+                    <img src="./assets/img/paris.png" alt="paris">
+                  </picture>
                   <p class="city__desc">
                     Paris, the City of Lights, has a big influence in the fashion scene with people like <strong>Coco
                       Chanel</strong>. Don't forget to enjoy a fresh out the oven <strong>baguette</strong> in front of
@@ -730,12 +783,40 @@
           </article>
           <article class="city__wrapper">
             <h3 class="visually-hidden">Dijon, France</h3>
-            <img class="city__button" src="./assets/img/dijon.png" alt="dijon">
+            <picture class="city__button">
+              <source srcset="
+              ./assets/img/dijon-small-50.avif 50w,
+              ./assets/img/dijon-small-80.avif 80w,
+              ./assets/img/dijon-small-100.avif 100w,
+              ./assets/img/dijon-small-130.avif 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/avif">
+              <source srcset="
+              ./assets/img/dijon-small-50.webp 50w,
+              ./assets/img/dijon-small-80.webp 80w,
+              ./assets/img/dijon-small-100.webp 100w,
+              ./assets/img/dijon-small-130.webp 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/webp">
+              <img src="./assets/img/dijon-small.png" alt="dijon">
+            </picture>
             <dialog class="popup city__popup">
               <div class="city__popup--wrapper">
                 <div class="city__info">
                   <p class="city__name">Dijon, France</p>
-                  <img class="city__img" src="./assets/img/dijon.png" alt="dijon">
+                  <picture class="city__img">
+                    <source srcset="
+                    ./assets/img/dijon-250.avif 250w,
+                    ./assets/img/dijon-300.avif 300w,
+                    ./assets/img/dijon-400.avif 400w,
+                    ./assets/img/dijon-500.avif 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/avif">
+                    <source srcset="
+                    ./assets/img/dijon-250.webp 250w,
+                    ./assets/img/dijon-300.webp 300w,
+                    ./assets/img/dijon-400.webp 400w,
+                    ./assets/img/dijon-500.webp 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/webp">
+                    <img src="./assets/img/dijon.png" alt="dijon">
+                  </picture>
                   <p class="city__desc">
                     Dijon, France, is known for its <strong>Gothic cathedral</strong> and its connection to
                     <strong>Gustave Eiffel</strong>. Don't miss trying the world-famous Dijon <strong>mustard</strong>,
@@ -764,12 +845,40 @@
           </article>
           <article class="city__wrapper">
             <h3 class="visually-hidden">Lausanne, Switzerland</h3>
-            <img class="city__button" src="./assets/img/laussanne.png" alt="laussanne">
+            <picture class="city__button">
+              <source srcset="
+              ./assets/img/laussanne.avif 50w,
+              ./assets/img/laussanne-small-80.avif 80w,
+              ./assets/img/laussanne-small-100.avif 100w,
+              ./assets/img/laussanne-small-130.avif 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/avif">
+              <source srcset="
+              ./assets/img/laussanne.webp 50w,
+              ./assets/img/laussanne-small-80.webp 80w,
+              ./assets/img/laussanne-small-100.webp 100w,
+              ./assets/img/laussanne-small-130.webp 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/webp">
+              <img src="./assets/img/laussanne-small.png" alt="laussanne">
+            </picture>
             <dialog class="popup city__popup">
               <div class="city__popup--wrapper">
                 <div class="city__info">
                   <p class="city__name">Lausanne, Switzerland</p>
-                  <img class="city__img" src="./assets/img/laussanne.png" alt="laussanne">
+                  <picture class="city__img">
+                    <source srcset="
+                    ./assets/img/laussanne-250.avif 250w,
+                    ./assets/img/laussanne-300.avif 300w,
+                    ./assets/img/laussanne-400.avif 400w,
+                    ./assets/img/laussanne-500.avif 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/avif">
+                    <source srcset="
+                    ./assets/img/laussanne-250.webp 250w,
+                    ./assets/img/laussanne-300.webp 300w,
+                    ./assets/img/laussanne-400.webp 400w,
+                    ./assets/img/laussanne-500.webp 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/webp">
+                    <img src="./assets/img/laussanne.png" alt="laussanne">
+                  </picture>
                   <p class="city__desc">
                     Lausanne, Switzerland, boasts the charm of its historic <strong>cathedral</strong>. Immerse yourself
                     in the taste of swiss chocolate like <strong>Toblerone</strong> or learn some physics with the
@@ -798,12 +907,40 @@
           </article>
           <article class="city__wrapper">
             <h3 class="visually-hidden">Milan, Italy</h3>
-            <img class="city__button" src="./assets/img/milan.png" alt="milan">
+            <picture class="city__button">
+              <source srcset="
+              ./assets/img/milan-small-50.avif 50w,
+              ./assets/img/milan-small-80.avif 80w,
+              ./assets/img/milan-small-100.avif 100w,
+              ./assets/img/milan-small-130.avif 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/avif">
+              <source srcset="
+              ./assets/img/milan-small-50.webp 50w,
+              ./assets/img/milan-small-80.webp 80w,
+              ./assets/img/milan-small-100.webp 100w,
+              ./assets/img/milan-small-130.webp 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/webp">
+              <img src="./assets/img/milan-small.png" alt="milan">
+            </picture>
             <dialog class="popup city__popup">
               <div class="city__popup--wrapper">
                 <div class="city__info">
                   <p class="city__name">Milan, Italy</p>
-                  <img class="city__img" src="./assets/img/milan.png" alt="milan">
+                  <picture class="city__img">
+                    <source srcset="
+                    ./assets/img/milan-250.avif 250w,
+                    ./assets/img/milan-300.avif 300w,
+                    ./assets/img/milan-400.avif 400w,
+                    ./assets/img/milan-500.avif 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/avif">
+                    <source srcset="
+                    ./assets/img/milan-250.webp 250w,
+                    ./assets/img/milan-300.webp 300w,
+                    ./assets/img/milan-400.webp 400w,
+                    ./assets/img/milan-500.webp 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/webp">
+                    <img src="./assets/img/milan.png" alt="milan">
+                  </picture>
                   <p class="city__desc">
                     Milan, Italy, captures the spirit of Renaissance with the magnificent <strong>Duomo di
                       Milano</strong> and of course the genius <strong>Leonardo da Vinci</strong>. Delight your taste
@@ -832,12 +969,40 @@
           </article>
           <article class="city__wrapper">
             <h3 class="visually-hidden">Venice, Italy</h3>
-            <img class="city__button" src="./assets/img/venice.png" alt="venice">
+            <picture class="city__button">
+              <source srcset="
+              ./assets/img/venice-small-50.avif 50w,
+              ./assets/img/venice-small-80.avif 80w,
+              ./assets/img/venice-small-100.avif 100w,
+              ./assets/img/venice-small-130.avif 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/avif">
+              <source srcset="
+              ./assets/img/venice-small-50.webp 50w,
+              ./assets/img/venice-small-80.webp 80w,
+              ./assets/img/venice-small-100.webp 100w,
+              ./assets/img/venice-small-130.webp 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/webp">
+              <img src="./assets/img/venice-small.png" alt="venice">
+            </picture>
             <dialog class="popup city__popup">
               <div class="city__popup--wrapper">
                 <div class="city__info">
                   <p class="city__name">Venice, Italy</p>
-                  <img class="city__img" src="./assets/img/venice.png" alt="venice">
+                  <picture class="city__img">
+                    <source srcset="
+                    ./assets/img/venice-250.avif 250w,
+                    ./assets/img/venice-300.avif 300w,
+                    ./assets/img/venice-400.avif 400w,
+                    ./assets/img/venice-500.avif 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/avif">
+                    <source srcset="
+                    ./assets/img/venice-250.webp 250w,
+                    ./assets/img/venice-300.webp 300w,
+                    ./assets/img/venice-400.webp 400w,
+                    ./assets/img/venice-500.webp 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/webp">
+                    <img src="./assets/img/venice.png" alt="venice">
+                  </picture>
                   <p class="city__desc">
                     In the heart of enchanting Venice, where <strong>gondolas</strong> gracefully navigate the canals,
                     the spirit of <strong>Marco Polo</strong> lingers, and the aroma of <strong>Polenta e Schie</strong>
@@ -866,12 +1031,40 @@
           </article>
           <article class="city__wrapper">
             <h3 class="visually-hidden">Trieste, Italy</h3>
-            <img class="city__button" src="./assets/img/trieste.png" alt="trieste">
+            <picture class="city__button">
+              <source srcset="
+              ./assets/img/trieste.avif 50w,
+              ./assets/img/trieste-small-80.avif 80w,
+              ./assets/img/trieste-small-100.avif 100w,
+              ./assets/img/trieste-small-130.avif 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/avif">
+              <source srcset="
+              ./assets/img/trieste.webp 50w,
+              ./assets/img/trieste-small-80.webp 80w,
+              ./assets/img/trieste-small-100.webp 100w,
+              ./assets/img/trieste-small-130.webp 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/webp">
+              <img src="./assets/img/trieste-small.png" alt="trieste">
+            </picture>
             <dialog class="popup city__popup">
               <div class="city__popup--wrapper">
                 <div class="city__info">
                   <p class="city__name">Trieste, Italy</p>
-                  <img class="city__img" src="./assets/img/trieste.png" alt="trieste">
+                  <picture class="city__img">
+                    <source srcset="
+                    ./assets/img/trieste-250.avif 250w,
+                    ./assets/img/trieste-300.avif 300w,
+                    ./assets/img/trieste-400.avif 400w,
+                    ./assets/img/trieste-500.avif 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/avif">
+                    <source srcset="
+                    ./assets/img/trieste-250.webp 250w,
+                    ./assets/img/trieste-300.webp 300w,
+                    ./assets/img/trieste-400.webp 400w,
+                    ./assets/img/trieste-500.webp 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/webp">
+                    <img src="./assets/img/trieste.png" alt="trieste">
+                  </picture>
                   <p class="city__desc">
                     In Trieste, the captivating <strong>Miramare Castle</strong> stands as a t estament to its
                     historical charm. Indulge in the culinary delight of <strong>Rotolo di Spinaci</strong>, while the
@@ -900,12 +1093,40 @@
           </article>
           <article class="city__wrapper">
             <h3 class="visually-hidden">Zagreb, Yugoslavia</h3>
-            <img class="city__button" src="./assets/img/zagreb.png" alt="zagreb">
+            <picture class="city__button">
+              <source srcset="
+              ./assets/img/zagreb-small-50.avif 50w,
+              ./assets/img/zagreb-small-80.avif 80w,
+              ./assets/img/zagreb-small-100.avif 100w,
+              ./assets/img/zagreb-small-130.avif 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/avif">
+              <source srcset="
+              ./assets/img/zagreb-small-50.webp 50w,
+              ./assets/img/zagreb-small-80.webp 80w,
+              ./assets/img/zagreb-small-100.webp 100w,
+              ./assets/img/zagreb-small-130.webp 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/webp">
+              <img src="./assets/img/zagreb-small.png" alt="zagreb">
+            </picture>
             <dialog class="popup city__popup">
               <div class="city__popup--wrapper">
                 <div class="city__info">
                   <p class="city__name">Zagreb, Yugoslavia</p>
-                  <img class="city__img" src="./assets/img/zagreb.png" alt="zagreb">
+                  <picture class="city__img">
+                    <source srcset="
+                    ./assets/img/zagreb-250.avif 250w,
+                    ./assets/img/zagreb-300.avif 300w,
+                    ./assets/img/zagreb-400.avif 400w,
+                    ./assets/img/zagreb-500.avif 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/avif">
+                    <source srcset="
+                    ./assets/img/zagreb-250.webp 250w,
+                    ./assets/img/zagreb-300.webp 300w,
+                    ./assets/img/zagreb-400.webp 400w,
+                    ./assets/img/zagreb-500.webp 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/webp">
+                    <img src="./assets/img/zagreb.png" alt="zagreb">
+                  </picture>
                   <p class="city__desc">
                     In Zagreb, where <strong>St. Mark's Church</strong> graces the skyline, the inventive spirit of
                     <strong>Nikola Tesla</strong> resonates, and the delightful aroma of <strong>Octopus Peka</strong>
@@ -934,12 +1155,40 @@
           </article>
           <article class="city__wrapper">
             <h3 class="visually-hidden">Belgrade, Yugoslavia</h3>
-            <img class="city__button" src="./assets/img/belgrade.png" alt="belgrade">
+            <picture class="city__button">
+              <source srcset="
+              ./assets/img/belgrade-small-50.avif 50w,
+              ./assets/img/belgrade-small-80.avif 80w,
+              ./assets/img/belgrade-small-100.avif 100w,
+              ./assets/img/belgrade-small-130.avif 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/avif">
+              <source srcset="
+              ./assets/img/belgrade-small-50.webp 50w,
+              ./assets/img/belgrade-small-80.webp 80w,
+              ./assets/img/belgrade-small-100.webp 100w,
+              ./assets/img/belgrade-small-130.webp 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/webp">
+              <img src="./assets/img/belgrade-small.png" alt="belgrade">
+            </picture>
             <dialog class="popup city__popup">
               <div class="city__popup--wrapper">
                 <div class="city__info">
                   <p class="city__name">Belgrade, Yugoslavia</p>
-                  <img class="city__img" src="./assets/img/belgrade.png" alt="belgrade">
+                  <picture class="city__img">
+                    <source srcset="
+                    ./assets/img/belgrade-250.avif 250w,
+                    ./assets/img/belgrade-300.avif 300w,
+                    ./assets/img/belgrade-400.avif 400w,
+                    ./assets/img/belgrade-500.avif 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/avif">
+                    <source srcset="
+                    ./assets/img/belgrade-250.webp 250w,
+                    ./assets/img/belgrade-300.webp 300w,
+                    ./assets/img/belgrade-400.webp 400w,
+                    ./assets/img/belgrade-500.webp 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/webp">
+                    <img src="./assets/img/belgrade.png" alt="belgrade">
+                  </picture>
                   <p class="city__desc">
                     Belgrade, Serbia's lively capital, boasts cultural gems like the <strong>St. Sava Temple</strong>
                     and is linked to Nobel laureate <strong>Ivo Andrić</strong>. Don't forget to enjoy local flavors
@@ -968,12 +1217,40 @@
           </article>
           <article class="city__wrapper">
             <h3 class="visually-hidden">Sofia, Bulgaria</h3>
-            <img class="city__button" src="./assets/img/sofia.png" alt="sofia">
+            <picture class="city__button">
+              <source srcset="
+              ./assets/img/sofia-small-50.avif 50w,
+              ./assets/img/sofia-small-80.avif 80w,
+              ./assets/img/sofia-small-100.avif 100w,
+              ./assets/img/sofia-small-130.avif 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/avif">
+              <source srcset="
+              ./assets/img/sofia-small-50.webp 50w,
+              ./assets/img/sofia-small-80.webp 80w,
+              ./assets/img/sofia-small-100.webp 100w,
+              ./assets/img/sofia-small-130.webp 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/webp">
+              <img src="./assets/img/sofia-small.png" alt="sofia">
+            </picture>
             <dialog class="popup city__popup">
               <div class="city__popup--wrapper">
                 <div class="city__info">
                   <p class="city__name">Sofia, Bulgaria</p>
-                  <img class="city__img" src="./assets/img/sofia.png" alt="sofia">
+                  <picture class="city__img">
+                    <source srcset="
+                    ./assets/img/sofia-250.avif 250w,
+                    ./assets/img/sofia-300.avif 300w,
+                    ./assets/img/sofia-400.avif 400w,
+                    ./assets/img/sofia-500.avif 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/avif">
+                    <source srcset="
+                    ./assets/img/sofia-250.webp 250w,
+                    ./assets/img/sofia-300.webp 300w,
+                    ./assets/img/sofia-400.webp 400w,
+                    ./assets/img/sofia-500.webp 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/webp">
+                    <img src="./assets/img/sofia.png" alt="sofia">
+                  </picture>
                   <p class="city__desc">
                     Amidst the Balkans, Sofia showcases the grandeur of the Alexander Nevsky Cathedral, the delight of
                     <strong> banitsa pastries </strong>, and the historical legacy of <strong>Stefan Stambolov</strong>,
@@ -1002,12 +1279,40 @@
           </article>
           <article class="city__wrapper">
             <h3 class="visually-hidden">Constantinople, Turkey</h3>
-            <img class="city__button" src="./assets/img/constantinople.png" alt="constantinople.png">
+            <picture class="city__button">
+              <source srcset="
+              ./assets/img/constantinople-small-50.avif 50w,
+              ./assets/img/constantinople-small-80.avif 80w,
+              ./assets/img/constantinople-small-100.avif 100w,
+              ./assets/img/constantinople-small-130.avif 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/avif">
+              <source srcset="
+              ./assets/img/constantinople-small-50.webp 50w,
+              ./assets/img/constantinople-small-80.webp 80w,
+              ./assets/img/constantinople-small-100.webp 100w,
+              ./assets/img/constantinople-small-130.webp 130w,
+              " sizes="(min-width: 900px) 5vw, 15vw" type="image/webp">
+              <img src="./assets/img/constantinople-small.png" alt="constantinople">
+            </picture>
             <dialog class="popup city__popup">
               <div class="city__popup--wrapper">
                 <div class="city__info">
                   <p class="city__name">Constantinople, Turkey</p>
-                  <img class="city__img" src="./assets/img/constantinople.png" alt="constantinople.png">
+                  <picture class="city__img">
+                    <source srcset="
+                    ./assets/img/constantinople-250.avif 250w,
+                    ./assets/img/constantinople-300.avif 300w,
+                    ./assets/img/constantinople-400.avif 400w,
+                    ./assets/img/constantinople-500.avif 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/avif">
+                    <source srcset="
+                    ./assets/img/constantinople-250.webp 250w,
+                    ./assets/img/constantinople-300.webp 300w,
+                    ./assets/img/constantinople-400.webp 400w,
+                    ./assets/img/constantinople-500.webp 500w,
+                    " sizes="(min-width: 1600px) 20rem, (min-width: 700px) 30vw, 80vw" type="image/webp">
+                    <img src="./assets/img/constantinople.png" alt="constantinople">
+                  </picture>
                   <p class="city__desc">
                     Constantinople, Turkey, home to the mesmerizing <strong>Blue Mosque</strong> and delectable
                     <strong>kebabs</strong>, invites you to savor its cultural richness. Explore the spiritual legacy of
@@ -1310,9 +1615,60 @@
           it was <strong>really fast</strong>!
         </p>
         <div class="stats__img">
-          <img class="stats__city" src="./assets/img/paris.png" alt="paris">
-          <img class="stats__city" src="./assets/img/constantinople.png" alt="constantinople">
-          <img class="stats__city" src="./assets/img/cairo.png" alt="cairo">
+          <picture class="stats__city">
+            <source srcset="
+            ./assets/img/paris-100.avif 100w,
+            ./assets/img/paris-150.avif 150w,
+            ./assets/img/paris-200.avif 200w,
+            ./assets/img/paris-250.avif 250w,
+            ./assets/img/paris-300.avif 300w,
+            " sizes="(min-width: 1000px) 20vw, (min-width: 700px) 15vw, 25vw" type="image/avif">
+            <source srcset="
+            ./assets/img/paris-100.webp 100w,
+            ./assets/img/paris-150.webp 150w,
+            ./assets/img/paris-200.webp 200w,
+            ./assets/img/paris-250.webp 250w,
+            ./assets/img/paris-250.webp 250w,
+            ./assets/img/paris-300.webp 300w,
+            " sizes="(min-width: 1000px) 20vw, (min-width: 700px) 15vw, 25vw" type="image/webp">
+            <img src="./assets/img/paris.png" alt="paris">
+          </picture>
+          <picture class="stats__city">
+            <source srcset="
+            ./assets/img/constantinople-100.avif 100w,
+            ./assets/img/constantinople-150.avif 150w,
+            ./assets/img/constantinople-200.avif 200w,
+            ./assets/img/constantinople-250.avif 250w,
+            ./assets/img/constantinople-300.avif 300w,
+            " sizes="(min-width: 1000px) 20vw, (min-width: 700px) 15vw, 25vw" type="image/avif">
+            <source srcset="
+            ./assets/img/constantinople-100.webp 100w,
+            ./assets/img/constantinople-150.webp 150w,
+            ./assets/img/constantinople-200.webp 200w,
+            ./assets/img/constantinople-250.webp 250w,
+            ./assets/img/constantinople-250.webp 250w,
+            ./assets/img/constantinople-300.webp 300w,
+            " sizes="(min-width: 1000px) 20vw, (min-width: 700px) 15vw, 25vw" type="image/webp">
+            <img src="./assets/img/constantinople.png" alt="constantinople">
+          </picture>
+          <picture class="stats__city">
+            <source srcset="
+            ./assets/img/cairo-100.avif 100w,
+            ./assets/img/cairo-150.avif 150w,
+            ./assets/img/cairo-200.avif 200w,
+            ./assets/img/cairo-250.avif 250w,
+            ./assets/img/cairo-300.avif 300w,
+            " sizes="(min-width: 1000px) 20vw, (min-width: 700px) 15vw, 25vw" type="image/avif">
+            <source srcset="
+            ./assets/img/cairo-100.webp 100w,
+            ./assets/img/cairo-150.webp 150w,
+            ./assets/img/cairo-200.webp 200w,
+            ./assets/img/cairo-250.webp 250w,
+            ./assets/img/cairo-250.webp 250w,
+            ./assets/img/cairo-300.webp 300w,
+            " sizes="(min-width: 1000px) 20vw, (min-width: 700px) 15vw, 25vw" type="image/webp">
+            <img src="./assets/img/cairo.png" alt="cairo">
+          </picture>
         </div>
         <div class="tip__wrapper tip__wrapper--stats">
           <dotlottie-player class="tip" src="./animations/tip.lottie" background="transparent" speed="1" direction="1"
@@ -1663,7 +2019,7 @@
       <h2 class="visually-hidden">Your personal travel journal</h2>
       <div class="people__text">
         <p>After 6 days, we finally arrived in Cairo, time for me to reflect back on my journey.</p>
-        <p>Discover your <strong>personal travel journal</strong> below.</p>
+        <p>Discover your <strong>personal travel journal</strong> <span class="below">down below</span><span class="side">on the right</span>.</p>
       </div>
       <div class="notebook__container">
         <button class="create__notebook">create your travel journal</button>
@@ -1692,11 +2048,33 @@
           </div>
           <img class="notebook__img hide" src="./assets/img/notebook.png" alt="notebook">
         </div>
-        <button class="download__notebook hide">download your travel journal</button>
+        <button class="download__notebook">download your travel journal</button>
       </div>
     </section>
+    <section class="ending">
+      <h2>Want to experience the Orient Express in real life?</h2>
+      <button class="primary__button">visit the museum</button>
+    </section>
   </main>
-  <footer></footer>
+  <footer>
+    <div class="footer__buttons">
+      <button class="primary__button">buy tickets</button>
+      <button class="secondary__button">explore stories</button>
+    </div>
+    <div class="footer__contact">
+      <p class="contact__title">Contact</p>
+      <address class="nav__contact">
+        <p class="contact__tel">+32 (0)2 224 74 37</p>
+        <p class="contact__address">Princess Elisabeth square 5,<br> 1030 Schaerbeek</p>
+      </address>
+    </div>
+    <ul class="footer__socials">
+      <li class="socials__facebook"><span class="visually-hidden">facebook</span></li>
+      <li class="socials__instagram"><span class="visually-hidden">instagram</span></li>
+      <li class="socials__x"><span class="visually-hidden">x</span></li>
+      <li class="socials__youtube"><span class="visually-hidden">youtube</span></li>
+    </ul>
+  </footer>
   <script type="module" src="./js/script.js"></script>
 </body>
 

@@ -18,10 +18,8 @@ const foodJournal = {
     dragged: null,
     dragImg: null,
     pos: null,
-    type: null,
     url: null,
     name: null,
-    journal: false,
 }
 
 const $citiesButton = document.querySelector(`.journal__wrapper--cities`);
@@ -74,6 +72,12 @@ const windowResizedHandle = e => {
         closeAllCityPopups();
     }
 
+    if (window.innerWidth >= 1000) {
+        document.querySelector(`.download__notebook`).classList.add(`hide`);
+    } else{
+        document.querySelector(`.download__notebook`).classList.remove(`hide`);
+    }
+
     setStationValues();
     addCityJournal();
 }
@@ -84,7 +88,11 @@ const clickHamburgerHandle = e => {
 
 const openIdHanle = e => {
     $idCard.classList.toggle(`id__card--big`);
-    closeAllCityPopups();
+    e.stopPropagation()
+}
+
+const documentClickHandle = e => {
+    $idCard.classList.remove(`id__card--big`);
 }
 
 const passengersHorizontalScroll = () => {
@@ -164,33 +172,6 @@ const trainArrival = () => {
         duration: 1.5,
         ease: "power1.out",
     })
-}
-
-const tableFood = () => {
-    const $tableObjects = document.querySelectorAll(`.table__wrapper > *`);
-    // const objectMargins = {
-    //     top: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
-    //     bottom: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
-    //     left: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
-    //     right: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
-    // }
-
-    for (let i = 0; i < $tableObjects.length; i++) {
-        gsap.from([i], {
-            // marginTop: objectMargins.top[i],
-            // marginBottom: objectMargins.bottom[i],
-            scrollTrigger: {
-                // markers: {},
-                trigger: ".table__wrapper",
-                start: "top 0%",
-                end: "bottom 100%",
-                scrub: 1,
-            },
-            duration: 1.5,
-            ease: "power1.out",
-            stagger: 0.5,
-        })
-    }
 }
 
 const setStationValues = () => {
@@ -326,19 +307,16 @@ const dropHandle = e => {
 
         if (foodJournal.pos) {
             if (checkBoundingBox($foodDropzone)) {
-                foodJournal.journal = true;
-                console.log($foodJournalText);
                 updateJournalText($foodJournalText, foodJournal.name, `meal`);
             } else {
                 foodJournal.dragged = null;
                 foodJournal.dragImg = null;
-                foodJournal.pos = null;
                 foodJournal.name = null;
-                foodJournal.journal = false;
                 foodJournal.url = null;
             }
         }
 
+        foodJournal.pos = null;
         $foodDropzone.classList.remove(`dropzone--hover`);
     }
 };
@@ -364,7 +342,6 @@ const addCityCarouselHandle = e => {
     citiesJournal.city.url = citiesJournal.carousel.closestCity.querySelector(`.city__img`).getAttribute(`src`);
 
     updateJournalText($citiesJournalText, citiesJournal.city.name, `city`);
-    console.log(citiesJournal);
 }
 
 const findCurrentCity = () => {
@@ -385,12 +362,10 @@ const findCurrentCity = () => {
 }
 
 const addCityMapHandle = e => {
-    console.log(e.currentTarget.parentElement);
     const info = e.currentTarget.parentElement;
 
     citiesJournal.city.name = info.querySelector(`.city__name`).textContent;
     citiesJournal.city.url = info.querySelector(`.city__img`).getAttribute(`src`);
-    console.log(citiesJournal.city);
 
     e.currentTarget.querySelector(`p`).textContent = `added as favorite city`
     updateJournalText($citiesJournalText, citiesJournal.city.name, `city`);
@@ -477,11 +452,9 @@ const addSignatureHandle = e => {
     const signature = e.currentTarget.parentElement.nextElementSibling.nextElementSibling;
     const person = e.currentTarget.parentElement.querySelector(`.person__name`).textContent;
     const buttonText = e.currentTarget.querySelector(`p`);
-    const journalAnimation = e.currentTarget.querySelector(`dotlottie-player`);
     const personPopup = e.currentTarget.parentElement.parentElement.parentElement;
     const currentPerson = Array.from($peoplePopups).indexOf(personPopup);
 
-    journalAnimation.pause();
     signature.play();
     peopleJournal.push(currentPerson);
 
@@ -502,7 +475,6 @@ const createJournaHandle = e => {
         $journal.querySelector(`.city__label`).textContent = citiesJournal.city.name;
     }
     for (let i = 0; i < peopleJournal.length; i++) {
-        console.log(peopleJournal[i]);
         const num = peopleJournal[i];
         $journalSignatures[num].classList.remove(`hide`);
     }
@@ -527,6 +499,7 @@ const init = () => {
     //  --- idCard --- //
 
     if (window.innerWidth >= 500) {
+        document.addEventListener(`click`, documentClickHandle)
         $idCard.addEventListener(`click`, openIdHanle);
     }
 
@@ -535,7 +508,6 @@ const init = () => {
     passengersHorizontalScroll();
     convoAnimation();
     trainArrival();
-    tableFood();
     setStationValues();
     stationBuilding();
 
@@ -604,6 +576,10 @@ const init = () => {
     })
 
     // --- journal --- //
+
+    if (window.innerWidth >= 1000) {
+        document.querySelector(`.download__notebook`).classList.add(`hide`);
+    }
 
     $createJournal.addEventListener(`click`, createJournaHandle);
 }
