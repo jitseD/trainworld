@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build --base=/devine/int3/trainworld",
+    "build": "vite build --base=/devine/trainworld",
     "preview": "vite preview"
   },
   "devDependencies": {
