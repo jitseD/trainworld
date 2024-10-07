@@ -74,7 +74,7 @@ const windowResizedHandle = e => {
 
     if (window.innerWidth >= 1000) {
         document.querySelector(`.download__notebook`).classList.add(`hide`);
-    } else{
+    } else {
         document.querySelector(`.download__notebook`).classList.remove(`hide`);
     }
 
@@ -252,6 +252,8 @@ const stationBuilding = () => {
 }
 
 const dragStartHandle = e => {
+    if (!touchDevice) e.preventDefault();
+
     foodJournal.dragged = e.currentTarget;
     foodJournal.url = e.currentTarget.src
     foodJournal.name = e.currentTarget.getAttribute(`alt`);
@@ -363,7 +365,7 @@ const findCurrentCity = () => {
 
 const addCityMapHandle = e => {
     const info = e.currentTarget.parentElement;
-    
+
     citiesJournal.city.name = info.querySelector(`.city__name`).textContent;
     citiesJournal.city.url = info.querySelector(`.city__img img`).getAttribute(`src`);
 
@@ -378,6 +380,7 @@ const updateJournalText = (element, name, type) => {
 const showAllCityPopups = () => {
     $cityPopups.forEach($cityPopup => {
         $cityPopup.show();
+        $cityPopup.setAttribute(`inert`, true);
     });
 
     if ($citiesWrapper) {
@@ -388,6 +391,7 @@ const showAllCityPopups = () => {
 const closeAllCityPopups = () => {
     $cityPopups.forEach($cityPopup => {
         $cityPopup.close();
+        $cityPopup.setAttribute(`inert`, false);
     });
 }
 
@@ -517,7 +521,7 @@ const init = () => {
         $image.setAttribute(`draggable`, false);
     });
     $foodImages.forEach(($foodImage) => {
-        $foodImage.setAttribute('draggable', true);
+        $foodImage.setAttribute('draggable', false);
 
         if (touchDevice) {
             $foodImage.addEventListener('touchstart', dragStartHandle);
